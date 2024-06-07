@@ -20,17 +20,6 @@
 		4936ED7B2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED7A2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift */; };
 		4936ED7D2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED7C2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift */; };
 		4955030B2C11911600B2037F /* ListWebsiteTableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955030A2C11911600B2037F /* ListWebsiteTableview.swift */; };
-		4955031A2C11A02700B2037F /* NewFastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955030D2C11A02700B2037F /* NewFastList.swift */; };
-		4955031B2C11A02700B2037F /* UITableView+Reorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955030F2C11A02700B2037F /* UITableView+Reorder.swift */; };
-		4955031C2C11A02700B2037F /* ReorderController+SnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503102C11A02700B2037F /* ReorderController+SnapshotView.swift */; };
-		4955031D2C11A02700B2037F /* ReorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503112C11A02700B2037F /* ReorderController.swift */; };
-		4955031E2C11A02700B2037F /* ReorderListSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503122C11A02700B2037F /* ReorderListSource.swift */; };
-		4955031F2C11A02700B2037F /* ReorderController+GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503132C11A02700B2037F /* ReorderController+GestureRecognizer.swift */; };
-		495503202C11A02700B2037F /* ReorderController+DestinationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503142C11A02700B2037F /* ReorderController+DestinationRow.swift */; };
-		495503212C11A02700B2037F /* ReorderController+AutoScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503152C11A02700B2037F /* ReorderController+AutoScroll.swift */; };
-		495503222C11A02700B2037F /* FixedSafeAreaInsetsHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503172C11A02700B2037F /* FixedSafeAreaInsetsHostingViewController.swift */; };
-		495503232C11A02700B2037F /* UIHostingHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503182C11A02700B2037F /* UIHostingHeaderFooterView.swift */; };
-		495503242C11A02700B2037F /* UIHostingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503192C11A02700B2037F /* UIHostingCell.swift */; };
 		495503262C12B4E900B2037F /* FSafeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503252C12B4E900B2037F /* FSafeEmptyView.swift */; };
 		7B2D71AC2CB51BA2D66B4F21 /* Pods_NewFsafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E093A9EB9EA62302CEFBC9D6 /* Pods_NewFsafe.framework */; };
 /* End PBXBuildFile section */
@@ -51,17 +40,6 @@
 		4936ED7A2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWebsiteScreen.swift; sourceTree = "<group>"; };
 		4936ED7C2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWebsiteVM.swift; sourceTree = "<group>"; };
 		4955030A2C11911600B2037F /* ListWebsiteTableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWebsiteTableview.swift; sourceTree = "<group>"; };
-		4955030D2C11A02700B2037F /* NewFastList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFastList.swift; sourceTree = "<group>"; };
-		4955030F2C11A02700B2037F /* UITableView+Reorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reorder.swift"; sourceTree = "<group>"; };
-		495503102C11A02700B2037F /* ReorderController+SnapshotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReorderController+SnapshotView.swift"; sourceTree = "<group>"; };
-		495503112C11A02700B2037F /* ReorderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReorderController.swift; sourceTree = "<group>"; };
-		495503122C11A02700B2037F /* ReorderListSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReorderListSource.swift; sourceTree = "<group>"; };
-		495503132C11A02700B2037F /* ReorderController+GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReorderController+GestureRecognizer.swift"; sourceTree = "<group>"; };
-		495503142C11A02700B2037F /* ReorderController+DestinationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReorderController+DestinationRow.swift"; sourceTree = "<group>"; };
-		495503152C11A02700B2037F /* ReorderController+AutoScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReorderController+AutoScroll.swift"; sourceTree = "<group>"; };
-		495503172C11A02700B2037F /* FixedSafeAreaInsetsHostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedSafeAreaInsetsHostingViewController.swift; sourceTree = "<group>"; };
-		495503182C11A02700B2037F /* UIHostingHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingHeaderFooterView.swift; sourceTree = "<group>"; };
-		495503192C11A02700B2037F /* UIHostingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingCell.swift; sourceTree = "<group>"; };
 		495503252C12B4E900B2037F /* FSafeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSafeEmptyView.swift; sourceTree = "<group>"; };
 		5CF8AFABEE1D3C7A4CD68E4A /* Pods-NewFsafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFsafe.debug.xcconfig"; path = "Target Support Files/Pods-NewFsafe/Pods-NewFsafe.debug.xcconfig"; sourceTree = "<group>"; };
 		E093A9EB9EA62302CEFBC9D6 /* Pods_NewFsafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFsafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,7 +102,6 @@
 		4912449E2C097FE6006D2695 /* FSafe_v8.2 */ = {
 			isa = PBXGroup;
 			children = (
-				4955030C2C11A02700B2037F /* TableView */,
 				4936ED722C09C1B10046E9E6 /* Managers */,
 				491244A12C098027006D2695 /* WebsiteManage */,
 				491244A02C098016006D2695 /* Home */,
@@ -223,40 +200,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		4955030C2C11A02700B2037F /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				4955030D2C11A02700B2037F /* NewFastList.swift */,
-				4955030E2C11A02700B2037F /* UITableview */,
-				495503162C11A02700B2037F /* UIHosting */,
-			);
-			path = TableView;
-			sourceTree = "<group>";
-		};
-		4955030E2C11A02700B2037F /* UITableview */ = {
-			isa = PBXGroup;
-			children = (
-				4955030F2C11A02700B2037F /* UITableView+Reorder.swift */,
-				495503102C11A02700B2037F /* ReorderController+SnapshotView.swift */,
-				495503112C11A02700B2037F /* ReorderController.swift */,
-				495503122C11A02700B2037F /* ReorderListSource.swift */,
-				495503132C11A02700B2037F /* ReorderController+GestureRecognizer.swift */,
-				495503142C11A02700B2037F /* ReorderController+DestinationRow.swift */,
-				495503152C11A02700B2037F /* ReorderController+AutoScroll.swift */,
-			);
-			path = UITableview;
-			sourceTree = "<group>";
-		};
-		495503162C11A02700B2037F /* UIHosting */ = {
-			isa = PBXGroup;
-			children = (
-				495503172C11A02700B2037F /* FixedSafeAreaInsetsHostingViewController.swift */,
-				495503182C11A02700B2037F /* UIHostingHeaderFooterView.swift */,
-				495503192C11A02700B2037F /* UIHostingCell.swift */,
-			);
-			path = UIHosting;
 			sourceTree = "<group>";
 		};
 		FC95A9EADBD215A8D71EA35E /* Pods */ = {
@@ -367,25 +310,14 @@
 				4912448F2C097FD0006D2695 /* ViewController.swift in Sources */,
 				495503262C12B4E900B2037F /* FSafeEmptyView.swift in Sources */,
 				4912448B2C097FD0006D2695 /* AppDelegate.swift in Sources */,
-				4955031E2C11A02700B2037F /* ReorderListSource.swift in Sources */,
 				491244A52C09816A006D2695 /* Extension+Main.swift in Sources */,
-				495503212C11A02700B2037F /* ReorderController+AutoScroll.swift in Sources */,
 				4936ED7B2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift in Sources */,
-				4955031B2C11A02700B2037F /* UITableView+Reorder.swift in Sources */,
-				4955031A2C11A02700B2037F /* NewFastList.swift in Sources */,
-				4955031D2C11A02700B2037F /* ReorderController.swift in Sources */,
 				491244A82C09823F006D2695 /* HomeFSafeVM.swift in Sources */,
-				495503222C11A02700B2037F /* FixedSafeAreaInsetsHostingViewController.swift in Sources */,
-				495503232C11A02700B2037F /* UIHostingHeaderFooterView.swift in Sources */,
 				4936ED712C09BBBD0046E9E6 /* ItemFeatureFSafe.swift in Sources */,
 				4936ED742C09C1CE0046E9E6 /* FSafeManager.swift in Sources */,
-				495503202C11A02700B2037F /* ReorderController+DestinationRow.swift in Sources */,
 				4912448D2C097FD0006D2695 /* SceneDelegate.swift in Sources */,
-				4955031C2C11A02700B2037F /* ReorderController+SnapshotView.swift in Sources */,
 				491244A32C09806C006D2695 /* HomeFSafeScreen.swift in Sources */,
 				4955030B2C11911600B2037F /* ListWebsiteTableview.swift in Sources */,
-				4955031F2C11A02700B2037F /* ReorderController+GestureRecognizer.swift in Sources */,
-				495503242C11A02700B2037F /* UIHostingCell.swift in Sources */,
 				4936ED7D2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

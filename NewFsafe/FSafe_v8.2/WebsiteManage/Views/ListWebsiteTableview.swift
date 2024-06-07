@@ -37,24 +37,22 @@ struct ListWebsiteTableview: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: IntrinsicTableView, context: Context) {
+        context.coordinator.items = items
         uiView.reloadData()
     }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
-    
     class Coordinator: NSObject, UITableViewDataSource, UITableViewDelegate {
         var parent: ListWebsiteTableview
-        var items: [String]
+        var items: [String] = []
         init(_ parent: ListWebsiteTableview) {
             self.parent = parent
-            self.items = parent.items
         }
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             items.count
-//            parent.items.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,19 +60,17 @@ struct ListWebsiteTableview: UIViewRepresentable {
                 return UITableViewCell()
             }
             let item = items[indexPath.row]
-//            let item = parent.items[indexPath.row]
             let title = items[indexPath.row]
                    cell.configure(withTitle: title, description: "Website phát tán botnet đã bị chặn", date: "Hôm nay", showBottomLine: indexPath.row != items.count - 1)
+            cell.selectionStyle = .none
+
             return cell
         }
         
         func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let deleteAction = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
-                // Perform your action here
                 DispatchQueue.main.async {
                     self.parent.items.remove(at: indexPath.row)
-                    self.items.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .automatic)
                     completion(true)
                 }
             }

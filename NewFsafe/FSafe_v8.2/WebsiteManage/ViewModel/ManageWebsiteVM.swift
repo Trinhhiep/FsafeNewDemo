@@ -11,7 +11,8 @@ class ManageWebsiteVM : ObservableObject {
     @Published var tabbarFilterItems : [FilterTimeModel] = [
         .init(title: "Hom nay",isSelected: true, filterType: .ToDay),
         .init(title: "Trong tuan",filterType: .InThisWeek),
-        .init(title: "Trong thang",filterType: .InThisMonth)
+        .init(title: "Trong thang",filterType: .InThisMonth),
+
     ]
 
     @Published var listWebsite : [String] = [
@@ -23,6 +24,16 @@ class ManageWebsiteVM : ObservableObject {
     ]{
         didSet {
             print(listWebsite)
+        }
+    }
+    
+    func selectItemTabbar(type : TimeFilterType){
+        for (index, item) in tabbarFilterItems.enumerated(){
+            if item.filterType == type {
+                tabbarFilterItems[index].isSelected = true
+            }else {
+                tabbarFilterItems[index].isSelected = false
+            }
         }
     }
 }

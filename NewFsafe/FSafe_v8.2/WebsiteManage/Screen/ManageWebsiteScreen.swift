@@ -29,22 +29,7 @@ struct ManageWebsiteScreen: View {
                 ScrollView{
                     if !vm.listWebsite.isEmpty {
                         VStack(spacing: 16, content: {
-                            HStack(alignment: .center, spacing: 16) {
-                                ImageLoaderView(fromUrl: "")
-                                    .frame(width: 32, height: 32, alignment: .center)
-                                // Body/Medium
-                                Text("Đã chặn 510 liên kết được phát hiện nguy hại")
-                                    .font(
-                                        Font.system(size: 16)
-                                            .weight(.medium)
-                                    )
-                                    .foregroundColor(Color(red: 0.24, green: 0.24, blue: 0.24))
-                                    .frame(maxWidth: .infinity, alignment: .topLeading)
-                            }
-                            .padding(16)
-                            .background(Color.white)
-                            .cornerRadius(8)
-                            
+                            numOfBlockedWebsite
                             listWebsite
                         })
                         
@@ -57,7 +42,23 @@ struct ManageWebsiteScreen: View {
         
         .background(Color.hiBackground)
     }
-    
+    var numOfBlockedWebsite : some View {
+        HStack(alignment: .center, spacing: 16) {
+            ImageLoaderView(fromUrl: "")
+                .frame(width: 32, height: 32, alignment: .center)
+            // Body/Medium
+            Text("Đã chặn 510 liên kết được phát hiện nguy hại")
+                .font(
+                    Font.system(size: 16)
+                        .weight(.medium)
+                )
+                .foregroundColor(Color(red: 0.24, green: 0.24, blue: 0.24))
+                .frame(maxWidth: .infinity, alignment: .topLeading)
+        }
+        .padding(16)
+        .background(Color.white)
+        .cornerRadius(8)
+    }
     var listWebsite: some View {
         VStack(alignment: .leading, spacing: 0) {
             headerListWebsite
@@ -111,12 +112,14 @@ struct ManageWebsiteScreen: View {
         }
     }
     var tabbar: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .center, spacing: 8, content: {
                 Rectangle()
                     .frame(width: 8, height: 0)
                 ForEach(vm.tabbarFilterItems, id: \.filterType) { item in
-                    Button(action: {}, label: {
+                    Button(action: {
+                        vm.selectItemTabbar(type: item.filterType)
+                    }, label: {
                         Text(item.title)
                             .font(
                                 Font.system(size: 16)
