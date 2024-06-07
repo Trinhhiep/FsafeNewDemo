@@ -7,7 +7,7 @@
 
 import SwiftUI
 import UIKit
-
+import HiThemes
 class ManageWebsiteVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,28 +19,37 @@ struct ManageWebsiteScreen: View {
     @State private var showDeleteButtonForItem: Int? = nil
     
     var body: some View {
-        ZStack{
-            if vm.listWebsite.isEmpty {
-                FSafeEmptyView(title: "Không phát hiện liên kết nguy hại nào")
+        HiNavigationView{
+            ZStack{
+                if vm.listWebsite.isEmpty {
+                    FSafeEmptyView(title: "Không phát hiện liên kết nguy hại nào")
+                }
+                VStack(alignment: .leading, spacing: 16, content: {
+                    tabbar
+                        .padding(.init(top: 16, leading: 0, bottom: 0, trailing: 0))
+                    ScrollView{
+                        if !vm.listWebsite.isEmpty {
+                            VStack(spacing: 16, content: {
+                                numOfBlockedWebsite
+                                listWebsite
+                            })
+                            
+                        }
+                    }.padding(.init(top: 0, leading: 16, bottom: 0, trailing: 16))
+                })
+                
             }
-            VStack(alignment: .leading, spacing: 16, content: {
-                tabbar
-                    .padding(.init(top: 16, leading: 0, bottom: 0, trailing: 0))
-                ScrollView{
-                    if !vm.listWebsite.isEmpty {
-                        VStack(spacing: 16, content: {
-                            numOfBlockedWebsite
-                            listWebsite
-                        })
-                        
-                    }
-                }.padding(.init(top: 0, leading: 16, bottom: 0, trailing: 16))
-            })
-            
+            .background(Color.hiBackground)
+            .hiNavTitle("Website nguy hại")
+            .hiNavButton {
+                Button(action: {
+                    
+                }, label: {
+                    HiImage(named: "ic_back_header")
+                        .frame(width: 24,height: 24)
+                })
+            }
         }
-        
-        
-        .background(Color.hiBackground)
     }
     var numOfBlockedWebsite : some View {
         HStack(alignment: .center, spacing: 16) {

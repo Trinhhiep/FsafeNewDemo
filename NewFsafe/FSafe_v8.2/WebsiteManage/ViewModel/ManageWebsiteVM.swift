@@ -6,7 +6,9 @@
 //
 
 import Foundation
-
+protocol ManageWebsiteVMProtocol {
+    
+}
 class ManageWebsiteVM : ObservableObject {
     @Published var tabbarFilterItems : [FilterTimeModel] = [
         .init(title: "Hom nay",isSelected: true, filterType: .ToDay),
@@ -35,6 +37,9 @@ class ManageWebsiteVM : ObservableObject {
                 tabbarFilterItems[index].isSelected = false
             }
         }
+    }
+    func popViewController(){
+        
     }
 }
 struct FilterTimeModel {

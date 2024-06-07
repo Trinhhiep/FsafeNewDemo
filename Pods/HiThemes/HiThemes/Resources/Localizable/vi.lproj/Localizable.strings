@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  MiniAppCore_Example
+
+  Created by NgocHTN6 on 20/09/2022.
+  
+*/
+//MARK: - OS Specifics
+NSPhotoLibraryUsageDescription = "Quý khách cần cung cấp quyền truy cập Thư viện ảnh để sử dụng chức năng này";
+NSCameraUsageDescription = "Quý khách cần cung cấp quyền truy cập Camera để sử dụng chức năng này";
+//MARK: - HiHeader HiFooter HiDropdown
+"back_to_home" = "Trở về trang chủ";
+"skip_after" = "Bỏ qua sau";
+"detail_button_notification" = "Xem chi tiết";
+"skip_noti" = "Bỏ qua";
+"done" = "Xong";

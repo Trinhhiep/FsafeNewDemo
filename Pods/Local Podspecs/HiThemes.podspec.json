@@ -1,0 +1,38 @@
+{
+  "name": "HiThemes",
+  "version": "1.3.0",
+  "summary": "A short description of HiThemes.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/HiepTQ5/HiThemes",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "HiepTQ5": "Hieptq5@fpt.com.vn"
+  },
+  "source": {
+    "git": "https://github.com/HiepTQ5/HiThemes.git",
+    "tag": "1.3.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": "HiThemes/Sources/**/*",
+  "resource_bundles": {
+    "HiThemesAssets": [
+      "HiThemes/Resources/**/*"
+    ]
+  },
+  "dependencies": {
+    "Kingfisher": [
+
+    ],
+    "IQKeyboardManagerSwift": [
+
+    ],
+    "lottie-ios": [
+
+    ]
+  }
+}
