@@ -6,49 +6,54 @@
 //
 
 import Foundation
-protocol ManageWebsiteVMProtocol {
-    
+
+protocol ManageWebsiteVMDelegate {
+    func popViewController()
+    func actionDangerLinkShowOption()
+    func tapShowStatusFilter(currentStatusFilter : StatusFilterType, callbackChangeFilter : @escaping ((StatusFilterType)->Void))
 }
-class ManageWebsiteVM : ObservableObject {
-    @Published var tabbarFilterItems : [FilterTimeModel] = [
-        .init(title: "Hom nay",isSelected: true, filterType: .ToDay),
-        .init(title: "Trong tuan",filterType: .InThisWeek),
-        .init(title: "Trong thang",filterType: .InThisMonth),
+class ManageWebsiteVM : ManageWebsiteVMProtocol {
 
-    ]
+    var delegate : ManageWebsiteVMDelegate?
+    var HEADER_TITLE: String = "Website nguy hại"
+    
+    var HEADER_ICON_BTNLEFT: String = "ic_back_header"
+    
+    var HEADER_ICON_BTNRIGHT: String = "ic_Modem_Three_Dot"
+    
+    func headerBtnLeftAction() {
+        delegate?.popViewController()
+    }
+    func headerBtnRightAction() {
+        
+    }
+    var EMPTYVIEW_ICON : String = "ic_empty_view"
+    var EMPTYVIEW_TITLE : String = "Không phát hiện liên kết nguy hại nào"
+    
+    @Published var model : ListWebsiteModel = .init()
+    
 
-    @Published var listWebsite : [String] = [
-        "First item",
-        "Second item",
-        "Third item",
-        "Fourth item",
-        "Fifth item"
-    ]{
-        didSet {
-            print(listWebsite)
-        }
+    
+    func actionDangerLinkShowOption() {
+        delegate?.actionDangerLinkShowOption()
+    }
+    
+    func tapShowStatusFilter() {
+        delegate?.tapShowStatusFilter(currentStatusFilter: model.statusFilterType, callbackChangeFilter: { [weak self] newStatusFilter in
+            self?.model.statusFilterType = newStatusFilter
+        })
     }
     
     func selectItemTabbar(type : TimeFilterType){
-        for (index, item) in tabbarFilterItems.enumerated(){
+        for (index, item) in model.tabbarFilterItems.enumerated(){
             if item.filterType == type {
-                tabbarFilterItems[index].isSelected = true
+                model.tabbarFilterItems[index].isSelected = true
             }else {
-                tabbarFilterItems[index].isSelected = false
+                model.tabbarFilterItems[index].isSelected = false
             }
         }
     }
-    func popViewController(){
-        
-    }
 }
-struct FilterTimeModel {
-    var title : String
-    var isSelected : Bool = false
-    var filterType : TimeFilterType
-}
-enum TimeFilterType {
-    case ToDay
-    case InThisWeek
-    case InThisMonth
-}
+
+
+

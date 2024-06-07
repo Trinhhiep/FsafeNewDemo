@@ -125,6 +125,9 @@ extension UIViewController {
     func pushViewControllerHiF(_ vc : UIViewController, animated: Bool = true){
         self.navigationController?.pushViewController(vc, animated: animated)
     }
+    func popViewControllerHiF(animated: Bool, completion: (() -> Void)? = nil) {
+        self.navigationController?.popViewController(animated: animated)
+    }
 }
 //
 //  ImageLoaderView.swift
@@ -262,4 +265,21 @@ extension UIColor {
 public extension UIColor {
     static var btnDisable: UIColor  { return #colorLiteral(red: 0.7803921569, green: 0.7960784314, blue: 0.8117647059, alpha: 1) }
     static var btnEnable: UIColor { return #colorLiteral(red: 0.2705882353, green: 0.3921568627, blue: 0.9294117647, alpha: 1) }
+}
+import HiThemes
+extension HiThemesPopupManager {
+    func presentPopupBottomSheetAction(vc: UIViewController, dataUIs : [(icon:String,title:String)] , callbackDidSelectItem: ((Int) -> Void)? ){
+        let dataModel = DataUIPopupWithListModel(title: nil, popupType: .HiddenHeaderBlock)
+        let listItem = dataUIs.map { itemCell in
+            HiThemesImageTitleIconProtocolModel(cellType: .Image_Title_IconChecked(iconItem: itemCell.icon, title: .init(string: itemCell.title), isEnable: true))
+        }
+        presentToPopupSystemWithListItemVC(vc: vc, uiModel: dataModel, listItem: listItem, callbackClosePopup: nil, callbackDidSelectItem: callbackDidSelectItem)
+    }
+}
+struct HiThemesImageTitleIconProtocolModel:HiThemesImageTitleIconProtocol{
+    var cellId: String = NSUUID().uuidString
+    var iconCheck: UIImage?
+    var iconUncheck: UIImage?
+    var cellType: HiThemesPopupWithListItemCellType
+    var isSelected: Bool = false
 }

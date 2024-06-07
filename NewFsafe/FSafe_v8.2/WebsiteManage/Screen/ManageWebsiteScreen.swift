@@ -9,26 +9,61 @@ import SwiftUI
 import UIKit
 import HiThemes
 class ManageWebsiteVC : UIViewController {
+    var vm = ManageWebsiteVM()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addSwiftUIViewAsChildVC(view: ManageWebsiteScreen(vm: .init()))
+        vm.delegate = self
+        self.addSwiftUIViewAsChildVC(view: ManageWebsiteScreen(vm: vm))
     }
 }
-struct ManageWebsiteScreen: View {
-    @ObservedObject var vm : ManageWebsiteVM
-    @State private var showDeleteButtonForItem: Int? = nil
+extension ManageWebsiteVC : ManageWebsiteVMDelegate {
+    func popViewController() {
+        self.popViewControllerHiF(animated: true)
+    }
+    func actionDangerLinkShowOption() {
+        let dataActionSheet = [(icon: "ic_trash_policy", title: "Xóa tất cả lịch sử nguy hại")]
+        HiThemesPopupManager
+            .share().presentPopupBottomSheetAction(vc: self,
+                                                   dataUIs: dataActionSheet) { index in
+                print(dataActionSheet[index].title)
+            }
+    }
+    func tapShowStatusFilter(currentStatusFilter : StatusFilterType, callbackChangeFilter : @escaping ((StatusFilterType)->Void)) {
+        let listFilter = [StatusFilterType.All , StatusFilterType.Blocked, .NotBlock]
+        
+        let dataActionSheet : [HiThemesImageTitleIconProtocol] = listFilter.map { filter in
+            HiThemesImageTitleIconProtocolModel(iconCheck: .init(named: "ic_select_radio"),
+                                                iconUncheck: .init(named: "ic_unselect_radio"),
+                                                cellType: .Title_IconChecked(title: .init(string: filter.getTitleDisplay()), isEnable: true),
+                                                isSelected: filter == currentStatusFilter)
+        }
+
+        HiThemesPopupManager
+            .share()
+            .presentToPopupSystemWithListItemVC(vc: self,
+                                                uiModel: DataUIPopupWithListModel.init(title: .init(string: "Sắp xếp theo")),
+                                                listItem: dataActionSheet,
+                                                callbackClosePopup: nil) { index in
+                callbackChangeFilter(listFilter[index])
+            }
+    }
+}
+
+
+struct ManageWebsiteScreen<VM : ManageWebsiteVMProtocol>: View {
+    @ObservedObject var vm : VM
     
     var body: some View {
         HiNavigationView{
             ZStack{
-                if vm.listWebsite.isEmpty {
-                    FSafeEmptyView(title: "Không phát hiện liên kết nguy hại nào")
+                if vm.model.listWebsite.isEmpty {
+                    FSafeEmptyView(title: vm.EMPTYVIEW_TITLE, icon: vm.EMPTYVIEW_ICON)
                 }
                 VStack(alignment: .leading, spacing: 16, content: {
                     tabbar
                         .padding(.init(top: 16, leading: 0, bottom: 0, trailing: 0))
                     ScrollView{
-                        if !vm.listWebsite.isEmpty {
+                        if !vm.model.listWebsite.isEmpty {
                             VStack(spacing: 16, content: {
                                 numOfBlockedWebsite
                                 listWebsite
@@ -40,23 +75,33 @@ struct ManageWebsiteScreen: View {
                 
             }
             .background(Color.hiBackground)
-            .hiNavTitle("Website nguy hại")
+            .hiNavTitle(vm.HEADER_TITLE)
             .hiNavButton {
                 Button(action: {
-                    
+                    vm.headerBtnLeftAction()
                 }, label: {
-                    HiImage(named: "ic_back_header")
+                    HiImage(named: vm.HEADER_ICON_BTNLEFT)
                         .frame(width: 24,height: 24)
                 })
+            }
+            .hiNavToolBar {
+                HiNavToolbarGroupItem {
+                    Button(action: {
+                        vm.headerBtnRightAction()
+                    }, label: {
+                        HiImage(named: vm.HEADER_ICON_BTNRIGHT)
+                            .frame(width: 24,height: 24)
+                    })
+                }
             }
         }
     }
     var numOfBlockedWebsite : some View {
         HStack(alignment: .center, spacing: 16) {
-            ImageLoaderView(fromUrl: "")
+            ImageLoaderView(fromUrl: vm.model.iconNumOfBlockedWebsite)
                 .frame(width: 32, height: 32, alignment: .center)
             // Body/Medium
-            Text("Đã chặn 510 liên kết được phát hiện nguy hại")
+            Text(vm.model.titleNumOfBlockedWebsite)
                 .font(
                     Font.system(size: 16)
                         .weight(.medium)
@@ -72,7 +117,7 @@ struct ManageWebsiteScreen: View {
         VStack(alignment: .leading, spacing: 0) {
             headerListWebsite
                 .padding(.horizontal, 16)
-            ListWebsiteTableview(items: $vm.listWebsite)
+            ListWebsiteTableview(items: $vm.model.listWebsite)
         }.padding(.top ,16)
             .background(Color.white)
             .cornerRadius(8)
@@ -82,7 +127,7 @@ struct ManageWebsiteScreen: View {
         VStack{
             HStack(spacing: .Regular, content: {
                 // Body/Medium
-                Text("Danh sách liên kết nguy hại")
+                Text(vm.model.titleBlockListWebsite)
                     .font(
                         Font.system(size: 16)
                             .weight(.medium)
@@ -92,19 +137,22 @@ struct ManageWebsiteScreen: View {
                 Spacer(minLength: 0)
                 HiImage(named: "ic_Modem_Three_Dot")
                     .frame(width: 24, height: 24)
+                    .onTapGesture {
+                        vm.actionDangerLinkShowOption()
+                    }
             })
             HStack(spacing: .Small, content: {
                 // Body/Small
-                Text("Sắp xếp theo:")
+                Text(vm.model.statusFilterTextBlockListWebsite)
                     .font(Font.system(size: 14))
                     .foregroundColor(Color(red: 0.53, green: 0.53, blue: 0.53))
                 
                 Button {
-                    
+                    vm.tapShowStatusFilter()
                 } label: {
                     HStack(spacing: .Extra_Small) {
                         // Label/Regular
-                        Text("Tất cả")
+                        Text(vm.model.statusFilterType.getTitleDisplay())
                             .font(
                                 Font.system(size: 12)
                                     .weight(.medium)
@@ -125,7 +173,7 @@ struct ManageWebsiteScreen: View {
             HStack(alignment: .center, spacing: 8, content: {
                 Rectangle()
                     .frame(width: 8, height: 0)
-                ForEach(vm.tabbarFilterItems, id: \.filterType) { item in
+                ForEach(vm.model.tabbarFilterItems, id: \.filterType) { item in
                     Button(action: {
                         vm.selectItemTabbar(type: item.filterType)
                     }, label: {
@@ -155,7 +203,7 @@ struct ManageWebsiteScreen: View {
 }
 
 #Preview {
-    ManageWebsiteScreen(vm: .init())
+    ManageWebsiteScreen(vm: ManageWebsiteVM())
 }
 struct MyCollection<Element>: RandomAccessCollection {
     private var elements: [Element]

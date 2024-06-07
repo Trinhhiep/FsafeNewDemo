@@ -22,7 +22,7 @@ class IntrinsicTableView: UITableView {
 }
 
 struct ListWebsiteTableview: UIViewRepresentable {
-    @Binding var items: [String]
+    @Binding var items: [WebsiteDataModel]
     
     func makeUIView(context: Context) -> IntrinsicTableView {
         let tableView = IntrinsicTableView()
@@ -46,7 +46,7 @@ struct ListWebsiteTableview: UIViewRepresentable {
     }
     class Coordinator: NSObject, UITableViewDataSource, UITableViewDelegate {
         var parent: ListWebsiteTableview
-        var items: [String] = []
+        var items: [WebsiteDataModel] = []
         init(_ parent: ListWebsiteTableview) {
             self.parent = parent
         }
@@ -60,8 +60,7 @@ struct ListWebsiteTableview: UIViewRepresentable {
                 return UITableViewCell()
             }
             let item = items[indexPath.row]
-            let title = items[indexPath.row]
-                   cell.configure(withTitle: title, description: "Website phát tán botnet đã bị chặn", date: "Hôm nay", showBottomLine: indexPath.row != items.count - 1)
+            cell.configure(withTitle: item.title,icon: item.icon, description: item.des, date: item.time, showBottomLine: indexPath.row != items.count - 1)
             cell.selectionStyle = .none
 
             return cell
@@ -70,7 +69,10 @@ struct ListWebsiteTableview: UIViewRepresentable {
         func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let deleteAction = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
                 DispatchQueue.main.async {
-                    self.parent.items.remove(at: indexPath.row)
+                    if self.parent.items[indexPath.row] != nil {
+                        self.parent.items.remove(at: indexPath.row)
+                    }
+                    
                     completion(true)
                 }
             }
@@ -181,7 +183,7 @@ class ItemWebsiteTableViewCell: UITableViewCell {
     }
     
     // Configure Cell
-    func configure(withTitle title: String, description: String, date: String, showBottomLine: Bool) {
+    func configure(withTitle title: String, icon : String , description: String, date: String, showBottomLine: Bool) {
         titleLabel.text = title
         descriptionLabel.text = description
         dateLabel.text = date
