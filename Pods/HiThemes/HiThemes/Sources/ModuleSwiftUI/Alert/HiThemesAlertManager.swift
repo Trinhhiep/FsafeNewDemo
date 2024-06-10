@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 /// 🚨 Alert Manager that support SwiftUI
-public class HiThemesAlertManager {
+open class HiThemesAlertManager {
     internal var isShow: Bool = false {
         didSet {
             if !isShow {

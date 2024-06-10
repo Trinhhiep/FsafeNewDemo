@@ -7,5 +7,5 @@ target 'NewFsafe' do
 
   # Pods for NewFsafe
 
-  pod 'HiThemes', :git => 'http://gitlab.fpt.net/HI-FPT/MOBILE/IOS/module/hi-themes.git', :tag => '1.3.51'
+  pod 'HiThemes', :git => 'http://gitlab.fpt.net/HI-FPT/MOBILE/IOS/module/hi-themes.git', :tag => '1.3.55'
 end

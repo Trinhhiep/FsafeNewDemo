@@ -12,6 +12,45 @@ public class DropDownManager: NSObject {
     private override init() {}
     private var presentingView: UIView?
     
+    
+    // k2tam added for swiftUI
+    public func showDropView(rect: CGRect, data: [DropViewModel], onSelect: ((Int) -> Void)?) {
+        presentingView?.removeFromSuperview()
+        var arrWidth = [CGFloat]()
+        for item in data {
+            arrWidth.append(item.title?.widthOfString(usingFont: UIFont.systemFont(ofSize: 15)) ?? CGFloat())
+        }
+        let maxWidth = arrWidth.max() ?? CGFloat()
+        let widthofView = maxWidth + 50
+
+        guard let window = UIApplication.shared.keyWindow else { return }
+        let buttonWidth = rect.width  / 2
+        let buttonHeight = rect.height
+        let x = rect.minX
+        let y = rect.minY
+        let creatHeight = buttonHeight + y
+        
+        let dropDownViewContainer = DialogContainerView(frame: window.bounds)
+        var vDescription = DropDownView()
+        if x < 75 {
+            vDescription = DropDownView(frame: CGRect(x: x, y: creatHeight, width: widthofView, height: CGFloat(37 * data.count)))
+        } else if 75 <= x && x <= 250 {
+            vDescription = DropDownView(frame: CGRect(x: x, y: creatHeight, width: widthofView, height: CGFloat(37 * data.count)))
+            vDescription.center.x = rect.minX - rect.width
+        } else {
+            vDescription = DropDownView(frame: CGRect(x: x + buttonWidth - widthofView + 10, y: creatHeight + 5, width: widthofView, height: CGFloat(37 * data.count)))
+        }
+        vDescription.onSelect = {
+            onSelect?($0)
+            dropDownViewContainer.removeFromSuperview()
+        }
+        vDescription.arrData = data
+        dropDownViewContainer.addSubview(vDescription)
+        window.addSubview(dropDownViewContainer)
+        
+        self.presentingView = dropDownViewContainer
+    }
+    
     public func showDropView(sender : UIButton,data : [DropViewModel],onSelect: ((Int) -> Void)?) {
         presentingView?.removeFromSuperview()
         var arrWidth = [CGFloat]()

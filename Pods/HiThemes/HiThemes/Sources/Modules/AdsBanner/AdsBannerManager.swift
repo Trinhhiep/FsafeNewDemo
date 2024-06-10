@@ -29,6 +29,10 @@ public class AdsBannerManager{
     
     private init() {}
     deinit {}
+    public func destroy(){
+        adsViewCanMove = nil
+        AdsBannerManager.instance = nil
+    }
     public var adsViewCanMove : AdsViewCanMove?
     
     func getImageFromURL(url : String, complete: @escaping ((UIImage)->Void)){
