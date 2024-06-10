@@ -30,17 +30,7 @@ struct ListWebsiteModel {
         self.titleBlockListWebsite = "Danh sách liên kết nguy hại"
         self.statusFilterTextBlockListWebsite = "Sắp xếp theo:"
         self.statusFilterType = .All
-        self.listWebsite = [
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay"),
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay"),
-          
-        ]
+        self.listWebsite = []
     }
 }
 struct WebsiteDataModel {
@@ -48,6 +38,7 @@ struct WebsiteDataModel {
     var title : String
     var des : String
     var time : String
+    var type : StatusFilterType
 }
 struct FilterTimeModel {
     var title : String

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-protocol ManageWebsiteVMProtocol: ObservableObject {
+protocol ManageWebsiteVMProtocol: ObservableObject, DetectingScrollViewModel {
     //MARK: Header Begin
     var HEADER_TITLE : String {get}
     var HEADER_ICON_BTNLEFT : String {get}
@@ -21,12 +21,26 @@ protocol ManageWebsiteVMProtocol: ObservableObject {
     var EMPTYVIEW_TITLE : String {get}
 
     //MARK: EmptyView End
-    
-    var model : ListWebsiteModel {get set}
     var isLastPage : Bool {get set}
+    var isLoadding : Bool {get set}
+    var model : ListWebsiteModel {get set}
+    var listWebsiteToShowUI : [WebsiteDataModel]  {get set}
     func selectItemTabbar(type : TimeFilterType)
     func actionDangerLinkShowOption()
     func tapShowStatusFilter()
     func fetchData()
     func loadMore()
+}
+import UIKit
+class DetectingScrollViewModel : ObservableObject {
+    var myScrollView : UIScrollView?
+    var positionYToDetectScroll: CGFloat = .zero {
+        didSet {
+            detectLoadmore()
+        }
+    }
+    func detectLoadmore() {
+        guard let scrollView = myScrollView else { return }
+        
+    }
 }

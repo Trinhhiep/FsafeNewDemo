@@ -283,3 +283,16 @@ struct HiThemesImageTitleIconProtocolModel:HiThemesImageTitleIconProtocol{
     var cellType: HiThemesPopupWithListItemCellType
     var isSelected: Bool = false
 }
+extension UIViewController {
+    func showToast(
+        message: String,
+        font: UIFont = UIFont.systemFont(ofSize: 16, weight: .medium),
+        constrainBottom: Float = 40,
+        lineLimit: Int = 0,
+        duration: Double = 1,
+        completion: @escaping () -> Void = {}
+    ) {
+        HiThemesPopupManager.share().showToast(vc: self, message: message, font: font, constrainBottom: constrainBottom, duration: duration, lineLimit: lineLimit, completion: completion)
+    }
+}
+

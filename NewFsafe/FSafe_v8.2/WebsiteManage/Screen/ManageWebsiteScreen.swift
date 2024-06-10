@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import HiThemes
+import Combine
 class ManageWebsiteVC : UIViewController {
     var vm = ManageWebsiteVM()
     override func viewDidLoad() {
@@ -27,6 +28,10 @@ extension ManageWebsiteVC : ManageWebsiteVMDelegate {
             .share().presentPopupBottomSheetAction(vc: self,
                                                    dataUIs: dataActionSheet) { index in
                 print(dataActionSheet[index].title)
+                self.vm.deleteAll {
+                    self.showToast(message: "Xóa tất cả lịch sử nguy hại thành công!")
+                }
+                
             }
     }
     func tapShowStatusFilter(currentStatusFilter : StatusFilterType, callbackChangeFilter : @escaping ((StatusFilterType)->Void)) {
@@ -57,21 +62,35 @@ struct ManageWebsiteScreen<VM : ManageWebsiteVMProtocol>: View {
     var body: some View {
         HiNavigationView{
             ZStack{
-                if vm.model.listWebsite.isEmpty {
+                if vm.listWebsiteToShowUI.isEmpty {
                     FSafeEmptyView(title: vm.EMPTYVIEW_TITLE, icon: vm.EMPTYVIEW_ICON)
                 }
                 VStack(alignment: .leading, spacing: 16, content: {
                     tabbar
                         .padding(.init(top: 16, leading: 0, bottom: 0, trailing: 0))
                     ScrollView{
-                        if !vm.model.listWebsite.isEmpty {
+                        if !vm.listWebsiteToShowUI.isEmpty {
                             VStack(spacing: 16, content: {
                                 numOfBlockedWebsite
-                                listWebsite
+                                listWebsiteView
+                                if !vm.isLastPage {
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle())
+                                        .scaleEffect(1.5)
+                                        .background(GeometryReader(content: { geo -> Color in
+                                            let position = geo.frame(in: .named("infinitiList-scroll")).origin
+                                            if !vm.isLastPage , !vm.isLoadding {
+                                                vm.positionYToDetectScroll = position.y
+                                            }
+                                            return Color.clear
+                                        }))
+                                }
                             })
-                            
                         }
                     }.padding(.init(top: 0, leading: 16, bottom: 0, trailing: 16))
+                        .introspect(.scrollView, on: .iOS(.v13, .v14, .v15, .v16, .v17)) { scrollView in
+                            vm.myScrollView = scrollView
+                        }
                 })
                 
             }
@@ -114,11 +133,11 @@ struct ManageWebsiteScreen<VM : ManageWebsiteVMProtocol>: View {
         .background(Color.white)
         .cornerRadius(8)
     }
-    var listWebsite: some View {
+    var listWebsiteView: some View {
         VStack(alignment: .leading, spacing: 0) {
             headerListWebsite
                 .padding(.horizontal, 16)
-            ListWebsiteTableview(items: $vm.model.listWebsite)
+            ListWebsiteTableview(items: $vm.listWebsiteToShowUI)
         }.padding(.top ,16)
             .background(Color.white)
             .cornerRadius(8)
