@@ -206,35 +206,4 @@ struct ManageWebsiteScreen<VM : ManageWebsiteVMProtocol>: View {
 #Preview {
     ManageWebsiteScreen(vm: ManageWebsiteVM())
 }
-struct MyCollection<Element>: RandomAccessCollection {
-    private var elements: [Element]
-    
-    // MARK: - Initializers
-    
-    init(_ elements: [Element]) {
-        self.elements = elements
-    }
-    
-    // MARK: - RandomAccessCollection Protocol Conformance
-    
-    var startIndex: Int { return 0 }
-    var endIndex: Int { return elements.count }
-    
-    subscript(position: Int) -> Element {
-        return elements[position]
-    }
-    
-    func index(after i: Int) -> Int {
-        return elements.index(after: i)
-    }
-    
-    func index(before i: Int) -> Int {
-        return elements.index(before: i)
-    }
-    
-    // MARK: - Additional Methods
-    
-    mutating func append(_ newElement: Element) {
-        elements.append(newElement)
-    }
-}
+
