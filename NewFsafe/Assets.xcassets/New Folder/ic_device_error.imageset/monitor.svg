@@ -1,0 +1,17 @@
+<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="vuesax/linear/monitor">
+<g id="monitor">
+<path id="Vector" d="M6.44 3C2.89 3 2 3.89 2 7.44V13.78C2 17.33 2.89 18.22 6.44 18.21H17.56C21.11 18.21 22 17.33 22 13.77V7.44C22 3.89 21.11 3 17.55 3" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M12 18.2207V23.0007" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M2 14H22" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M7.5 23H16.5" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="vuesax/linear/danger">
+<g id="danger">
+<path id="Vector_5" d="M12 5L12 7" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_6" d="M7.10063 7.89007C7.09368 7.90118 7.08702 7.91248 7.08067 7.92394C6.61616 8.76171 6.49979 9.68867 6.94713 10.4508C7.3949 11.2136 8.26162 11.563 9.22159 11.563H11.9157C11.9431 11.5661 11.9709 11.5676 11.9991 11.5676H14.7766C15.735 11.5676 16.6009 11.2177 17.049 10.456C17.497 9.69439 17.3826 8.76731 16.9175 7.92852C16.9112 7.91706 16.9045 7.90577 16.8976 7.89465L15.4778 5.62339L14.14 3.21629C14.14 3.21622 14.1399 3.21615 14.1399 3.21609C13.6584 2.34789 12.9127 1.72656 11.9991 1.72656C11.0856 1.72656 10.34 2.34767 9.85855 3.21564C9.85843 3.21586 9.85831 3.21607 9.85819 3.21629L8.52056 5.61855L7.10063 7.89007Z" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_7" d="M12 9.05V9" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</svg>

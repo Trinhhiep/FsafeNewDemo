@@ -55,6 +55,6 @@ struct ItemFeatureFSafeModel : Hashable {
     var title: String?
     var content: String?
     var iconOption: String?
-
+    var typeFeature : FeatureFsafe
 }
 

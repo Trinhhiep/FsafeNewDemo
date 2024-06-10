@@ -6,15 +6,9 @@
 //
 
 import Foundation
-enum FSafeFeatureNavigationType {
-    case DeviceConnectManager
-    case UserManager
-    case DangerousWebsite
-    case ViolatesWbsite
-}
 class HomeFSafeVM : ObservableObject{
     //MARK: config Header UI
-    var callbackNavigate : ((FSafeFeatureNavigationType)->Void)?
+    var callbackNavigate : ((FeatureFsafe)->Void)?
     let headerVM = HeaderVM(title: "F-Safe", iconLeft: "ic_back", iconRight:  "ic_Modem_Three_Dot")
    
     var fSafeStatusContent : String = "Phát hiện 210 truy cập nguy hại"
@@ -23,19 +17,23 @@ class HomeFSafeVM : ObservableObject{
         .init(icon: "",
               title: "Thiết bị kết nối",
               content: "12 thiết bị",
-              iconOption: "arrowBlackRight"),
+              iconOption: "arrowBlackRight",
+              typeFeature: .FsafeDeviceConnect),
         .init(icon: "",
               title: "Người dùng",
               content: "10 người dùng",
-              iconOption: "arrowBlackRight"),
+              iconOption: "arrowBlackRight",
+              typeFeature: .FsafeUser),
         .init(icon: "",
                title: "Website phát hiện nguy hại",
                content: "12 website",
-               iconOption: "arrowBlackRight"),
+               iconOption: "arrowBlackRight",
+              typeFeature: .FsafeWebsiteDetectedAsDangerous),
         .init(icon: "",
               title: "Website vi phạm nội dung",
               content: "12 website",
-              iconOption: "arrowBlackRight")
+              iconOption: "arrowBlackRight",
+              typeFeature: .FsafeWebsiteViolatesContent)
     ]
     
     func actionHeaderLeft(){
@@ -45,6 +43,6 @@ class HomeFSafeVM : ObservableObject{
         
     }
     func actionTapFeature(feature: ItemFeatureFSafeModel){
-        callbackNavigate?(.DangerousWebsite)
+        callbackNavigate?(feature.typeFeature)
     }
 }

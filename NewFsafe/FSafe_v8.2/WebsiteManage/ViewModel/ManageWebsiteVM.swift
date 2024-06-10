@@ -9,6 +9,7 @@ import Foundation
 
 protocol ManageWebsiteVMDelegate {
     func popViewController()
+    func showHeaderMoreOption()
     func actionDangerLinkShowOption()
     func tapShowStatusFilter(currentStatusFilter : StatusFilterType, callbackChangeFilter : @escaping ((StatusFilterType)->Void))
 }
@@ -25,7 +26,7 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
         delegate?.popViewController()
     }
     func headerBtnRightAction() {
-        loadMore()
+        delegate?.showHeaderMoreOption()
     }
     var EMPTYVIEW_ICON : String = "ic_empty_view"
     var EMPTYVIEW_TITLE : String = "Không phát hiện liên kết nguy hại nào"

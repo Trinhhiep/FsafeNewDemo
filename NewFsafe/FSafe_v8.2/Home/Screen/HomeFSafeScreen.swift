@@ -13,7 +13,17 @@ class HomeFSafeVC : UIViewController {
         super.viewDidLoad()
         vm.callbackNavigate = {[weak self] navType in
             guard let  self else {return}
-            FSafeManager.share().pushToManageWebsiteVC(vc: self)
+            switch navType{
+            case .FsafeHome:
+                FSafeManager.share().pushToHomeFSafeVC(vc: self)
+            case .FsafeWebsiteDetectedAsDangerous:
+                FSafeManager.share().pushToFsafeFsafeWebsiteDetectedAsDangerous(vc: self)
+            case .FsafeWebsiteViolatesContent:
+                FSafeManager.share().pushToFsafeWebsiteViolatesContent(vc: self)
+            default:
+                break
+            }
+           
         }
         self.addSwiftUIViewAsChildVC(view: HomeFSafeScreen(vm: vm))
     }

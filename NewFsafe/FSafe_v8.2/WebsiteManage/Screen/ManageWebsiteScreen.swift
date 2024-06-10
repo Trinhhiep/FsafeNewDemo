@@ -22,6 +22,9 @@ extension ManageWebsiteVC : ManageWebsiteVMDelegate {
     func popViewController() {
         self.popViewControllerHiF(animated: true)
     }
+    func showHeaderMoreOption() {
+        FSafeManager.share().showPopupNavigateFeatureInFsafe(vc: self)
+    }
     func actionDangerLinkShowOption() {
         let dataActionSheet = [(icon: "ic_trash_policy", title: "Xóa tất cả lịch sử nguy hại")]
         HiThemesPopupManager
