@@ -59,7 +59,7 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
         delegate?.tapShowStatusFilter(currentStatusFilter: model.statusFilterType, callbackChangeFilter: { [weak self] newStatusFilter in
             guard let self else {return}
             model.statusFilterType = newStatusFilter
-            filterTypeWebsite(type: model.statusFilterType)
+            filterStatusTypeWebsite(type: model.statusFilterType)
         })
     }
     
@@ -77,7 +77,7 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
         model.listWebsite = []
         completed?()
     }
-    func filterTypeWebsite(type : StatusFilterType){
+    func filterStatusTypeWebsite(type : StatusFilterType){
         switch type {
         case .All:
             listWebsiteToShowUI = model.listWebsite
@@ -203,7 +203,7 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
         ]
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.model.listWebsite.append(contentsOf: data)
-            self.filterTypeWebsite(type: self.model.statusFilterType)
+            self.filterStatusTypeWebsite(type: self.model.statusFilterType)
           
         }
         
