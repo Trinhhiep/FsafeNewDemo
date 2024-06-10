@@ -23,6 +23,7 @@
 		495503262C12B4E900B2037F /* FSafeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503252C12B4E900B2037F /* FSafeEmptyView.swift */; };
 		495503282C13030100B2037F /* ListWebsiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503272C13030100B2037F /* ListWebsiteModel.swift */; };
 		4955032B2C13035C00B2037F /* ManagaWebsiteVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955032A2C13035C00B2037F /* ManagaWebsiteVMProtocol.swift */; };
+		4955032E2C169F4C00B2037F /* Scrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955032D2C169F4C00B2037F /* Scrollview.swift */; };
 		7B2D71AC2CB51BA2D66B4F21 /* Pods_NewFsafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E093A9EB9EA62302CEFBC9D6 /* Pods_NewFsafe.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		495503252C12B4E900B2037F /* FSafeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSafeEmptyView.swift; sourceTree = "<group>"; };
 		495503272C13030100B2037F /* ListWebsiteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWebsiteModel.swift; sourceTree = "<group>"; };
 		4955032A2C13035C00B2037F /* ManagaWebsiteVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagaWebsiteVMProtocol.swift; sourceTree = "<group>"; };
+		4955032D2C169F4C00B2037F /* Scrollview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scrollview.swift; sourceTree = "<group>"; };
 		5CF8AFABEE1D3C7A4CD68E4A /* Pods-NewFsafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFsafe.debug.xcconfig"; path = "Target Support Files/Pods-NewFsafe/Pods-NewFsafe.debug.xcconfig"; sourceTree = "<group>"; };
 		E093A9EB9EA62302CEFBC9D6 /* Pods_NewFsafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFsafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F122FCBF0AAFB6DA18A391D7 /* Pods-NewFsafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFsafe.release.xcconfig"; path = "Target Support Files/Pods-NewFsafe/Pods-NewFsafe.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		4912449E2C097FE6006D2695 /* FSafe_v8.2 */ = {
 			isa = PBXGroup;
 			children = (
+				4955032C2C169F1600B2037F /* Extension */,
 				4936ED722C09C1B10046E9E6 /* Managers */,
 				491244A12C098027006D2695 /* WebsiteManage */,
 				491244A02C098016006D2695 /* Home */,
@@ -214,6 +217,14 @@
 				4955032A2C13035C00B2037F /* ManagaWebsiteVMProtocol.swift */,
 			);
 			path = VMProtolcol;
+			sourceTree = "<group>";
+		};
+		4955032C2C169F1600B2037F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4955032D2C169F4C00B2037F /* Scrollview.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		FC95A9EADBD215A8D71EA35E /* Pods */ = {
@@ -351,6 +362,7 @@
 				4936ED742C09C1CE0046E9E6 /* FSafeManager.swift in Sources */,
 				4912448D2C097FD0006D2695 /* SceneDelegate.swift in Sources */,
 				491244A32C09806C006D2695 /* HomeFSafeScreen.swift in Sources */,
+				4955032E2C169F4C00B2037F /* Scrollview.swift in Sources */,
 				4955030B2C11911600B2037F /* ListWebsiteTableview.swift in Sources */,
 				4936ED7D2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift in Sources */,
 			);

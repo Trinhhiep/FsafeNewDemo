@@ -25,15 +25,87 @@ class ManageWebsiteVM : ManageWebsiteVMProtocol {
         delegate?.popViewController()
     }
     func headerBtnRightAction() {
-        
+        loadMore()
     }
     var EMPTYVIEW_ICON : String = "ic_empty_view"
     var EMPTYVIEW_TITLE : String = "Không phát hiện liên kết nguy hại nào"
     
     @Published var model : ListWebsiteModel = .init()
+    @Published var isLastPage : Bool = false
     
-
-    
+    func fetchData() {
+        model.listWebsite = [
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay")
+        ]
+    }
+    func loadMore(){
+        let data : [WebsiteDataModel] = [
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay"),
+            .init(icon: "",
+                  title: "http://phimmoizz.net/",
+                  des: "Website phát tán botnet đã bị chặn",
+                  time: "Hôm nay")
+        ]
+        model.listWebsite.append(contentsOf: data)
+    }
     func actionDangerLinkShowOption() {
         delegate?.actionDangerLinkShowOption()
     }

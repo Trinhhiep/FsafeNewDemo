@@ -14,6 +14,7 @@ class ManageWebsiteVC : UIViewController {
         super.viewDidLoad()
         vm.delegate = self
         self.addSwiftUIViewAsChildVC(view: ManageWebsiteScreen(vm: vm))
+        vm.fetchData()
     }
 }
 extension ManageWebsiteVC : ManageWebsiteVMDelegate {

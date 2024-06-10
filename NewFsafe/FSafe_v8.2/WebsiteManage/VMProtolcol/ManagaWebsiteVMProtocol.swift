@@ -23,9 +23,10 @@ protocol ManageWebsiteVMProtocol: ObservableObject {
     //MARK: EmptyView End
     
     var model : ListWebsiteModel {get set}
-    
+    var isLastPage : Bool {get set}
     func selectItemTabbar(type : TimeFilterType)
     func actionDangerLinkShowOption()
     func tapShowStatusFilter()
-    
+    func fetchData()
+    func loadMore()
 }

@@ -33,6 +33,7 @@ struct ListWebsiteTableview: UIViewRepresentable {
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }
     
@@ -159,7 +160,7 @@ class ItemWebsiteTableViewCell: UITableViewCell {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             itemImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            itemImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            itemImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             itemImageView.widthAnchor.constraint(equalToConstant: 36),
             itemImageView.heightAnchor.constraint(equalToConstant: 36),
             

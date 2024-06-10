@@ -39,14 +39,7 @@ struct ListWebsiteModel {
                   title: "http://phimmoizz.net/",
                   des: "Website phát tán botnet đã bị chặn",
                   time: "Hôm nay"),
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay"),
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay")
+          
         ]
     }
 }
