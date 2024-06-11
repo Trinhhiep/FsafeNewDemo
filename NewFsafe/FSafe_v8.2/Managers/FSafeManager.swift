@@ -44,7 +44,21 @@ class FSafeManager{
         vc.pushViewControllerHiF(vcNew, animated: true)
         currentFsafeFeatureType = .FsafeWebsiteViolatesContent
     }
-    
+    func showPopupNotify(vc : UIViewController,
+                   title : String = Localizable.shared.localizedString(key: "notification"),
+                   content: String ,
+                   titleLeftBtn : String = Localizable.shared.localizedString(key: "payment_qr_save_image_cancel"),
+                   titleRightBtn : String = Localizable.shared.localizedString(key: "confirm"),
+                   actionLeftBtn : (()-> Void)? = nil,
+                   actionRightBtn : (()-> Void)?){
+        let type = HiThemesPopupType.confirm(title: title,
+                                             content:.init(string: content),
+                                             titleLeftBtn: titleLeftBtn,
+                                             titleRightBtn: titleRightBtn,
+                                             actionLeftBtn: actionLeftBtn,
+                                             actionRightBtn: actionRightBtn)
+        HiThemesPopupManager.share().presentToPopupVC(vc: vc, type: type)
+    }
     func showPopupNavigateFeatureInFsafe(vc : UIViewController, currentType : FeatureFsafe? = nil){
         //Danh sách tính năng để điều hướng đi, loại trừ đi tính năng hiện tại (đang trong tính năng A thì ko có option điều hướng đến A)
         var features : [FeatureFsafe] = [

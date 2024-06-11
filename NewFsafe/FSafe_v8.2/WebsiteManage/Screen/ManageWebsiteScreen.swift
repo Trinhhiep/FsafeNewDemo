@@ -30,10 +30,12 @@ extension ManageWebsiteVC : ManageWebsiteVMDelegate {
         HiThemesPopupManager
             .share().presentPopupBottomSheetAction(vc: self,
                                                    dataUIs: dataActionSheet) { index in
-                print(dataActionSheet[index].title)
-                self.vm.deleteAll {
-                    self.showToast(message: "Xóa tất cả lịch sử nguy hại thành công!")
+                FSafeManager.share().showPopupNotify(vc: self, content: "Quý khách có chắc chắn muốn xóa tất cả lịch sử liên kết nguy hại hôm nay?") {
+                    self.vm.deleteAll {
+                        self.showToast(message: "Xóa tất cả lịch sử nguy hại thành công!")
+                    }
                 }
+                
                 
             }
     }
