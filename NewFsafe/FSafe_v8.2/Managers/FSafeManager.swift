@@ -25,7 +25,10 @@ class FSafeManager{
     private init() {
         
     }
-    var currentFsafeFeatureType: FeatureFsafe = .FsafeHome
+    private var currentFsafeFeatureType: FeatureFsafe = .FsafeHome
+    func setCurrentFsafeFeatureType(_ type : FeatureFsafe){
+        currentFsafeFeatureType = type
+    }
     func pushToHomeFSafeVC(vc: UIViewController){
         let vcNew = HomeFSafeVC()
         vc.pushViewControllerHiF(vcNew, animated: true)
@@ -42,7 +45,7 @@ class FSafeManager{
         currentFsafeFeatureType = .FsafeWebsiteViolatesContent
     }
     
-    func showPopupNavigateFeatureInFsafe(vc : UIViewController){
+    func showPopupNavigateFeatureInFsafe(vc : UIViewController, currentType : FeatureFsafe? = nil){
         //Danh sách tính năng để điều hướng đi, loại trừ đi tính năng hiện tại (đang trong tính năng A thì ko có option điều hướng đến A)
         var features : [FeatureFsafe] = [
             .FsafeHome,
@@ -51,9 +54,16 @@ class FSafeManager{
             .FsafeWebsiteDetectedAsDangerous,
             .FsafeWebsiteViolatesContent
         ]
-        features.removeAll { item in
-            item == currentFsafeFeatureType
+        if let currentType = currentType {
+            features.removeAll { item in
+                item == currentType
+            }
+        }else {
+            features.removeAll { item in
+                item == currentFsafeFeatureType
+            }
         }
+        
         
         let dataActionSheet = features.map { item in
             return (item.getIcon() , item.getTitle())

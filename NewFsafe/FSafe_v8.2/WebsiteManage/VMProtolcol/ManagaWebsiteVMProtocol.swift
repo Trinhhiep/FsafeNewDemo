@@ -6,14 +6,12 @@
 //
 
 import Foundation
-protocol ManageWebsiteVMProtocol: ObservableObject, DetectingScrollViewModel {
+protocol ManageWebsiteVMProtocol: ObservableObject, HeaderDelegate, DetectingScrollViewModel {
     //MARK: Header Begin
     var HEADER_TITLE : String {get}
     var HEADER_ICON_BTNLEFT : String {get}
     var HEADER_ICON_BTNRIGHT : String {get}
     
-    func headerBtnLeftAction()
-    func headerBtnRightAction()
     //MARK: Header End
     
     //MARK: EmptyView Begin

@@ -6,10 +6,21 @@
 //
 
 import Foundation
+protocol HeaderDelegate {
+    func headerBtnLeftAction()
+    func headerBtnRightAction()
+}
+protocol HomeFSafeVMDelegate : HeaderDelegate{
+
+}
 class HomeFSafeVM : ObservableObject{
+    var delegate : HomeFSafeVMDelegate?
     //MARK: config Header UI
+    var HEADER_TITLE: String = "F-Safe"
+    var HEADER_ICON_BTNLEFT: String = "ic_back_header"
+    var HEADER_ICON_BTNRIGHT: String = "ic_Modem_Three_Dot"
+    
     var callbackNavigate : ((FeatureFsafe)->Void)?
-    let headerVM = HeaderVM(title: "F-Safe", iconLeft: "ic_back", iconRight:  "ic_Modem_Three_Dot")
    
     var fSafeStatusContent : String = "Phát hiện 210 truy cập nguy hại"
     
@@ -37,10 +48,10 @@ class HomeFSafeVM : ObservableObject{
     ]
     
     func actionHeaderLeft(){
-        
+        delegate?.headerBtnLeftAction()
     }
     func actionHeaderRight(){
-        
+        delegate?.headerBtnRightAction()
     }
     func actionTapFeature(feature: ItemFeatureFSafeModel){
         callbackNavigate?(feature.typeFeature)
