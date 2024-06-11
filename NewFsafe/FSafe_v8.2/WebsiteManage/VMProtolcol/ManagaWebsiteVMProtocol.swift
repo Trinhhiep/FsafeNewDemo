@@ -28,6 +28,7 @@ protocol ManageWebsiteVMProtocol: ObservableObject, HeaderDelegate, DetectingScr
     func tapShowStatusFilter()
     func fetchData()
     func loadMore()
+    func actionTapItemWebsite(index : Int)
 }
 import UIKit
 class DetectingScrollViewModel : ObservableObject {

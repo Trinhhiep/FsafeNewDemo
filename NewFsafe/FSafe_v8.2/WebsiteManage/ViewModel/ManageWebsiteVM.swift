@@ -12,6 +12,7 @@ protocol ManageWebsiteVMDelegate {
     func showHeaderMoreOption()
     func actionDangerLinkShowOption()
     func tapShowStatusFilter(currentStatusFilter : StatusFilterType, callbackChangeFilter : @escaping ((StatusFilterType)->Void))
+    func tapItemWebsiteDetail()
 }
 class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
 
@@ -91,6 +92,10 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
                 item.type == .NotBlock
             })
         }
+    }
+    func actionTapItemWebsite(index : Int) {
+        let itemTaped = listWebsiteToShowUI[index]
+        delegate?.tapItemWebsiteDetail()
     }
     func fetchData() {
         var data : [WebsiteDataModel] = []

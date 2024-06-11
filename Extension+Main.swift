@@ -365,3 +365,20 @@ class Localizable:NSObject {
     
 }
 
+class BaseViewController : UIViewController{
+    var keyboardHeight: CGFloat = 0.0
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //debugPrint("---------------\(String(describing: type(of: self))) viewDidLoad-------------")
+        
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
+    deinit {
+        debugPrint("---------------\(String(describing: type(of: self))) disposed-------------")
+    }
+
+}

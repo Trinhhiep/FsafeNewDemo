@@ -8,7 +8,7 @@
 import SwiftUI
 import HiThemes
 import UIKit
-class HomeFSafeVC : UIViewController {
+class HomeFSafeVC : BaseViewController {
     var vm : HomeFSafeVM = .init()
     override func viewDidLoad() {
         super.viewDidLoad()

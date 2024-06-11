@@ -23,7 +23,7 @@ class IntrinsicTableView: UITableView {
 
 struct ListWebsiteTableview: UIViewRepresentable {
     @Binding var items: [WebsiteDataModel]
-    
+    var callbackTapItem: ((_ index: Int)->Void)?
     func makeUIView(context: Context) -> IntrinsicTableView {
         let tableView = IntrinsicTableView()
         tableView.dataSource = context.coordinator
@@ -86,6 +86,9 @@ struct ListWebsiteTableview: UIViewRepresentable {
             swipeConfig.performsFirstActionWithFullSwipe = false
             return swipeConfig
             
+        }
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            parent.callbackTapItem?(indexPath.row)
         }
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return UITableView.automaticDimension

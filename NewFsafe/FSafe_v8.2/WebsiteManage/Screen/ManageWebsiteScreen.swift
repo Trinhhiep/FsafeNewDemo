@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 import HiThemes
 import Combine
-class ManageWebsiteVC : UIViewController {
+class ManageWebsiteVC : BaseViewController {
     var vm = ManageWebsiteVM()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +57,9 @@ extension ManageWebsiteVC : ManageWebsiteVMDelegate {
                                                 callbackClosePopup: nil) { index in
                 callbackChangeFilter(listFilter[index])
             }
+    }
+    func tapItemWebsiteDetail() {
+        FSafeManager.share().pushToFsafeDetailWebsiteVC(vc: self)
     }
 }
 
@@ -142,7 +145,9 @@ struct ManageWebsiteScreen<VM : ManageWebsiteVMProtocol>: View {
         VStack(alignment: .leading, spacing: 0) {
             headerListWebsite
                 .padding(.horizontal, 16)
-            ListWebsiteTableview(items: $vm.listWebsiteToShowUI)
+            ListWebsiteTableview(items: $vm.listWebsiteToShowUI, callbackTapItem: { index in
+                vm.actionTapItemWebsite(index: index)
+            })
         }.padding(.top ,16)
             .background(Color.white)
             .cornerRadius(8)

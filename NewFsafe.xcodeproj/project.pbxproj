@@ -24,6 +24,8 @@
 		495503282C13030100B2037F /* ListWebsiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503272C13030100B2037F /* ListWebsiteModel.swift */; };
 		4955032B2C13035C00B2037F /* ManagaWebsiteVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955032A2C13035C00B2037F /* ManagaWebsiteVMProtocol.swift */; };
 		4955032E2C169F4C00B2037F /* Scrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955032D2C169F4C00B2037F /* Scrollview.swift */; };
+		495503302C17FF2000B2037F /* DetailWebsiteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955032F2C17FF2000B2037F /* DetailWebsiteScreen.swift */; };
+		495503322C17FF7F00B2037F /* DetailWebsiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503312C17FF7F00B2037F /* DetailWebsiteVM.swift */; };
 		7B2D71AC2CB51BA2D66B4F21 /* Pods_NewFsafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E093A9EB9EA62302CEFBC9D6 /* Pods_NewFsafe.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		495503272C13030100B2037F /* ListWebsiteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWebsiteModel.swift; sourceTree = "<group>"; };
 		4955032A2C13035C00B2037F /* ManagaWebsiteVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagaWebsiteVMProtocol.swift; sourceTree = "<group>"; };
 		4955032D2C169F4C00B2037F /* Scrollview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scrollview.swift; sourceTree = "<group>"; };
+		4955032F2C17FF2000B2037F /* DetailWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWebsiteScreen.swift; sourceTree = "<group>"; };
+		495503312C17FF7F00B2037F /* DetailWebsiteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWebsiteVM.swift; sourceTree = "<group>"; };
 		5CF8AFABEE1D3C7A4CD68E4A /* Pods-NewFsafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFsafe.debug.xcconfig"; path = "Target Support Files/Pods-NewFsafe/Pods-NewFsafe.debug.xcconfig"; sourceTree = "<group>"; };
 		E093A9EB9EA62302CEFBC9D6 /* Pods_NewFsafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFsafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F122FCBF0AAFB6DA18A391D7 /* Pods-NewFsafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFsafe.release.xcconfig"; path = "Target Support Files/Pods-NewFsafe/Pods-NewFsafe.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				4936ED7A2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift */,
+				4955032F2C17FF2000B2037F /* DetailWebsiteScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				4936ED7C2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift */,
+				495503312C17FF7F00B2037F /* DetailWebsiteVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -360,7 +366,9 @@
 				491244A82C09823F006D2695 /* HomeFSafeVM.swift in Sources */,
 				4936ED712C09BBBD0046E9E6 /* ItemFeatureFSafe.swift in Sources */,
 				4936ED742C09C1CE0046E9E6 /* FSafeManager.swift in Sources */,
+				495503302C17FF2000B2037F /* DetailWebsiteScreen.swift in Sources */,
 				4912448D2C097FD0006D2695 /* SceneDelegate.swift in Sources */,
+				495503322C17FF7F00B2037F /* DetailWebsiteVM.swift in Sources */,
 				491244A32C09806C006D2695 /* HomeFSafeScreen.swift in Sources */,
 				4955032E2C169F4C00B2037F /* Scrollview.swift in Sources */,
 				4955030B2C11911600B2037F /* ListWebsiteTableview.swift in Sources */,

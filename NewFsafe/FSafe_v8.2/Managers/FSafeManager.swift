@@ -29,6 +29,7 @@ class FSafeManager{
     func setCurrentFsafeFeatureType(_ type : FeatureFsafe){
         currentFsafeFeatureType = type
     }
+    // Navigate Main Feature
     func pushToHomeFSafeVC(vc: UIViewController){
         let vcNew = HomeFSafeVC()
         vc.pushViewControllerHiF(vcNew, animated: true)
@@ -44,6 +45,16 @@ class FSafeManager{
         vc.pushViewControllerHiF(vcNew, animated: true)
         currentFsafeFeatureType = .FsafeWebsiteViolatesContent
     }
+    
+    // Navigate sub Feature
+    func pushToFsafeDetailWebsiteVC(vc: UIViewController){
+        let vcNew = DetailWebsiteVC()
+        vc.pushViewControllerHiF(vcNew, animated: true)
+    }
+    
+    
+    
+    
     func showPopupNotify(vc : UIViewController,
                    title : String = Localizable.shared.localizedString(key: "notification"),
                    content: String ,
