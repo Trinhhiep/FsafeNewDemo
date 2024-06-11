@@ -12,7 +12,7 @@ protocol ManageWebsiteVMDelegate {
     func showHeaderMoreOption()
     func actionDangerLinkShowOption()
     func tapShowStatusFilter(currentStatusFilter : StatusFilterType, callbackChangeFilter : @escaping ((StatusFilterType)->Void))
-    func tapItemWebsiteDetail()
+    func tapItemWebsiteDetail(item: WebsiteDataModel)
 }
 class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
 
@@ -94,8 +94,8 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
         }
     }
     func actionTapItemWebsite(index : Int) {
-        let itemTaped = listWebsiteToShowUI[index]
-        delegate?.tapItemWebsiteDetail()
+        let itemTapped = listWebsiteToShowUI[index]
+        delegate?.tapItemWebsiteDetail(item: itemTapped)
     }
     func fetchData() {
         var data : [WebsiteDataModel] = []
@@ -103,24 +103,24 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
         case .ToDay:
             data = Array(0...9).map { ind in
                 WebsiteDataModel(icon: "",
-                                 title: "http://phimmoizz.net/  \(ind)",
-                                 des: "Website phát tán botnet đã bị chặn",
+                                 websiteLink: "http://phimmoizz.net/123123 123 123  \(ind)",
+                                 des: "Website phát tán botnet đã bị chặn 123 123 123 123 123",
                                  time: "Hom Nay",
                                  type: ind % 2 == 0 ? .Blocked : .NotBlock)
             }
         case .InThisWeek:
             data = Array(0...9).map { ind in
                 WebsiteDataModel(icon: "",
-                                 title: "http://phimmoizz.net/  \(ind)",
-                                 des: "Website phát tán botnet đã bị chặn",
+                                 websiteLink: "http://phimmoizz.net/123123 123 123  \(ind)",
+                                 des: "Website phát tán botnet đã bị chặn 123 123 123 123 123",
                                  time: "Trong Tuan",
                                  type: ind % 2 == 0 ? .Blocked : .NotBlock)
             }
         case .InThisMonth:
             data = Array(0...9).map { ind in
                 WebsiteDataModel(icon: "",
-                                 title: "http://phimmoizz.net/  \(ind)",
-                                 des: "Website phát tán botnet đã bị chặn",
+                                 websiteLink: "http://phimmoizz.net/123123 123 123  \(ind)",
+                                 des: "Website phát tán botnet đã bị chặn 123 123 123 123 123",
                                  time: "Trong thang",
                                  type: ind % 2 == 0 ? .Blocked : .NotBlock)
             }
@@ -136,7 +136,7 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
         case .ToDay:
             data = Array(0...9).map { ind in
                 WebsiteDataModel(icon: "",
-                                 title: "http://phimmoizz.net/  \(ind)",
+                                 websiteLink: "http://phimmoizz.net/  \(ind)",
                                  des: "Website phát tán botnet đã bị chặn",
                                  time: "Hom Nay",
                                  type: ind % 2 == 0 ? .Blocked : .NotBlock)
@@ -144,7 +144,7 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
         case .InThisWeek:
             data = Array(0...9).map { ind in
                 WebsiteDataModel(icon: "",
-                                 title: "http://phimmoizz.net/  \(ind)",
+                                 websiteLink: "http://phimmoizz.net/  \(ind)",
                                  des: "Website phát tán botnet đã bị chặn",
                                  time: "Trong Tuan",
                                  type: ind % 2 == 0 ? .Blocked : .NotBlock)
@@ -152,7 +152,7 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
         case .InThisMonth:
             data = Array(0...9).map { ind in
                 WebsiteDataModel(icon: "",
-                                 title: "http://phimmoizz.net/  \(ind)",
+                                 websiteLink: "http://phimmoizz.net/  \(ind)",
                                  des: "Website phát tán botnet đã bị chặn",
                                  time: "Trong thang",
                                  type: ind % 2 == 0 ? .Blocked : .NotBlock)

@@ -9,7 +9,15 @@ import SwiftUI
 import UIKit
 import HiThemes
 class DetailWebsiteVC : BaseViewController {
-    var vm : DetailWebsiteVM = .init()
+    var vm : DetailWebsiteVM
+    init(modelWebsite: WebsiteDataModel) {
+        self.vm = DetailWebsiteVM(model: modelWebsite)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.delegate = self
@@ -17,6 +25,13 @@ class DetailWebsiteVC : BaseViewController {
     }
 }
 extension DetailWebsiteVC : DetailWebsiteDelegate{
+    func showPopupNotify(content: String,confirmCompleted: (()->Void)?) {
+        FSafeManager.share().showPopupNotify(vc: self,
+                                             content: content, actionRightBtn: {
+            confirmCompleted?()
+        })
+    }
+    
     func headerBtnLeftAction() {
         self.popViewControllerHiF(animated: true)
     }
@@ -53,7 +68,7 @@ struct DetailWebsiteScreen: View {
             HiImage(named: "")
                 .frame(width: 48, height: 48)
             // Title/Semi-Medium
-            Text("Website phát tán botnet đã bị chặn")
+            Text(vm.model.des)
                 .font(
                     Font.system(size: 20)
                         .weight(.medium)
@@ -62,7 +77,7 @@ struct DetailWebsiteScreen: View {
                 .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                 .frame(maxWidth: .infinity, alignment: .center)
             // Title/Regular
-            Text("http://phimmoizz.net/")
+            Text(verbatim: vm.model.websiteLink)
                 .font(
                     Font.system(size: 18)
                         .weight(.medium)
@@ -91,6 +106,9 @@ struct DetailWebsiteScreen: View {
                     .inset(by: 0.5)
                     .stroke(Color(red: 0.91, green: 0.91, blue: 0.91), lineWidth: 1)
             )
+            .onTapGesture {
+                vm.actionHandleWebsite()
+            }
         })
         .frame(maxWidth: .infinity)
         .padding(.init(top: .Medium, leading: .Regular, bottom: .Medium, trailing: .Regular))
@@ -110,7 +128,7 @@ struct DetailWebsiteScreen: View {
                       .foregroundColor(Color(red: 0.53, green: 0.53, blue: 0.53))
                       .frame(maxWidth: .infinity, alignment: .leading)
                     // Body/Medium
-                    Text("iPhone của Bảo")
+                    Text(vm.model.deviceName)
                       .font(
                         Font.system(size: 16)
                           .weight(.medium)
@@ -131,7 +149,7 @@ struct DetailWebsiteScreen: View {
                       .foregroundColor(Color(red: 0.53, green: 0.53, blue: 0.53))
                       .frame(maxWidth: .infinity, alignment: .leading)
                     // Body/Medium
-                    Text("Nguyễn Văn Bảo")
+                    Text(vm.model.userName)
                       .font(
                         Font.system(size: 16)
                           .weight(.medium)
@@ -148,7 +166,7 @@ struct DetailWebsiteScreen: View {
                   .foregroundColor(Color(red: 0.53, green: 0.53, blue: 0.53))
                   .frame(maxWidth: .infinity, alignment: .topLeading)
                 Spacer()
-                Text("22:00, 07/05/2024")
+                Text(vm.model.accessTime)
                   .font(
                     Font.system(size: 14)
                       .weight(.medium)
@@ -165,7 +183,7 @@ struct DetailWebsiteScreen: View {
                   .foregroundColor(Color(red: 0.53, green: 0.53, blue: 0.53))
                   .frame(maxWidth: .infinity, alignment: .topLeading)
                 Spacer()
-                Text("10:fe:ed:3c:7c:1b")
+                Text(vm.model.macAddress)
                   .font(
                     Font.system(size: 14)
                       .weight(.medium)
@@ -193,7 +211,7 @@ struct DetailWebsiteScreen: View {
     }
 }
 
-#Preview {
-    DetailWebsiteScreen(vm: .init())
-}
- 
+//#Preview {
+//    DetailWebsiteScreen(vm: .init())
+//}
+// 

@@ -47,8 +47,8 @@ class FSafeManager{
     }
     
     // Navigate sub Feature
-    func pushToFsafeDetailWebsiteVC(vc: UIViewController){
-        let vcNew = DetailWebsiteVC()
+    func pushToFsafeDetailWebsiteVC(vc: UIViewController, modelWebsite: WebsiteDataModel){
+        let vcNew = DetailWebsiteVC(modelWebsite: modelWebsite)
         vc.pushViewControllerHiF(vcNew, animated: true)
     }
     

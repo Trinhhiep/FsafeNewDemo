@@ -58,8 +58,8 @@ extension ManageWebsiteVC : ManageWebsiteVMDelegate {
                 callbackChangeFilter(listFilter[index])
             }
     }
-    func tapItemWebsiteDetail() {
-        FSafeManager.share().pushToFsafeDetailWebsiteVC(vc: self)
+    func tapItemWebsiteDetail(item: WebsiteDataModel) {
+        FSafeManager.share().pushToFsafeDetailWebsiteVC(vc: self, modelWebsite: item)
     }
 }
 

@@ -39,10 +39,14 @@ struct ListWebsiteModel {
 }
 struct WebsiteDataModel {
     var icon : String
-    var title : String
+    var websiteLink : String
     var des : String
     var time : String
     var type : StatusFilterType
+    var deviceName: String = "Iphone của tôi"
+    var userName: String = " Nguyễn Văn A"
+    var accessTime: String = "22:00, 07/05/2024"
+    var macAddress: String = "10:fe:ed:3c:7c:1b"
 }
 struct FilterTimeModel {
     var title : String

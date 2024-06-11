@@ -61,7 +61,7 @@ struct ListWebsiteTableview: UIViewRepresentable {
                 return UITableViewCell()
             }
             let item = items[indexPath.row]
-            cell.configure(withTitle: item.title,icon: item.icon, description: item.des, date: item.time, showBottomLine: indexPath.row != items.count - 1)
+            cell.configure(withTitle: item.websiteLink,icon: item.icon, description: item.des, date: item.time, showBottomLine: indexPath.row != items.count - 1)
             cell.selectionStyle = .none
 
             return cell
@@ -145,6 +145,7 @@ class ItemWebsiteTableViewCell: UITableViewCell {
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.font = UIFont.systemFont(ofSize: 16)
+        descriptionLabel.numberOfLines = 2
         descriptionLabel.textColor = UIColor(red: 0.53, green: 0.53, blue: 0.53, alpha: 1.0)
         
         bottomLineView.translatesAutoresizingMaskIntoConstraints = false
