@@ -32,6 +32,10 @@ struct ListWebsiteModel {
         self.statusFilterType = .All
         self.listWebsite = []
     }
+    
+    func getCurrentTabbarFilter() -> FilterTimeModel? {
+        return tabbarFilterItems.first(where: {$0.isSelected == true})
+    }
 }
 struct WebsiteDataModel {
     var icon : String

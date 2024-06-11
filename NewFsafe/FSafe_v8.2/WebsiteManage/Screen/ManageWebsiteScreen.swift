@@ -40,7 +40,7 @@ extension ManageWebsiteVC : ManageWebsiteVMDelegate {
             }
     }
     func tapShowStatusFilter(currentStatusFilter : StatusFilterType, callbackChangeFilter : @escaping ((StatusFilterType)->Void)) {
-        let listFilter = [StatusFilterType.All , StatusFilterType.Blocked, .NotBlock]
+        let listFilter :[StatusFilterType] = [.All , .Blocked, .NotBlock]
         
         let dataActionSheet : [HiThemesImageTitleIconProtocol] = listFilter.map { filter in
             HiThemesImageTitleIconProtocolModel(iconCheck: .init(named: "ic_select_radio"),

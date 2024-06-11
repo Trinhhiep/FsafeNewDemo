@@ -33,7 +33,7 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
     @Published var listWebsiteToShowUI : [WebsiteDataModel] = []
     @Published var isLastPage : Bool = false
     var isLoadding : Bool = false
-    
+    var currentTimeFilter : TimeFilterType = .ToDay
     
     override func detectLoadmore() {
         guard !isLastPage , !isLoadding else {return}
@@ -70,6 +70,8 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
                 model.tabbarFilterItems[index].isSelected = false
             }
         }
+        self.currentTimeFilter = model.getCurrentTabbarFilter()?.filterType ?? .ToDay
+        fetchData()
     }
     func deleteAll(completed: (()-> Void)? = nil ){
         listWebsiteToShowUI = []
@@ -91,115 +93,67 @@ class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
         }
     }
     func fetchData() {
+        var data : [WebsiteDataModel] = []
+        switch currentTimeFilter {
+        case .ToDay:
+            data = Array(0...9).map { ind in
+                WebsiteDataModel(icon: "",
+                                 title: "http://phimmoizz.net/  \(ind)",
+                                 des: "Website phát tán botnet đã bị chặn",
+                                 time: "Hom Nay",
+                                 type: ind % 2 == 0 ? .Blocked : .NotBlock)
+            }
+        case .InThisWeek:
+            data = Array(0...9).map { ind in
+                WebsiteDataModel(icon: "",
+                                 title: "http://phimmoizz.net/  \(ind)",
+                                 des: "Website phát tán botnet đã bị chặn",
+                                 time: "Trong Tuan",
+                                 type: ind % 2 == 0 ? .Blocked : .NotBlock)
+            }
+        case .InThisMonth:
+            data = Array(0...9).map { ind in
+                WebsiteDataModel(icon: "",
+                                 title: "http://phimmoizz.net/  \(ind)",
+                                 des: "Website phát tán botnet đã bị chặn",
+                                 time: "Trong thang",
+                                 type: ind % 2 == 0 ? .Blocked : .NotBlock)
+            }
+        }
        
-        let data : [WebsiteDataModel] = [
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .Blocked),
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .Blocked),
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .Blocked),
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .Blocked),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock)
-        ]
+       
         listWebsiteToShowUI = data
         model.listWebsite = data
     }
     func loadMore(){
-        let data : [WebsiteDataModel] = [
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .Blocked),
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .Blocked),
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .Blocked),
-            .init(icon: "",
-                  title: "http://phimmoizz.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .Blocked),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock),
-            .init(icon: "",
-                  title: "http://phimmoi.net/",
-                  des: "Website phát tán botnet đã bị chặn",
-                  time: "Hôm nay",
-                  type: .NotBlock)
-        ]
+        var data : [WebsiteDataModel] = []
+        switch currentTimeFilter {
+        case .ToDay:
+            data = Array(0...9).map { ind in
+                WebsiteDataModel(icon: "",
+                                 title: "http://phimmoizz.net/  \(ind)",
+                                 des: "Website phát tán botnet đã bị chặn",
+                                 time: "Hom Nay",
+                                 type: ind % 2 == 0 ? .Blocked : .NotBlock)
+            }
+        case .InThisWeek:
+            data = Array(0...9).map { ind in
+                WebsiteDataModel(icon: "",
+                                 title: "http://phimmoizz.net/  \(ind)",
+                                 des: "Website phát tán botnet đã bị chặn",
+                                 time: "Trong Tuan",
+                                 type: ind % 2 == 0 ? .Blocked : .NotBlock)
+            }
+        case .InThisMonth:
+            data = Array(0...9).map { ind in
+                WebsiteDataModel(icon: "",
+                                 title: "http://phimmoizz.net/  \(ind)",
+                                 des: "Website phát tán botnet đã bị chặn",
+                                 time: "Trong thang",
+                                 type: ind % 2 == 0 ? .Blocked : .NotBlock)
+            }
+        }
+       
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.model.listWebsite.append(contentsOf: data)
             self.filterStatusTypeWebsite(type: self.model.statusFilterType)
