@@ -1,0 +1,85 @@
+/*
+  Localizable.strings
+  HiFPTCoreSDK
+
+  Created by GiaNH3 on 5/28/21.
+  
+*/
+
+//MARK: Login
+"login" = "Đăng nhập";
+"login_with" = "Hoặc đăng nhập bằng";
+"done" = "Xong";
+"confirm" = "Xác nhận";
+"cancel" = "Hủy bỏ";
+"close" = "Đóng";
+"agree" = "Đồng ý";
+"all" = "Tất cả";
+"create" = "Tạo";
+"default" = "Mặc định";
+"complete" = "Hoàn tất";
+"add" = "Thêm";
+"edit" = "Sửa";
+"please_enter_phone_number" = "Nhập số điện thoại của bạn";
+"continue" = "Tiếp tục";
+"forgot_pass" = "Quên mã PIN";
+"change_account" = "Đổi tài khoản";
+"invalid_format" = "Số điện thoại sai định dạng";
+"try_again" = "Thử lại";
+"OTP_has_been_sent_to" = "Mã xác thực OTP đã được gửi tới";
+"code_resent" = "Gửi lại mã";
+"code_resent_after" = "Gửi lại mã sau ";
+"code_not_receive" = "Không nhận được mã OTP?";
+"later" = "Để sau";
+"setup_security_method" = "Thiết lập phương thức bảo mật";
+"passcode" = "Mật mã";
+"use" = "Sử dụng";
+"setup_security_method_successfuly" = "Thiết lập phương thức bảo mật thành công";
+"account_being_secured" = "Tài khoản đang sử dụng bảo mật";
+"use_different_account" = "Sử dụng tài khoản khác";
+"additonal_information" = "Bổ sung thông tin";
+"phone_to_add_account_information" = "Nhập thêm số điện thoại để bổ sung thông tin tài khoản của Quý khách.";
+"login_using" = "Đăng nhập Hi FPT bằng";
+"enter_code_biometric_setup" = "Nhập mã để thiết lập phương thức";
+"password_mismatch_title" = "Mã PIN không trùng khớp";
+"new_password_mismatch_title" = "Mã PIN mới chưa trùng khớp";
+"relogin_with_touch_id" = "Đăng nhập bằng Touch ID";
+"relogin_with_face_id" = "Đăng nhập bằng Face ID";
+"enter_pass_label" = "Nhập mã PIN của bạn";
+"pass_locked_title_popup" = "Mã PIN sai nhiều lần";
+"popup_title_otp_wrong" = "Sai mã kích hoạt";
+"popup_title_otp_wrong_locked" = "Sai mã kích hoạt nhiều lần";
+"biometric_disable_title" = "Xác thực tạm thời gián đoạn.\nVui lòng nhập mã PIN.";
+"config_success_title" = "Thiết lập thành công";
+"new_pass_success_desc" = "Mã PIN mới của Quý khách đã được thiết lập thành công.";
+"unknown_error" = "Lỗi không xác định. Vui lòng thử lại.";
+"create_pass_nav_title" = "Vui lòng tạo mã PIN mới";
+"create_pass_sub_title" = "Mã PIN gồm 6 chữ số";
+"create_pass_title" = "Mã PIN";
+"confirm_create_pass_title" = "Nhập lại mã PIN";
+"change_pass_nav_title" = "Vui lòng tạo mã PIN đăng nhập mới";
+"old_pass_title" = "Mã PIN cũ";
+"new_pass_title" = "Mã PIN mới";
+"new_pass_confirm_title" = "Nhập lại mã PIN mới";
+"new_pass_mismatch_title" = "Mã PIN mới không được trùng với mã PIN cũ";
+"biometric_login_failed_title" = "Đăng nhập không thành công";
+"biometric_login_failed_desc" = "Quý khách chưa cài đặt tính năng đăng nhập bằng Sinh trắc học.\nQuý khách vui lòng đăng nhập bằng mã PIN và cài đặt Sinh trắc học tại {BOLD_TEXT}.";
+"biometric_login_failed_desc_bold_text" = "Cá nhân > Đăng nhập bằng {BIOMETRY_TYPE}";
+"biometric_login_not_config_desc" = "Tài khoản của Quý khách chưa được thiết lập {BOLD_TEXT} trên thiết bị này.\nQuý khách vui lòng sử dụng mã PIN để đăng nhập.";
+"biometric_login_not_config_desc_bold_text" = "Sinh trắc học";
+"return_to_login_screen" = "Về màn hình đăng nhập";
+
+//MARK: API Manager
+"system_error_title" = "Thông báo";
+"system_error_content" = "Ứng dụng không thể tải dữ liệu, vui lòng thử lại sau";
+"internet_connection_lost" = "Mất kết nối Internet!";
+"internet_connection_lost_describe" = "Mất kết nối internet, vui lòng kiểm tra kết nối và thử lại.";
+"parse_data_error_content" = "Ứng dụng hiện đang gặp sự cố hiển thị do lỗi từ máy chủ, vui lòng thử lại sau.";
+"welcome_title" = "Xin chào";
+"please_try_again_later" = "Đã có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại sau.";
+"access_token_expire" = "Phiên đã hết hạn. Vui lòng đăng nhập lại.";
+"understand" = "Đã hiểu";
+
+// MARK: FID
+"fid_error_content" = "Có lỗi trong quá trình đăng nhập, vui lòng thử lại";
+

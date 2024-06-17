@@ -1,0 +1,6 @@
+framework module HiFPTCoreSDK {
+  umbrella header "HiFPTCoreSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

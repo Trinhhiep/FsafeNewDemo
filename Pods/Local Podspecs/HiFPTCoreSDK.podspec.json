@@ -1,0 +1,54 @@
+{
+  "name": "HiFPTCoreSDK",
+  "version": "3.3.0",
+  "summary": "Module core HiFPTCoreSDK for Hi FPT app.",
+  "description": "Core for Hi FPT App",
+  "homepage": "http://gitlab.fpt.net/HI-FPT/MOBILE/IOS/module/core-hi-fpt",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "NhungNTT47": "nhungntt47@fpt.com.vn"
+  },
+  "source": {
+    "git": "http://gitlab.fpt.net/HI-FPT/MOBILE/IOS/module/core-hi-fpt.git",
+    "tag": "3.3.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "source_files": "HiFPTCoreSDK/Classes/**/*",
+  "frameworks": [
+    "UIKit",
+    "LocalAuthentication"
+  ],
+  "dependencies": {
+    "Alamofire": [
+      "5.5.0"
+    ],
+    "SwiftyJSON": [
+      "5.0.1"
+    ],
+    "GoogleSignIn": [
+      "6.1.0"
+    ],
+    "lottie-ios": [
+
+    ],
+    "FBSDKCoreKit": [
+      "13.1.0"
+    ],
+    "FBSDKLoginKit": [
+      "13.1.0"
+    ],
+    "HiThemes": [
+
+    ],
+    "AppAuth": [
+
+    ]
+  },
+  "swift_version": "5.0"
+}

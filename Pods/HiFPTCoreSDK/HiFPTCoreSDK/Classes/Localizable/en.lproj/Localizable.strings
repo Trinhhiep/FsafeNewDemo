@@ -1,0 +1,84 @@
+/*
+  Localizable.strings
+  HiFPTCoreSDK
+
+  Created by GiaNH3 on 5/28/21.
+  
+*/
+
+//MARK: Login
+"login" = "Login";
+"login_with" = "Or login with";
+"done" = "Done";
+"confirm" = "Confirm";
+"cancel" = "Cancel";
+"close" = "Close";
+"agree" = "Agree";
+"all" = "All";
+"create" = "Create";
+"default" = "Default";
+"complete" = "Complete";
+"add" = "Add";
+"edit" = "Edit";
+"please_enter_phone_number" = "Enter your phone number";
+"continue" = "Continue";
+"forgot_pass" = "Forgot PIN";
+"change_account" = "Change account";
+"invalid_format" = "Invalid phone number";
+"try_again" = "Try again";
+"OTP_has_been_sent_to" = "OTP verification has been sent to";
+"code_resent" = "Resend code";
+"code_resent_after" = "Code will be resent after ";
+"code_not_receive" = "Did not receive the OTP code?";
+"later" = "Later";
+"setup_security_method" = "Setup security method";
+"passcode" = "Passcode";
+"use" = "Use";
+"setup_security_method_successfuly" = "Setup security method successfuly";
+"account_being_secured" = "Your account is being secured";
+"use_different_account" = "Use different account";
+"additonal_information" = "Additonal information";
+"phone_to_add_account_information" = "Enter your phone number to add your account information";
+"login_using" = "Login using";
+"enter_code_biometric_setup" = "Enter code to setup security method";
+"password_mismatch_title" = "PIN does not match";
+"new_password_mismatch_title" = "New PIN does not match";
+"relogin_with_touch_id" = "Login with Touch ID";
+"relogin_with_face_id" = "Login with Face ID";
+"enter_pass_label" = "Enter your PIN";
+"pass_locked_title_popup" = "Wrong PIN multiple times";
+"popup_title_otp_wrong" = "Wrong activation code";
+"popup_title_otp_wrong_locked" = "Wrong activation code for multiple times";
+"biometric_disable_title" = "Authentication is temporarily interrupted.\nPlease enter the PIN.";
+"config_success_title" = "Setup completed sucessfully";
+"new_pass_success_desc" = "Your new PIN has been successfully set.";
+"unknown_error" = "Unknown error. Please try again.";
+"create_pass_nav_title" = "Please create a new PIN";
+"create_pass_sub_title" = "The PIN includes 6 digits";
+"create_pass_title" = "PIN";
+"confirm_create_pass_title" = "Re-enter PIN";
+"change_pass_nav_title" = "Please create a new login PIN";
+"old_pass_title" = "Old PIN";
+"new_pass_title" = "New PIN";
+"new_pass_confirm_title" = "Re-enter new PIN";
+"new_pass_mismatch_title" = "The new PIN cannot be the same as the old PIN";
+"biometric_login_failed_title" = "Login unsuccessful";
+"biometric_login_failed_desc" = "You have not set up the Biometric login feature.\nPlease log in with your PIN and set up Biometric feature at {BOLD_TEXT}.";
+"biometric_login_failed_desc_bold_text" = "Personal > Account Setup > Sign in with {BIOMETRY_TYPE}";
+"biometric_login_not_config_desc" = "Your account has not been set up with {BOLD_TEXT} on this device.\nPlease use a PIN.";
+"biometric_login_not_config_desc_bold_text" = "Biometrics";
+"return_to_login_screen" = "Return to the login screen";
+
+//MARK: API Manager
+"system_error_title" = "Notification";
+"system_error_content" = "The application cannot load data, please try again later.";
+"internet_connection_lost" = "Internet connection lost!";
+"internet_connection_lost_describe" = "Lost internet connection, please check your connection and try again.";
+"parse_data_error_content" = "The application is currently having display problems due to a server error, please try again later.";
+"welcome_title" = "Hello";
+"please_try_again_later" = "There is an error occurred during processing. Please try again later.";
+"access_token_expire" = "Phiên đã hết hạn. Vui lòng đăng nhập lại.";
+"understand" = "Understand";
+
+// MARK: FID
+"fid_error_content" = "There was an error during login, please try again.";
