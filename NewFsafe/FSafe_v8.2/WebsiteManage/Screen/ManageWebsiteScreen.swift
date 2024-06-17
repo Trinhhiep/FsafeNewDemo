@@ -31,14 +31,14 @@ extension ManageWebsiteVC : ManageWebsiteVMDelegate {
         self.popViewControllerHiF(animated: true)
     }
     func showHeaderMoreOption() {
-        FSafeManager.share().showPopupNavigateFeatureInFsafe(vc: self)
+        FSafeManagers.share().showPopupNavigateFeatureInFsafe(vc: self)
     }
     func actionDangerLinkShowOption() {
         let dataActionSheet = [(icon: "ic_trash_policy", title: "Xóa tất cả lịch sử nguy hại")]
         HiThemesPopupManager
             .share().presentPopupBottomSheetAction(vc: self,
                                                    dataUIs: dataActionSheet) { index in
-                FSafeManager.share().showPopupNotify(vc: self, content: "Quý khách có chắc chắn muốn xóa tất cả lịch sử liên kết nguy hại hôm nay?") {
+                FSafeManagers.share().showPopupNotify(vc: self, content: "Quý khách có chắc chắn muốn xóa tất cả lịch sử liên kết nguy hại hôm nay?") {
                     self.vm.deleteAll {
                         self.showToast(message: "Xóa tất cả lịch sử nguy hại thành công!")
                     }
@@ -67,7 +67,7 @@ extension ManageWebsiteVC : ManageWebsiteVMDelegate {
             }
     }
     func tapItemWebsiteDetail(item: WebsiteDataModel) {
-        FSafeManager.share().pushToFsafeDetailWebsiteVC(vc: self, modelWebsite: item)
+        FSafeManagers.share().pushToFsafeDetailWebsiteVC(vc: self, modelWebsite: item)
     }
 }
 

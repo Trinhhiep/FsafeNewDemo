@@ -7,18 +7,18 @@
 import UIKit
 import Foundation
 import HiThemes
-class FSafeManager{
+class FSafeManagers{
     private static let myLock = NSLock()
-    private static var instance : FSafeManager?
-    public static func share() -> FSafeManager {
+    private static var instance : FSafeManagers?
+    public static func share() -> FSafeManagers {
         if instance == nil {
             myLock.lock()
             if instance == nil {
-                instance = FSafeManager()
+                instance = FSafeManagers()
             }
             myLock.unlock()
         }
-        return instance ?? FSafeManager()
+        return instance ?? FSafeManagers()
         
     }
     

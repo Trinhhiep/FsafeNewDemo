@@ -26,7 +26,7 @@ class DetailWebsiteVC : BaseViewController {
 }
 extension DetailWebsiteVC : DetailWebsiteDelegate{
     func showPopupNotify(content: String,confirmCompleted: (()->Void)?) {
-        FSafeManager.share().showPopupNotify(vc: self,
+        FSafeManagers.share().showPopupNotify(vc: self,
                                              content: content, actionRightBtn: {
             confirmCompleted?()
         })

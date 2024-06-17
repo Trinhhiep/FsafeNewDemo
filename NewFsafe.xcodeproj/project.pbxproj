@@ -16,7 +16,7 @@
 		491244A52C09816A006D2695 /* Extension+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491244A42C09816A006D2695 /* Extension+Main.swift */; };
 		491244A82C09823F006D2695 /* HomeFSafeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491244A72C09823F006D2695 /* HomeFSafeVM.swift */; };
 		4936ED712C09BBBD0046E9E6 /* ItemFeatureFSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED702C09BBBD0046E9E6 /* ItemFeatureFSafe.swift */; };
-		4936ED742C09C1CE0046E9E6 /* FSafeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED732C09C1CE0046E9E6 /* FSafeManager.swift */; };
+		4936ED742C09C1CE0046E9E6 /* FSafeManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED732C09C1CE0046E9E6 /* FSafeManagers.swift */; };
 		4936ED7B2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED7A2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift */; };
 		4936ED7D2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED7C2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift */; };
 		4955030B2C11911600B2037F /* ListWebsiteTableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955030A2C11911600B2037F /* ListWebsiteTableview.swift */; };
@@ -45,7 +45,7 @@
 		491244A42C09816A006D2695 /* Extension+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Main.swift"; sourceTree = "<group>"; };
 		491244A72C09823F006D2695 /* HomeFSafeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFSafeVM.swift; sourceTree = "<group>"; };
 		4936ED702C09BBBD0046E9E6 /* ItemFeatureFSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFeatureFSafe.swift; sourceTree = "<group>"; };
-		4936ED732C09C1CE0046E9E6 /* FSafeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSafeManager.swift; sourceTree = "<group>"; };
+		4936ED732C09C1CE0046E9E6 /* FSafeManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSafeManagers.swift; sourceTree = "<group>"; };
 		4936ED7A2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWebsiteScreen.swift; sourceTree = "<group>"; };
 		4936ED7C2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWebsiteVM.swift; sourceTree = "<group>"; };
 		4955030A2C11911600B2037F /* ListWebsiteTableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWebsiteTableview.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 		4936ED722C09C1B10046E9E6 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				4936ED732C09C1CE0046E9E6 /* FSafeManager.swift */,
+				4936ED732C09C1CE0046E9E6 /* FSafeManagers.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -378,7 +378,7 @@
 				491244A82C09823F006D2695 /* HomeFSafeVM.swift in Sources */,
 				495503342C183F9300B2037F /* FsafeSuggestRegisterScreen.swift in Sources */,
 				4936ED712C09BBBD0046E9E6 /* ItemFeatureFSafe.swift in Sources */,
-				4936ED742C09C1CE0046E9E6 /* FSafeManager.swift in Sources */,
+				4936ED742C09C1CE0046E9E6 /* FSafeManagers.swift in Sources */,
 				495503362C1FDDE100B2037F /* FsafeSuggestRegisterVM.swift in Sources */,
 				495503302C17FF2000B2037F /* DetailWebsiteScreen.swift in Sources */,
 				4912448D2C097FD0006D2695 /* SceneDelegate.swift in Sources */,

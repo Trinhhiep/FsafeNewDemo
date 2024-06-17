@@ -17,11 +17,11 @@ class HomeFSafeVC : BaseViewController {
             guard let  self else {return}
             switch navType{
             case .FsafeHome:
-                FSafeManager.share().pushToHomeFSafeVC(vc: self)
+                FSafeManagers.share().pushToHomeFSafeVC(vc: self)
             case .FsafeWebsiteDetectedAsDangerous:
-                FSafeManager.share().pushToFsafeFsafeWebsiteDetectedAsDangerous(vc: self)
+                FSafeManagers.share().pushToFsafeFsafeWebsiteDetectedAsDangerous(vc: self)
             case .FsafeWebsiteViolatesContent:
-                FSafeManager.share().pushToFsafeWebsiteViolatesContent(vc: self)
+                FSafeManagers.share().pushToFsafeWebsiteViolatesContent(vc: self)
             default:
                 break
             }
@@ -31,7 +31,7 @@ class HomeFSafeVC : BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        FSafeManager.share().setCurrentFsafeFeatureType(.FsafeHome)
+        FSafeManagers.share().setCurrentFsafeFeatureType(.FsafeHome)
     }
 }
 extension HomeFSafeVC : HomeFSafeVMDelegate {
@@ -39,7 +39,7 @@ extension HomeFSafeVC : HomeFSafeVMDelegate {
         self.popViewControllerHiF(animated: true)
     }
     func headerBtnRightAction() {
-        FSafeManager.share().showPopupNavigateFeatureInFsafe(vc: self)
+        FSafeManagers.share().showPopupNavigateFeatureInFsafe(vc: self)
     }
 }
 struct HomeFSafeScreen: View {
