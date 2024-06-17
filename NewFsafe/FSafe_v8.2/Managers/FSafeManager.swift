@@ -36,12 +36,12 @@ class FSafeManager{
         currentFsafeFeatureType = .FsafeHome
     }
     func pushToFsafeFsafeWebsiteDetectedAsDangerous(vc: UIViewController){
-        let vcNew = ManageWebsiteVC()
+        let vcNew = ManageWebsiteVC(vm: ManageDangerousWebsiteVM())
         vc.pushViewControllerHiF(vcNew, animated: true)
         currentFsafeFeatureType = .FsafeWebsiteDetectedAsDangerous
     }
     func pushToFsafeWebsiteViolatesContent(vc: UIViewController){
-        let vcNew = ManageWebsiteVC()
+        let vcNew = ManageWebsiteVC(vm : ManageViolatesWebsiteVM())
         vc.pushViewControllerHiF(vcNew, animated: true)
         currentFsafeFeatureType = .FsafeWebsiteViolatesContent
     }

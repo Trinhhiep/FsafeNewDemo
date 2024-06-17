@@ -17,7 +17,9 @@ protocol ManageWebsiteVMDelegate {
 class ManageWebsiteVM : DetectingScrollViewModel, ManageWebsiteVMProtocol {
 
     var delegate : ManageWebsiteVMDelegate?
-    var HEADER_TITLE: String = "Website nguy hại"
+    var HEADER_TITLE: String {
+        return "Website"
+    }
     var HEADER_ICON_BTNLEFT: String = "ic_back_header"
     var HEADER_ICON_BTNRIGHT: String = "ic_Modem_Three_Dot"
     
