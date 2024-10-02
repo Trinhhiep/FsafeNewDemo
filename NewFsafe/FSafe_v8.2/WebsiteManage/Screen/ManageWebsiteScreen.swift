@@ -90,16 +90,20 @@ struct ManageWebsiteScreen<VM : ManageWebsiteVMProtocol>: View {
                                 numOfBlockedWebsite
                                 listWebsiteView
                                 if !vm.isLastPage {
-                                    ProgressView()
-                                        .progressViewStyle(CircularProgressViewStyle())
-                                        .scaleEffect(1.5)
-                                        .background(GeometryReader(content: { geo -> Color in
-                                            let position = geo.frame(in: .named("infinitiList-scroll")).origin
-                                            if !vm.isLastPage , !vm.isLoadding {
-                                                vm.positionYToDetectScroll = position.y
-                                            }
-                                            return Color.clear
-                                        }))
+                                    if #available(iOS 14.0, *) {
+                                        ProgressView()
+                                            .progressViewStyle(CircularProgressViewStyle())
+                                            .scaleEffect(1.5)
+                                            .background(GeometryReader(content: { geo -> Color in
+                                                let position = geo.frame(in: .named("infinitiList-scroll")).origin
+                                                if !vm.isLastPage , !vm.isLoadding {
+                                                    vm.positionYToDetectScroll = position.y
+                                                }
+                                                return Color.clear
+                                            }))
+                                    } else {
+                                        // Fallback on earlier versions
+                                    }
                                 }
                             })
                         }

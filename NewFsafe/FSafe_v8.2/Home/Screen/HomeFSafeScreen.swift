@@ -28,7 +28,7 @@ class HomeFSafeVC : BaseViewController {
            
         }
         self.addSwiftUIViewAsChildVC(view: HomeFSafeScreen(vm: vm))
-    }
+    } 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         FSafeManagers.share().setCurrentFsafeFeatureType(.FsafeHome)
