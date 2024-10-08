@@ -8,7 +8,7 @@
 import Foundation
 
 struct Constant {
-    static  var sample : String = """
+    static  var devices : String = """
     [
       {
         "title": "Wi-Fi nhà tui 2.4GHz",
@@ -110,4 +110,70 @@ struct Constant {
       }
     ]
 """
+    static var internetServices: String = """
+    
+    {
+      "InternetServiceModal": {
+        "id": 1,
+        "contractDetails": {
+          "contractCode": "SGN029418",
+          "internetName": "Giga",
+          "internetSpeed": 150
+        },
+        "internetServices": [
+          {
+            "id": 1,
+            "serviceName": "Quản lý Wi-Fi",
+            "icon": "wifi",
+            "notification": 0
+          },
+          {
+            "id": 2,
+            "serviceName": "Quản lý truy cập",
+            "icon": "devices",
+            "notification": 9
+          },
+          {
+            "id": 3,
+            "serviceName": "Bảo vệ trẻ em",
+            "icon": "shield-minus",
+            "notification": 2
+          },
+          {
+            "id": 4,
+            "serviceName": "Mô hình mạng",
+            "icon": "share",
+            "notification": 0
+          },
+          {
+            "id": 5,
+            "serviceName": "Đo tốc độ mạng",
+            "icon": "speed",
+            "notification": 0
+          },
+          {
+            "id": 6,
+            "serviceName": "Lịch truy cập Internet",
+            "icon": "calendar",
+            "notification": 0
+          }
+        ],
+        "includedServices": [
+          {
+            "id": 1,
+            "title": "Ultra Fast",
+            "icon": "Group",
+            "serviceStatus": "activated"
+          },
+          {
+            "id": 2,
+            "title": "F-Safe",
+            "icon": "Group 1",
+            "serviceStatus": "NotActivated"
+          }
+        ]
+      }
+    }
+    """
+
 }

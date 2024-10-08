@@ -23,7 +23,7 @@ class UserDeviceViewModel: ObservableObject {
     }
     
     func loadUserDevices() {
-        if let stringJson = Constant.sample.data(using: .utf8){
+        if let stringJson = Constant.devices.data(using: .utf8){
             // chuyen string sang json
             guard let jsonObject = try? JSON(data: stringJson) else {return}
             // chuyen json sang model
@@ -33,11 +33,13 @@ class UserDeviceViewModel: ObservableObject {
             })
            
         }
-        // gans listDeviceConnect == model moi nhan duoc
+        // gan listDeviceConnect == model moi nhan duoc
         deviceStatus = [DeviceStatus(id: 1, title: "Tất cả", status: .all),
                         DeviceStatus(id: 2, title: "Không kết nối", status: .disconnect),
                         DeviceStatus(id: 3, title: "Đang kết nối", status: .connecting)]
     }
+    
+    
     
     func filterStatusDevices(_ status: StatusConnect) -> [ListDeviceConnect] {
         switch status {
