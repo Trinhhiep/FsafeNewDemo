@@ -73,7 +73,7 @@ struct DeviceNormalView: View {
             }
             
             .frame(maxWidth: .infinity, alignment: .top)
-//            .ignoresSafeArea(edges: .bottom)
+            .edgesIgnoringSafeArea(.all)
             .hiNavTitle("Thiết bị kết nối")//            .hiNavButton {
             //                Button(action: {
             ////                    vm.actionHeaderLeft()

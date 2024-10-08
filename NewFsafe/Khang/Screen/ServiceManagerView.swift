@@ -18,6 +18,7 @@ class ServiceManagerVC : BaseViewController {
 }
 struct ServiceManagerView: View {
     @State private var selectedTab : ServiceTab = .internet
+    @State private var isShowPopup = false
     let screenWidth = UIScreen.main.bounds.width
     @ObservedObject var vm : InternetServiceViewModel = InternetServiceViewModel()
     
@@ -41,8 +42,23 @@ struct ServiceManagerView: View {
             }
             .frame(maxWidth: .infinity, alignment: .top)
             .hiNavTitle("Quản lý dịch vụ")
+            .hiNavToolBar {
+                HiNavToolbarGroupItem {
+                    Button(action: {
+                        isShowPopup.toggle()
+                    }, label: {
+                        HiImage(named: "ic_Modem_Three_Dot")
+                            .frame(width: 24,height: 24)
+                    })
+                }
+            }
         }
         .background(Color.white)
+        .hiBottomSheet(isShow: .constant(isShowPopup), title: "Hướng dẫn kích hoạt F-Safe Home") {
+            PopUpFSafe()
+        }
+        
+        
     }
     
     
