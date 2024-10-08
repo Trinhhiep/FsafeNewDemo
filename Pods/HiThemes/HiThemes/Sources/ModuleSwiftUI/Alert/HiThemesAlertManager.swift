@@ -10,7 +10,7 @@ import UIKit
 
 /// 🚨 Alert Manager that support SwiftUI
 open class HiThemesAlertManager {
-    internal var isShow: Bool = false {
+    open var isShow: Bool = false {
         didSet {
             if !isShow {
                 DispatchQueue.main.async {[weak self] in
@@ -20,7 +20,7 @@ open class HiThemesAlertManager {
         }
     }
     
-    public var popupWindow: AlertWindow?
+    open var popupWindow: AlertWindow?
     
     public init() {}
     
@@ -29,7 +29,7 @@ open class HiThemesAlertManager {
     ///   - closeBtn: = nil if want to expand accept btn, = "" if want to keep accept btn size
     ///   - cancelHandler: popup is closed then call the handler
     ///   - closeHandler: popup is closed then call the handler
-    public func showPopup(
+    open func showPopup(
         title: String,
         content: String,
         acceptBtn: String?,
@@ -65,7 +65,7 @@ open class HiThemesAlertManager {
     ///   - closeBtn: = nil if want to expand accept btn, = "" if want to keep accept btn size
     ///   - cancelHandler: popup is closed then call the handler
     ///   - closeHandler: popup is closed then call the handler
-    public func showPopup(
+    open func showPopup(
         title: String,
         attrContent: NSMutableAttributedString,
         acceptBtn: String?,
@@ -97,18 +97,18 @@ open class HiThemesAlertManager {
     }
     
     
-    public func dismiss() {
+    open func dismiss() {
         self.isShow = false
     }
     
-    internal func getWindowScreen() -> UIScene? {
+    open func getWindowScreen() -> UIScene? {
         UIApplication.shared
             .connectedScenes
             .filter { $0.activationState == .foregroundActive }
             .first
     }
     
-     func popupWindow<V: View> (window: UIWindowScene, view: V) -> Void {
+    open func popupWindow<V: View> (window: UIWindowScene, view: V) -> Void {
         popupWindow = AlertWindow(windowScene: window)
         popupWindow?.frame = UIScreen.main.bounds
         popupWindow?.backgroundColor = .clear
@@ -118,7 +118,7 @@ open class HiThemesAlertManager {
     }
    
     
-    internal func popupWindow<VC: UIViewController> (window: UIWindowScene, vc: VC) -> Void {
+    open func popupWindow<VC: UIViewController> (window: UIWindowScene, vc: VC) -> Void {
         popupWindow = AlertWindow(windowScene: window)
         popupWindow?.frame = UIScreen.main.bounds
         popupWindow?.backgroundColor = .clear
@@ -127,9 +127,7 @@ open class HiThemesAlertManager {
         popupWindow?.makeKeyAndVisible()
     }
     
-    
-    
-    internal func removeAlert() {
+    open func removeAlert() {
         let alertwindows = UIApplication.shared.windows.filter { $0 is AlertWindow }
         alertwindows.forEach { (window) in
             window.removeFromSuperview()

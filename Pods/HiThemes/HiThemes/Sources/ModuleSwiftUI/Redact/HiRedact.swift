@@ -37,7 +37,7 @@ struct HiRedacted: ViewModifier {
                     content
                         .opacity(0)
                         
-                    ActivityIndicator(isAnimating: isRedacted)
+                    HiActivityIndicator(isAnimating: isRedacted)
                     
                 }
             }else {
@@ -77,14 +77,18 @@ struct RedactAnimation: ViewModifier {
 }
 
 
-struct ActivityIndicator: UIViewRepresentable {
+public struct HiActivityIndicator: UIViewRepresentable {
     
-    typealias UIView = UIActivityIndicatorView
+    public typealias UIView = UIActivityIndicatorView
     var isAnimating: Bool
-    fileprivate var configuration = { (indicator: UIView) in }
+    fileprivate var configuration: (_ indicator: UIView) -> Void = { (indicator: UIView) in }
 
-    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIView { UIView() }
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<Self>) {
+    public init(isAnimating: Bool, configuration: @escaping (_ indicator: UIView) -> Void = { (indicator: UIView) in }) {
+        self.isAnimating = isAnimating
+        self.configuration = configuration
+    }
+    public func makeUIView(context: UIViewRepresentableContext<Self>) -> UIView { UIView() }
+    public func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<Self>) {
         isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
         configuration(uiView)
     }

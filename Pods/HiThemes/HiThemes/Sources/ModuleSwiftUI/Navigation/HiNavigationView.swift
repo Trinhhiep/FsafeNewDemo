@@ -9,6 +9,7 @@ import SwiftUI
 
 /// 🗿
 public struct HiNavConstant {
+    public static let hiNavBarHeight: CGFloat = 56
     public static let defaultNavBackButtonImg =  "ic_back_header"
 }
 
@@ -16,14 +17,18 @@ public struct HiNavConstant {
 /// 🚏
 public struct HiNavigationView<Content: View>: View {
     let content: Content
+    var backgroundColor: Color = .white
     @State private var title: String = ""
     @State private var showNavButton: Bool = true
     @State private var navButton: EquatableViewContainer? = nil
     @State private var toolbar: EquatableViewContainer = EquatableViewContainer(id: EquatableViewContainer.emptyViewId, view: AnyView(EmptyView()))
     @State private var hideNavBottomLine: Bool = false
     
-    public init(@ViewBuilder content: () -> Content) {
+    public init(backgroundColor: Color = .white, @ViewBuilder content: () -> Content) {
+        
+        self.backgroundColor = backgroundColor
         self.content = content()
+        
     }
     
     public var body: some View {
@@ -41,7 +46,7 @@ public struct HiNavigationView<Content: View>: View {
     
     private var NavViewHeaderAndContent: some View {
         VStack(spacing: 0){
-            HiNavigationBarView(showNavButton: showNavButton, navButton: navButton, title: title ,toolbar: toolbar)
+            HiNavigationBarView(backgroundColor: backgroundColor, showNavButton: showNavButton, navButton: navButton, title: title ,toolbar: toolbar)
             if !hideNavBottomLine {
                 Divider().overlay(Color.hiE7E7E7)
             }
@@ -83,6 +88,7 @@ public struct HiNavigationView<Content: View>: View {
 
 struct HiNavigationBarView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State var backgroundColor: Color
     let showNavButton: Bool
     let navButton: EquatableViewContainer?
     let title: String
@@ -127,8 +133,8 @@ struct HiNavigationBarView: View {
            
         }
         .foregroundColor(Color(hex: "#3D3D3D"))
-        .frame(height: 56)
-        .background(Color.white)
+        .frame(height: HiNavConstant.hiNavBarHeight)
+        .background(backgroundColor)
         
         
     }
@@ -195,7 +201,7 @@ public struct HiNavigationContainerView<Content: View>: View {
     
     private var NavViewHeaderAndContent: some View {
         VStack(spacing: 0){
-            HiNavigationBarView(showNavButton: showNavButton, navButton: navButton, title: title ,toolbar: toolbar)
+            HiNavigationBarView(backgroundColor: .white ,showNavButton: showNavButton, navButton: navButton, title: title ,toolbar: toolbar)
             if !hideNavBottomLine {
                 Divider().overlay(Color.hiE7E7E7)
             }

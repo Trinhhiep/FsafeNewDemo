@@ -36,7 +36,7 @@ public class HiThemesToastManager: HiThemesAlertManager {
         }
     }
     
-    override func popupWindow<V: View> (window: UIWindowScene, view: V) -> Void {
+    public override func popupWindow<V: View> (window: UIWindowScene, view: V) -> Void {
         super.popupWindow(window: window, view: view)
         popupWindow?.rootViewController?.view.backgroundColor = UIColor.clear
    }

@@ -28,6 +28,10 @@ public class HiThemesSDK{
         
     }
     
+    public static func configureBundle(bundle: Bundle?) {
+        HiImage.defaultBundle = bundle
+    }
+    
     private init() {
     }
     deinit {

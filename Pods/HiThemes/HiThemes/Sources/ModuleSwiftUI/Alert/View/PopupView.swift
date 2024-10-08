@@ -21,7 +21,9 @@ struct PopupView: View {
         VStack(spacing: 0) {
             HeaderView
             ContentView
-            ButtonView
+            if acceptBtn != nil || cancelBtn != nil {
+                ButtonView
+            }
         }
         .setupPopupBackground()
     }
@@ -31,7 +33,7 @@ extension PopupView {
     var HeaderView: some View {
         HStack(alignment: .center, spacing: 0){
             Text(title)
-                .font(.system(size: 20, weight: .semibold))
+                .font(.system(size: 20, weight: .medium))
                 .foregroundColor(.hiPrimaryText)
                 .lineLimit(2)
                 .padding(.leading, 16)
@@ -63,7 +65,6 @@ extension PopupView {
         }
         .padding(.horizontal, 16)
         .padding(.top, 8)
-        .padding(.bottom, 24)
     }
     
     var ButtonView: some View {
@@ -82,7 +83,7 @@ extension PopupView {
             }
         }
         .padding(.horizontal, 16)
-        .padding(.bottom, 16)
+        .padding(.top, 24)
     }
 }
 
@@ -91,6 +92,7 @@ private extension View {
         self
 //            .padding(24)
             .frame(maxWidth: .infinity)
+            .padding(.bottom, 16)
             .background(Color.white)
             .cornerRadius(8)
             .padding(.horizontal, 24)

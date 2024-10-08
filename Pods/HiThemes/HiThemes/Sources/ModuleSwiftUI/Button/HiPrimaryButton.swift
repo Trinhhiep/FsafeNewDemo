@@ -27,6 +27,7 @@ struct UnEffectButtonStyle: ButtonStyle {
 }
 
 public struct HiPrimaryButton: View {
+    var btnStyle: eHiButtonStyle
     var tapEffect: Bool = true
     var text: String
     var isEnable: Bool = true
@@ -37,12 +38,14 @@ public struct HiPrimaryButton: View {
     let disableColorBg = Color.hiDisableColor
     
     public init(
+        btnStyle: eHiButtonStyle = .primary,
         text: String,
         isEnable: Bool = true,
         height: CGFloat = 48,
         tapEffect: Bool = true,
         onClick: @escaping () -> Void
     ) {
+        self.btnStyle = btnStyle
         self.tapEffect = tapEffect
         self.text = text
         self.isEnable = isEnable
@@ -61,18 +64,22 @@ public struct HiPrimaryButton: View {
                 onClick()
             } label: {
                 Text(text)
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.system(size: 16, weight: .medium))
                     .padding()
                     .frame(maxWidth: .infinity)
                     .frame(height: height)
-                    .foregroundColor(Color.white)
-                    .background(isEnable ? enableColorBg : disableColorBg)
+                    .setFooterBtnStyle(self.btnStyle, isEnable, enableColorBg, disableColorBg)
+//                    .foregroundColor(Color.white)
+//                    .background(isEnable ? enableColorBg : disableColorBg)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
             }
              .disabled(!isEnable)
              .setEffectButtonStyle(tapEffect)
         }
     }
+    
+    
+    
 
 }
 

@@ -120,11 +120,11 @@ class PopupVC: BaseViewController {
         
         self.rightButton.setNewPrimaryColor()
         self.lblTitle.textAlignment = .left
-        self.lblTitle.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        self.lblTitle.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         self.lblTitle.textColor = UIColor(hex: "#3D3D3D", alpha: 1)
        
         popupContainer.layer.cornerRadius = 8
-        btnClose.setImage(UIImage(named: "ic-shape-close-popup48"), for: .normal)
+        btnClose.setImage(UIImage(named: "ic_close"), for: .normal)
         lblContent.textColor = UIColor(hex: "#888888", alpha: 1)
         lblContent.font = UIFont.systemFont(ofSize: HiThemesPopupManager.share().getLabelContentSize(), weight: .regular)
         leftButton.setTitleColor(UIColor(hex: "#4564ED", alpha: 1), for: .normal)

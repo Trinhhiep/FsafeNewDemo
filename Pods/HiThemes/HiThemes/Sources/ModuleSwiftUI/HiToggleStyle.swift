@@ -9,16 +9,16 @@ import Foundation
 import SwiftUI
 
 public extension Toggle {
-    public func hiToggleStyle(
-        size: CGSize,
-        onColor: Color,
-        offColor: Color,
-        thumbColorOn: Color,
-        thumbColorOff: Color
+    func hiToggleStyle(
+        size: CGSize = CGSize(width: 48, height: 28),
+        onColor: Color = Color.hiPrimary,
+        offColor: Color = Color(hex: "#D1D1D1"),
+        thumbColorOn: Color = Color.white,
+        thumbColorOff: Color = Color.gray,
+        isShowLabel: Bool = false
     ) -> some View {
         self.toggleStyle(
             ColoredToggleStyle(size: size, onColor: onColor, offColor: offColor, thumbColorOn: thumbColorOn, thumbColorOff: thumbColorOff, isShowLabel: false)
-
         )
     }
 }
@@ -46,7 +46,6 @@ struct ColoredToggleStyle: ToggleStyle {
                             .fill(configuration.isOn ? thumbColorOn : thumbColorOff)
                             .padding(2)
                             .offset(x: configuration.isOn ? 10 : -10))
-                    .animation(Animation.easeInOut(duration: 0.1))
             }
         }
     }

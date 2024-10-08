@@ -22,7 +22,7 @@ public class DropDownManager: NSObject {
         }
         let maxWidth = arrWidth.max() ?? CGFloat()
         let widthofView = maxWidth + 50
-
+        
         guard let window = UIApplication.shared.keyWindow else { return }
         let buttonWidth = rect.width  / 2
         let buttonHeight = rect.height
@@ -32,13 +32,14 @@ public class DropDownManager: NSObject {
         
         let dropDownViewContainer = DialogContainerView(frame: window.bounds)
         var vDescription = DropDownView()
+        let height = CGFloat(38 * (data.count))
         if x < 75 {
-            vDescription = DropDownView(frame: CGRect(x: x, y: creatHeight, width: widthofView, height: CGFloat(37 * data.count)))
+            vDescription = DropDownView(frame: CGRect(x: x, y: creatHeight, width: widthofView, height: height))
         } else if 75 <= x && x <= 250 {
-            vDescription = DropDownView(frame: CGRect(x: x, y: creatHeight, width: widthofView, height: CGFloat(37 * data.count)))
+            vDescription = DropDownView(frame: CGRect(x: x, y: creatHeight, width: widthofView, height: height))
             vDescription.center.x = rect.minX - rect.width
         } else {
-            vDescription = DropDownView(frame: CGRect(x: x + buttonWidth - widthofView + 10, y: creatHeight + 5, width: widthofView, height: CGFloat(37 * data.count)))
+            vDescription = DropDownView(frame: CGRect(x: x + buttonWidth - widthofView + 10, y: creatHeight + 5, width: widthofView, height:height))
         }
         vDescription.onSelect = {
             onSelect?($0)
@@ -59,9 +60,9 @@ public class DropDownManager: NSObject {
         }
         let witdh = arrWidth.max() ?? CGFloat()
         let widthofView = witdh + 30 + 24
-//        print("witdh là : \(arrWidth)")
-//        print("witdh là : \(widthofView)")
-
+        //        print("witdh là : \(arrWidth)")
+        //        print("witdh là : \(widthofView)")
+        
         guard let window = UIApplication.shared.keyWindow else { return }
         let width = (sender.frame.width)/2
         let senderHeight = sender.sizeThatFits(.zero).height

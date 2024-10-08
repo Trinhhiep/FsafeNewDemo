@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HiGridView<Content: View, T: Hashable>: View {
+public struct HiGridView<Content: View, T: Hashable>: View {
     private let columns: Int
     
     // Multi-dimensional array of your list. Modified as per rendering needs.
@@ -24,7 +24,7 @@ struct HiGridView<Content: View, T: Hashable>: View {
     private let lineSpacing: CGFloat
     
     
-    init(gridViewWidth: CGFloat, heightItem: CGFloat? = nil,itemSpacing: CGFloat, lineSpacing: CGFloat, columns: Int, list: [T], @ViewBuilder content:@escaping (T) -> Content) {
+    public init(gridViewWidth: CGFloat, heightItem: CGFloat? = nil,itemSpacing: CGFloat, lineSpacing: CGFloat, columns: Int, list: [T], @ViewBuilder content:@escaping (T) -> Content) {
         self.gridViewWidth = gridViewWidth
         self.heightItem = heightItem
         self.itemSpacing = itemSpacing
@@ -57,7 +57,7 @@ struct HiGridView<Content: View, T: Hashable>: View {
     }
     
     
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: lineSpacing) {
             ForEach(0 ..< self.list.count, id: \.self) { i  in
                 HStack(spacing: itemSpacing) {

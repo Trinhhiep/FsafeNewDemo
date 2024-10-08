@@ -8,6 +8,8 @@
 import SwiftUI
 
 public struct HiImage: View {
+    public static var defaultBundle: Bundle?
+    
     var name: String
     var color: Color?
     var bundle: Bundle?
@@ -24,7 +26,7 @@ public struct HiImage: View {
     public var body: some View {
         ZStack {
             // image
-            Image(name, bundle: bundle)
+            Image(name, bundle: bundle ?? HiImage.defaultBundle)
                 .hiRenderingMode()
                 .resizable()
             // color

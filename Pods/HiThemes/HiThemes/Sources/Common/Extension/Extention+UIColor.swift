@@ -11,7 +11,8 @@ import UIKit
 
 extension UIColor {
     static let hiPrimary = #colorLiteral(red: 0.2705882353, green: 0.3921568627, blue: 0.9294117647, alpha: 1)
-    static let hiBackground = #colorLiteral(red: 0.937254902, green: 0.9568627451, blue: 1, alpha: 1)
+    /// #F5F5F5
+    static let hiBackground = UIColor(hex: "#F5F5F5")
     static let textHint = #colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1)
     static let textGrey = #colorLiteral(red: 0.462745098, green: 0.462745098, blue: 0.462745098, alpha: 1)
     static let aaaaaa = #colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1)

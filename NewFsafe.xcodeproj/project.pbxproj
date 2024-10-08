@@ -45,6 +45,7 @@
 		495503362C1FDDE100B2037F /* FsafeSuggestRegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503352C1FDDE100B2037F /* FsafeSuggestRegisterVM.swift */; };
 		495503382C1FF0A300B2037F /* ManageDangerousWebsiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503372C1FF0A300B2037F /* ManageDangerousWebsiteVM.swift */; };
 		4955033A2C1FF0E800B2037F /* ManageViolatesWebsiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503392C1FF0E800B2037F /* ManageViolatesWebsiteVM.swift */; };
+		49B2379C2C5CD0D600C93EC8 /* ListAddressScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2379B2C5CD0D600C93EC8 /* ListAddressScreen.swift */; };
 		7B2D71AC2CB51BA2D66B4F21 /* Pods_NewFsafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E093A9EB9EA62302CEFBC9D6 /* Pods_NewFsafe.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		495503352C1FDDE100B2037F /* FsafeSuggestRegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FsafeSuggestRegisterVM.swift; sourceTree = "<group>"; };
 		495503372C1FF0A300B2037F /* ManageDangerousWebsiteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDangerousWebsiteVM.swift; sourceTree = "<group>"; };
 		495503392C1FF0E800B2037F /* ManageViolatesWebsiteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageViolatesWebsiteVM.swift; sourceTree = "<group>"; };
+		49B2379B2C5CD0D600C93EC8 /* ListAddressScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAddressScreen.swift; sourceTree = "<group>"; };
 		5CF8AFABEE1D3C7A4CD68E4A /* Pods-NewFsafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFsafe.debug.xcconfig"; path = "Target Support Files/Pods-NewFsafe/Pods-NewFsafe.debug.xcconfig"; sourceTree = "<group>"; };
 		E093A9EB9EA62302CEFBC9D6 /* Pods_NewFsafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFsafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F122FCBF0AAFB6DA18A391D7 /* Pods-NewFsafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFsafe.release.xcconfig"; path = "Target Support Files/Pods-NewFsafe/Pods-NewFsafe.release.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				0454A5732CAB8E3E00879926 /* Khang */,
+				49B2379A2C5CD0BE00C93EC8 /* ListAddress */,
 				4912449E2C097FE6006D2695 /* FSafe_v8.2 */,
 				4912448A2C097FD0006D2695 /* AppDelegate.swift */,
 				4912448C2C097FD0006D2695 /* SceneDelegate.swift */,
@@ -344,6 +347,14 @@
 				4955032D2C169F4C00B2037F /* Scrollview.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		49B2379A2C5CD0BE00C93EC8 /* ListAddress */ = {
+			isa = PBXGroup;
+			children = (
+				49B2379B2C5CD0D600C93EC8 /* ListAddressScreen.swift */,
+			);
+			path = ListAddress;
 			sourceTree = "<group>";
 		};
 		FC95A9EADBD215A8D71EA35E /* Pods */ = {
@@ -502,6 +513,7 @@
 				491244A32C09806C006D2695 /* HomeFSafeScreen.swift in Sources */,
 				0418D0322CAF9D6D0087160E /* IncludedServiceView.swift in Sources */,
 				495503382C1FF0A300B2037F /* ManageDangerousWebsiteVM.swift in Sources */,
+				49B2379C2C5CD0D600C93EC8 /* ListAddressScreen.swift in Sources */,
 				4955032E2C169F4C00B2037F /* Scrollview.swift in Sources */,
 				4955030B2C11911600B2037F /* ListWebsiteTableview.swift in Sources */,
 				4936ED7D2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift in Sources */,

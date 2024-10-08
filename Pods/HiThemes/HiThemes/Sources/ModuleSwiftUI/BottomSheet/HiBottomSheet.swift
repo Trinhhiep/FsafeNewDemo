@@ -152,8 +152,13 @@ public struct HiBottomSheet<Content: View>: View {
                 self.isShowDimmed = true
             }
          
-            withAnimation(.smooth(duration: HiBottomSheetConstant.bottomSheetPresentDuration)) {
+            if isEnableAnimation {
+                withAnimation(.smooth(duration: HiBottomSheetConstant.bottomSheetPresentDuration)) {
+                    self.isShowBottomSheet = true
+                }
+            }else {
                 self.isShowBottomSheet = true
+
             }
             
           
@@ -183,11 +188,11 @@ struct HiBottomSheetView<Content: View>: View {
                 
                 if let title {
                     HiBottomSheetHeaderTitle(title: title)
+                    
+                    //Divider line
+                    Color.hiE7E7E7
+                        .frame(height: 0.5) /// Design duypt26@fpt.com confirm line bottomSheet is 0.5
                 }
-                
-                //Divider line
-                Color.hiE7E7E7
-                    .frame(height: 1)
                 
             }
             .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
@@ -208,7 +213,7 @@ struct HiBottomSheetView<Content: View>: View {
             
             
             content
-//                .padding(.bottom, HiBottomSheetConstant.contentPaddingBottom)
+
             
         }
         .frame(maxHeight: self.maxHeight ?? HiBottomSheetConstant.defaultMaxHeight, alignment: .top)
@@ -234,8 +239,7 @@ struct HiBottomSheetView<Content: View>: View {
             Capsule()
                 .foregroundColor(Color(hex: "#616161"))
                 .frame(width: 40, height: 4)
-                .padding(.top, 14)
-                .padding(.bottom, 32)
+                .padding(.vertical, 14)
         }
         
         

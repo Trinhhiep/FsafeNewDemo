@@ -22,13 +22,16 @@ import SwiftUI
 public struct HiAttributedText: View {
     @Backport.StateObject var textViewStore = TextViewStore()
     let attributedText: NSMutableAttributedString
+    var wordRangeSelected: (_ range: NSRange) -> Void
     var completion: (_ textView: TextView) -> Void
     
     public init(
         _ attributedText: NSMutableAttributedString,
-        completion: @escaping (_ textView : TextView) -> Void = {_ in}
+        completion: @escaping (_ textView : TextView) -> Void = {_ in},
+        wordRangeSelected: @escaping (_ range: NSRange) -> Void = { _ in }
     ) {
         self.attributedText = attributedText
+        self.wordRangeSelected = wordRangeSelected
         self.completion = completion
     }
     
@@ -39,6 +42,7 @@ public struct HiAttributedText: View {
                 attributedText: attributedText,
                 maxLayoutWidth: geometry.maxWidth,
                 textViewStore: textViewStore,
+                wordRangeSelected: wordRangeSelected,
                 completion: completion
             )
         }
@@ -59,9 +63,9 @@ struct HiAttributedText_Previews: PreviewProvider {
                     .font: UIFont.preferredFont(forTextStyle: .body),
                     .backgroundColor: UIColor.yellow
                 ]
-            )) { textView in
+            ), completion:  { textView in
                 
-            }
+            })
             .lineLimit(3)
             .truncationMode(.middle)
             

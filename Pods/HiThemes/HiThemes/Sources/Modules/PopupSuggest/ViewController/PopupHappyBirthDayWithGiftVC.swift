@@ -47,7 +47,7 @@ class PopupHappyBirthDayWithGiftVC: BaseViewController {
        
     }
     func playSound() {
-            guard let path =  Bundle.resourceBundle(for: Self.self).path(forResource: "HappyBirthday", ofType:"mp3") else {
+            guard let path =  Bundle.frameWorkBundle(for: Self.self).path(forResource: "HappyBirthday", ofType:"mp3") else {
                 return }
             let url = URL(fileURLWithPath: path)
 
@@ -74,7 +74,7 @@ class PopupHappyBirthDayWithGiftVC: BaseViewController {
     }
     private func initGifView() -> Void {
         imgLight.image = UIImage(named: "light_HPBD")
-        guard let imageBgHPBD = UIImage.gif(name: "mascot_gift",bundle: Bundle.resourceBundle(for: Self.self)) else
+        guard let imageBgHPBD = UIImage.gif(name: "mascot_gift",bundle: Bundle.frameWorkBundle(for: Self.self)) else
         {
             return
         }
@@ -91,7 +91,7 @@ class PopupHappyBirthDayWithGiftVC: BaseViewController {
             bgHPBDConfetti.topAnchor.constraint(equalTo: gifView.topAnchor),
         ])
         
-        guard let imageConfetti = UIImage.gif(name: "confetti",bundle: Bundle.resourceBundle(for: Self.self)) else
+        guard let imageConfetti = UIImage.gif(name: "confetti",bundle: Bundle.frameWorkBundle(for: Self.self)) else
         {
             return
         }

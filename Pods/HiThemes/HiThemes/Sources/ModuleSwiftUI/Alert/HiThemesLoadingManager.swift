@@ -10,7 +10,7 @@ import UIKit
 
 public class HiThemesLoadingManager: HiThemesAlertManager {
     
-    internal override var isShow: Bool {
+    public override var isShow: Bool {
         didSet {
             if !isShow {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {[weak self] in
@@ -49,7 +49,7 @@ public class HiThemesLoadingManager: HiThemesAlertManager {
         }
     }
     
-    internal override func popupWindow<V>(window: UIWindowScene, view: V) where V : View {
+    public override func popupWindow<V>(window: UIWindowScene, view: V) where V : View {
         popupWindow = AlertWindow(windowScene: window)
         popupWindow?.frame = UIScreen.main.bounds
         popupWindow?.backgroundColor = .clear

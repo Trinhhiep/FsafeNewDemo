@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-///🗿 
+///🗿
 public struct HiTabViewConstant {
     private init() {}
     
@@ -19,10 +19,16 @@ public struct HiTabViewConstant {
 public struct HiTabView<Content: View> : View  {
     @Binding var selectedTab: HiTabBarItem
     let content: Content
+    private var isShowTabView: Bool
     @State private var tabs: [HiTabBarItem] = []
     
-    public init(selectedTab: Binding<HiTabBarItem>, @ViewBuilder content: () -> Content){
+    public init(
+        selectedTab: Binding<HiTabBarItem>,
+        isShowTabView: Bool = true,
+        @ViewBuilder content: () -> Content
+    ){
         self._selectedTab = selectedTab
+        self.isShowTabView = isShowTabView
         self.content = content()
     }
     
@@ -31,7 +37,10 @@ public struct HiTabView<Content: View> : View  {
             ZStack {
                content
             }
-            HiTabBarView(selectedTab: $selectedTab, tabs: tabs)
+            if isShowTabView {
+                HiTabBarView(selectedTab: $selectedTab, tabs: tabs)
+            }
+            
         }
         .edgesIgnoringSafeArea(.bottom)
         .onPreferenceChange(HiTabBarItemsPreferenceKey.self, perform: { value in

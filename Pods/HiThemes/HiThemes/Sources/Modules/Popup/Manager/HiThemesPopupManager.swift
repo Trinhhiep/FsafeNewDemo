@@ -206,20 +206,6 @@ public class HiThemesPopupManager{
         vc.present(vcPopup, animated: false)
     }
     
-    
-    public func presentDatePickerPopup(
-        vc: UIViewController,
-        inputDate: Date? = nil,
-        onSuccess: @escaping (_ date: Date) -> Void
-    ) {
-        guard let dateVC = UIStoryboard(name: "PopupDatePickerVC", bundle: Bundle(for: Self.self)).instantiateViewController(withIdentifier: "PopupDatePickerVC") as? PopupDatePickerVC else { return }
-        dateVC.modalPresentationStyle = .overFullScreen
-        dateVC.config(inputDate: inputDate, actionDone: onSuccess)
-        vc.present(dateVC, animated: false) {
-            dateVC.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        }
-    }
-    
     public func removeToast(){
         guard toastView != nil else {
             return
@@ -242,6 +228,7 @@ public class HiThemesPopupManager{
         message : String,
         font: UIFont = UIFont.systemFont(ofSize: 16),
         constrainBottom: Float = 40,
+        ignoreSafeArea: Bool = false,
         duration: Double = 1,
         lineLimit: Int = 2,
         completion: @escaping () -> Void = {}
@@ -280,7 +267,7 @@ public class HiThemesPopupManager{
         NSLayoutConstraint.activate([
             toastView!.leadingAnchor.constraint(equalTo: vc.view.leadingAnchor, constant : 16),
             toastView!.trailingAnchor.constraint(equalTo: vc.view.trailingAnchor, constant : -16),
-            toastView!.bottomAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.bottomAnchor, constant : CGFloat(-constrainBottom)),
+            toastView!.bottomAnchor.constraint(equalTo: ignoreSafeArea ? vc.view.bottomAnchor : vc.view.safeAreaLayoutGuide.bottomAnchor, constant : CGFloat(-constrainBottom)),
         ])
         
         toastView?.layoutIfNeeded()

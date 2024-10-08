@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-import HiThemes
 
-struct HiDropDownMenu<Content:View>: View {
+public struct HiDropDownMenu<Content:View>: View {
     let data: [HiThemes.DropViewModel]
     let onSelect: ((Int) -> Void)?
     let content: Content
@@ -19,7 +18,7 @@ struct HiDropDownMenu<Content:View>: View {
         self.content = content()
     }
     
-    var body: some View {
+    public var body: some View {
         content
             .backport.overlay {
                 GeometryReader { geo in

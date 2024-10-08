@@ -24,12 +24,28 @@ struct TextViewWrapper: UIViewRepresentable {
     let attributedText: NSAttributedString
     let maxLayoutWidth: CGFloat
     let textViewStore: TextViewStore
+    let wordRangeSelected: (_ range: NSRange) -> Void
     let completion: (_ textView: TextView) -> Void
-
+    
+    init(
+        attributedText: NSAttributedString,
+        maxLayoutWidth: CGFloat,
+        textViewStore: TextViewStore,
+        wordRangeSelected: @escaping (_: NSRange) -> Void,
+        completion: @escaping (_: TextView) -> Void
+    ) {
+        self.attributedText = attributedText
+        self.maxLayoutWidth = maxLayoutWidth
+        self.textViewStore = textViewStore
+        self.wordRangeSelected = wordRangeSelected
+        self.completion = completion
+    }
     
     func makeUIView(context: Context) -> TextView {
         let uiView = TextView()
-        
+        uiView.wordRangeCallback = wordRangeSelected
+        uiView.setUpGesture()
+
         uiView.backgroundColor = .clear
         uiView.textContainerInset = .zero
         uiView.isEditable = false
@@ -42,13 +58,20 @@ struct TextViewWrapper: UIViewRepresentable {
     func updateUIView(_ uiView: TextView, context: Context) {
         uiView.attributedText = attributedText
         uiView.maxLayoutWidth = maxLayoutWidth
-        
+        switch context.environment.multilineTextAlignment {
+        case .center:
+            uiView.textAlignment = .center
+        case .leading:
+            uiView.textAlignment = .left
+        case .trailing:
+            uiView.textAlignment = .right
+        }
+       
         uiView.textContainer.maximumNumberOfLines = context.environment.lineLimit ?? 0
         uiView.textContainer.lineBreakMode = NSLineBreakMode(context.environment.truncationMode)
         completion(uiView)
         
         textViewStore.didUpdateTextView(uiView)
-
     }
 }
 

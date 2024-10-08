@@ -17,8 +17,10 @@ public extension View {
         self.background(
             RoundedRectangle(cornerRadius: radius)
                 .stroke(stroke,lineWidth: lineWidth)
-                .background(color)
-                .clipShape(RoundedRectangle(cornerRadius: radius))
+                .background(
+                    RoundedRectangle(cornerRadius: radius)
+                        .fill(color)
+                )
         )
     }
     
