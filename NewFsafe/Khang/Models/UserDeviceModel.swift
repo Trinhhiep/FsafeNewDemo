@@ -8,22 +8,22 @@
 import Foundation
 import SwiftyJSON
 
-struct UserDevice: Identifiable, Hashable {
+struct UserDevice: Identifiable {
     var id = UUID()
     var deviceName: String
     var icon:String
     var macDevice: String
     var ipAddress: String
-    var totalStorageCapacity: Int
+    var accessTime: String
     var status: StatusConnect
     var band : Band
     
-    init(deviceName: String, icon: String, macDevice: String, ipAddress: String, totalStorageCapacity: Int,status: StatusConnect,band:Band) {
+    init(deviceName: String, icon: String, macDevice: String, ipAddress: String, accessTime: String,status: StatusConnect,band:Band) {
         self.deviceName = deviceName
         self.icon = icon
         self.macDevice = macDevice
         self.ipAddress = ipAddress
-        self.totalStorageCapacity = totalStorageCapacity
+        self.accessTime = accessTime
         self.status = status
         self.band = band
         
@@ -34,28 +34,8 @@ struct UserDevice: Identifiable, Hashable {
         macDevice = json["macDevice"].stringValue
         status = StatusConnect.init(rawValue: json["status"].stringValue) ?? .connecting
         ipAddress = json["ipAddress"].stringValue
-        totalStorageCapacity = json["totalStorageCapacity"].intValue
+        accessTime = json["accessTime"].stringValue
         band = Band.init(rawValue: json["band"].stringValue) ?? .lan
-    }
-}
-
-struct ListDeviceConnect: Identifiable, Hashable {
-    var id = UUID()
-    var title : String
-    var listDevices : [UserDevice]
-    var band : Band
-    init(id: UUID = UUID(), title: String, listDevices: [UserDevice], band: Band) {
-        self.id = id
-        self.title = title
-        self.listDevices = listDevices
-        self.band = band
-    }
-    init(json: JSON){
-        self.title = json["title"].stringValue
-        self.listDevices = json["listDevices"].arrayValue.map({ js in
-            UserDevice.init(json: js)
-        })
-        self.band = Band.init(rawValue: json["band"].stringValue) ?? .wifi24
     }
 }
 

@@ -18,9 +18,10 @@ class DeviceInforViewModel: ObservableObject {
     
     func loadUserDevices() {
         listDetail = [ ListDetailDevice(id: 1, title:"Dạng kết nối", value: userDevice.band.toString ),
-                       ListDetailDevice(id: 2, title:"Địa chỉ MAC", value: userDevice.macDevice),
-                       ListDetailDevice(id: 3, title: "Địa chỉ IP",value: userDevice.ipAddress),
-                       ListDetailDevice(id:4, title: "Tổng dung lượng truy cập",value: "\(userDevice.totalStorageCapacity)")]
+                       ListDetailDevice(id:2, title: "Thời gian truy cập",value: "\(userDevice.accessTime)"),
+                       ListDetailDevice(id: 3, title:"Địa chỉ MAC", value: userDevice.macDevice),
+                       ListDetailDevice(id: 4, title: "Địa chỉ IP",value: userDevice.ipAddress)
+                       ]
     }
     
 }

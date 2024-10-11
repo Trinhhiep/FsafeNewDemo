@@ -10,41 +10,52 @@ import SwiftUI
 struct ServicesBoxView: View {
     var screenWidth : CGFloat = UIScreen.main.bounds.width
     var column  : Int = 3
-    var title : String = "Quản lý Modem"
+    var title : String = ""
     var internetServices : [ServiceDetail]
     var body: some View {
-            VStack(alignment: .leading, spacing: 16){
-                Text("\(title)")
-                    .foregroundColor(Color.hiPrimaryText)
-                    .fontWeight(.medium)
-                    .font(.system(size: 18))
+        if internetServices.isEmpty{
+            
+        }else{
+            VStack(alignment: .leading, spacing: 12){
+                if title != ""{
+                    Text("\(title)")
+                        .foregroundColor(Color.hiPrimaryText)
+                        .fontWeight(.medium)
+                        .font(.system(size: 18))
+                }
                 VStack(spacing: 8){
                     service(internetServices)
                 }
             }
+        }
     }
     func service (_ service: [ServiceDetail]) -> some View{
         return ForEach(0..<service.count/column + (service.count % column == 0 ? 0 : 1), id: \.self){rowIndex in
             HStack(alignment: .top,spacing: 8){
                 ForEach(0..<column){ columnindex in
                     let index = rowIndex * column + columnindex
-                    Button(action:{}){
-                        VStack(spacing: 12){
-                            NotificationIcon(service[index])
-                            Text("\(service[index].ServiceName)")
-                                .font(.system(size: 14))
-                                .fontWeight(.medium)
-                                .foregroundColor(Color.hiPrimaryText)
-                                .frame(width: 85)
-                                .lineLimit(2)
+                    if index > (service.count - 1){
+                        
+                    }else{
+                        Button(action:{}){
+                            VStack(spacing: 12){
+                                NotificationIcon(service[index])
+                                Text("\(service[index].serviceName)")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.medium)
+                                    .foregroundColor(Color.hiPrimaryText)
+                                    .frame(width: 85)
+                                    .lineLimit(2)
+                            }
+                            .padding(.horizontal,12)
+                            .padding(.vertical,16)
+                            .frame(width: (screenWidth - 48) / CGFloat(column))
+                            .hiBackground(radius: 12, color: Color.white)
                         }
-                        .padding(.horizontal,12)
-                        .padding(.vertical,16)
-                        .frame(width: (screenWidth - 48) / CGFloat(column))
-                        .hiBackground(radius: 12, color: Color.white)
                     }
                 }
-            }.frame(maxWidth:.infinity)
+            }.frame(maxWidth:.infinity,alignment: .leading)
+            
         }
     }
     func NotificationIcon (_ service: ServiceDetail) -> some View {

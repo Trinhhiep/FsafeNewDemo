@@ -10,32 +10,32 @@ import UIKit
 import HiThemes
 
 class ServiceManagerVC : BaseViewController {
+    var vm : ServicesManagerViewModel = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let view = ServiceManagerView()
+        let view = ServiceManagerView(vm:vm)
         self.addSwiftUIViewAsChildVC(view:  view)
     }
 }
 struct ServiceManagerView: View {
     @State private var selectedTab : ServiceTab = .internet
     @State private var isShowPopup = false
+    @ObservedObject var vm = ServicesManagerViewModel()
     let screenWidth = UIScreen.main.bounds.width
-    @ObservedObject var vm : InternetServiceViewModel = InternetServiceViewModel()
-    
     var body: some View {
         HiNavigationView{
             VStack(spacing: 0) {
                 tabBar()
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     switch selectedTab {
                     case .internet:
-                        createInternetServiceManagerView(vm)
+                        createInternetServiceManagerView()
                     case .tv:
-                        createTVServiceManagerView(vm)
+                        createTVServiceManagerView()
                     case .camera:
-                        createCameraServiceManagerView(vm)
+                        createCameraServiceManagerView()
                     case .usingServies:
-                        createServiceUsingManagerView(vm)
+                        createServiceUsingManagerView()
                     }
                     Spacer()
                 }
@@ -63,7 +63,7 @@ struct ServiceManagerView: View {
     
     
     func tabBar ()-> some View {
-        ScrollView(.horizontal){
+        ScrollView(.horizontal,showsIndicators: false){
             let tabs = vm.tab
             HStack(alignment: .center, spacing:0) {
                 ForEach(tabs, id: \.id){ tab in
@@ -89,14 +89,14 @@ struct ServiceManagerView: View {
         }
     }
     @ViewBuilder
-    func createTVServiceManagerView(_ vm: InternetServiceViewModel)-> some View{
+    func createTVServiceManagerView()-> some View{
         let data = vm.TVModel
-        isHidden(condition: true,
+        isHidden(condition: false,
                  isTrue: {
             VStack(spacing: 24) {
-                ContractDetailsView(data: data.contractDetails)
-                ServicesBoxView(title: "TV Box", internetServices: data.TVBoxServices)
-                ServicesBoxView(title: "Lịch phát sóng", internetServices: data.BroadcastSchedule)
+                ContractDetailsView(data: data!.contractDetails)
+                ServicesBoxView(title: "TV Box", internetServices: data!.tVBoxServices)
+                ServicesBoxView(title: "Lịch phát sóng", internetServices: data!.broadcastSchedule)
             }
             .padding(.horizontal,16)
             .padding(.top,16)
@@ -108,14 +108,14 @@ struct ServiceManagerView: View {
         })
     }
     @ViewBuilder
-    func createInternetServiceManagerView(_ vm: InternetServiceViewModel) -> some View {
-        let data = vm.internetModel
-        isHidden(condition: data.internetServices.isEmpty,
+    func createInternetServiceManagerView() -> some View {
+        let data = vm.servicesManagerModel
+        isHidden(condition: data?.internetServices == nil,
                  isTrue: {
-            VStack(spacing: 24) {
-                ContractDetailsView(data: data.contractDetails)
-                ServicesBoxView(internetServices: data.internetServices)
-                IncludedServiceView(includedServices: data.includedServices)
+            VStack(spacing: 12) {
+                ContractDetailsView(data: (data?.contractDetails)!)
+                ServicesBoxView(internetServices: (data?.internetServices)!)
+                IncludedServiceView(includedServices: (data?.includedServices)!)
             }
             .padding(.horizontal,16)
             .padding(.top,16)
@@ -127,22 +127,22 @@ struct ServiceManagerView: View {
         })
     }
     
-    func createServiceUsingManagerView(_ vm: InternetServiceViewModel) -> some View {
+    func createServiceUsingManagerView() -> some View {
         let data = vm.usingServiceModel
         return VStack(spacing: 24) {
-            IncludedServiceView(includedServices: data.includedServices, title:data.title)
+            IncludedServiceView(includedServices: data!.includedServices, title:data!.title)
         }
         .padding(.horizontal,16)
         .padding(.top,16)
     }
     @ViewBuilder
-    func createCameraServiceManagerView(_ vm: InternetServiceViewModel) -> some View {
+    func createCameraServiceManagerView() -> some View {
         let data = vm.camModel
-        isHidden(condition: data.cameraArea.isEmpty,
+        isHidden(condition: (data?.cameraArea.isEmpty)!,
                  isTrue: {
             VStack(spacing: 24) {
-                ContractDetailsView(data: data.contractDetails)
-                ForEach(data.cameraArea, id:\.id){camera in
+                ContractDetailsView(data: data!.contractDetails)
+                ForEach(data!.cameraArea, id:\.id){camera in
                     ServicesBoxView(title:"\(camera.title) (\(camera.cameras.count))",internetServices: camera.cameras)
                 }
             }
@@ -157,6 +157,6 @@ struct ServiceManagerView: View {
     }
 }
 
-#Preview {
-    ServiceManagerView()
-}
+//#Preview {
+//    ServiceManagerView()
+//}

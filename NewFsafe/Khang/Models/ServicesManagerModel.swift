@@ -1,5 +1,5 @@
 //
-//  InternetServiceModel.swift
+//  ServicesManagerModel.swift
 //  NewFsafe
 //
 //  Created by KhangCao on 3/10/24.
@@ -8,11 +8,12 @@
 import Foundation
 import SwiftyJSON
 
-struct InternetServiceModel {
+struct ServicesManagerModel {
     var id: Int
     var contractDetails : ContractDetails
     var internetServices: [ServiceDetail]
     var includedServices: [IncludedService]
+    
     init(id: Int,contracDetails: ContractDetails , internetServices: [ServiceDetail],includedServices: [IncludedService]) {
         self.id = id
         self.contractDetails = contracDetails
@@ -22,13 +23,13 @@ struct InternetServiceModel {
     
     init ( json: JSON) {
         id = json["id"].intValue
-        contractDetails = ContractDetails.init(json: json["ContractDetails"])
+        contractDetails = ContractDetails.init(json: json["contractDetails"])
         
-        internetServices = json["InternetServices"].arrayValue.map({ js in
+        internetServices = json["internetServices"].arrayValue.map({ js in
             ServiceDetail.init(json: js)
         })
 
-        includedServices = json["IncludedServices"].arrayValue.map({ js in
+        includedServices = json["includedServices"].arrayValue.map({ js in
             IncludedService.init(json: js)
         })    }
 }
@@ -36,26 +37,82 @@ struct InternetServiceModel {
 struct TVServiceModel{
     var id : Int
     var contractDetails : ContractDetails
-    var TVBoxServices: [ServiceDetail]
-    var BroadcastSchedule: [ServiceDetail]
+    var tVBoxServices: [ServiceDetail]
+    var broadcastSchedule: [ServiceDetail]
+    
+    init(id: Int, contractDetails: ContractDetails, tVBoxServices: [ServiceDetail], broadcastSchedule: [ServiceDetail]) {
+        self.id = id
+        self.contractDetails = contractDetails
+        self.tVBoxServices = tVBoxServices
+        self.broadcastSchedule = broadcastSchedule
+    }
+    init(json:JSON) {
+        
+        id = json["id"].intValue
+        contractDetails = ContractDetails(json: json["contractDetails"])
+        tVBoxServices = json["tVBoxServices"].arrayValue.map({ js in
+             ServiceDetail.init(json: js)
+        })
+        broadcastSchedule = json["broadcastSchedule"].arrayValue.map({ js in
+            ServiceDetail.init(json: js)
+        })
+    }
+    
 }
 
 struct CameraServiceModel{
     var id: Int
     var contractDetails: ContractDetails
     var cameraArea: [CameraArea]
+    init(id: Int, contractDetails: ContractDetails, cameraArea: [CameraArea]) {
+        self.id = id
+        self.contractDetails = contractDetails
+        self.cameraArea = cameraArea
+    }
+    init (json:JSON){
+        id = json["id"].intValue
+        contractDetails = ContractDetails(json: json["contractDetails"])
+        cameraArea = json["cameraArea"].arrayValue.map({ js in
+            CameraArea.init(json: js)
+        })
+    }
 }
 
 struct CameraArea {
     var id : Int
     var title: String
     var cameras: [ServiceDetail]
+    init(id: Int, title: String, cameras: [ServiceDetail]) {
+        self.id = id
+        self.title = title
+        self.cameras = cameras
+    }
+    init (json:JSON){
+        id = json["id"].intValue
+        title = json["title"].stringValue
+        cameras = json["cameras"].arrayValue.map({js in
+            ServiceDetail.init(json: js)
+        })
+    }
 }
 
 struct ServiceUsingModel{
     var id: Int
     var title: String
     var includedServices: [IncludedService]
+    
+    init(id: Int, title: String, includedServices: [IncludedService]) {
+        self.id = id
+        self.title = title
+        self.includedServices = includedServices
+    }
+    init (json:JSON){
+        id = json["id"].intValue
+        title = json["title"].stringValue
+        includedServices = json["includedServices"].arrayValue.map({js in
+            IncludedService.init(json: js)
+        })
+    }
 }
 
 
@@ -76,13 +133,13 @@ struct ContractDetails {
     var contractCode: String
     var internetName: String
     var internetSpeed: Int
-    init(conrtactCode: String, internetName: String, internetSpeed: Int) {
-        self.contractCode = conrtactCode
+    init(contractCode: String, internetName: String, internetSpeed: Int) {
+        self.contractCode = contractCode
         self.internetName = internetName
         self.internetSpeed = internetSpeed
     }
     init(json:JSON){
-        contractCode=json["conrtactCode"].stringValue
+        contractCode=json["contractCode"].stringValue
         internetName=json["internetName"].stringValue
         internetSpeed=json["internetSpeed"].intValue
     }
@@ -90,19 +147,19 @@ struct ContractDetails {
 }
 struct ServiceDetail {
     var id:     Int
-    var ServiceName: String
+    var serviceName: String
     var icon: String
     var notification: Int
-    init(id: Int, ServiceName: String, icon: String,notification: Int) {
+    init(id: Int, serviceName: String, icon: String,notification: Int) {
         self.id = id
-        self.ServiceName = ServiceName
+        self.serviceName = serviceName
         self.icon = icon
         self.notification = notification
     }
     
     init ( json: JSON) {
         id = json["id"].intValue
-        ServiceName = json["ServiceName"].stringValue
+        serviceName = json["serviceName"].stringValue
         icon = json["icon"].stringValue
         notification = json["notification"].intValue
     }

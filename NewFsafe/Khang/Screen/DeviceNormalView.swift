@@ -22,8 +22,8 @@ class DeviceNormalVC : BaseViewController {
         }
     }
     
-     func navigateToDetailScreen (userDevice: UserDevice){
-         let deviceDetailVC = DeviceDetailVC(userDevice: userDevice)
+    func navigateToDetailScreen (userDevice: UserDevice){
+        let deviceDetailVC = DeviceDetailVC(userDevice: userDevice)
         self.navigationController?.pushViewController(deviceDetailVC, animated: true)
     }
 }
@@ -34,66 +34,62 @@ struct DeviceNormalView: View {
             VStack(spacing: 0) {
                 HStack(alignment: .center, spacing: 0) {
                     Button(action: {}) {
-                        Text("Thiết bị")
+                        Text("Mô hình")
+                            .font(.system(size: 16))
+                            .fontWeight(.medium)
+                            .foregroundColor(Color(hex: "#888888"))
+                        
+                        
+                    }.frame(maxWidth: .infinity)
+                        .frame(height: 51)
+                    
+                    Button(action: {}) {
+                        Text("Danh sách")
                             .font(.system(size: 16))
                             .fontWeight(.medium)
                             .foregroundColor(Color(hex: "#3D3D3D"))
-                            
-                    }
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 51)
-                        
-                    .overlay(
-                        Rectangle().frame(height: 1).foregroundColor(
-                            Color(hex: "#4564ED")), alignment: .bottom)
-                    Button(action: {}) {
-                        Text("Mô hình mạng").font(.system(size: 16)).fontWeight(.medium).foregroundColor(
-                            Color(hex: "#888888"))
                     }.frame(maxWidth: .infinity, minHeight: 51)
-                }.frame(maxWidth: .infinity).background(Color.white)
+                        .overlay(
+                            Rectangle().frame(height: 1)
+                                .foregroundColor(
+                                    Color(hex: "#4564ED")), alignment: .bottom)
+                }.frame(maxWidth: .infinity)
+                    .background(Color.white)
+                let filterDeviceList =  vm.filterStatusDevices(vm.filterButtonActive)
+                if vm.userDevices.isEmpty {
+                    VStack{
+                        Image("NoDevice").frame(width: 160,height: 160)
+                        Text("Chưa có thiết bị kết nối nào")
+                    }.frame(maxHeight: .infinity)
+                }else {
+                    VStack(spacing: 16) {
+                        VStack(spacing: 12){
+                            searchDevice()
+                            filterListDevice()
+                        }
+                        ScrollView {
+                            VStack(spacing:16){
+                                
+                                ListDevice(deviceList: filterDeviceList)
+                                
+                            }.padding(.bottom,50)
+                        }
+                    }.frame(
+                        maxWidth: .infinity, maxHeight: .infinity,
+                        alignment: .topLeading
+                    )
+                    .padding(.top,16)
+                    .padding(.horizontal,16)
+                    .background(Color(hex: "#F5F5F5"))
+                }
                 
-                VStack(spacing: 16) {
-                   
-                    filterListDevice()
-                    ScrollView {
-                        VStack(spacing:16){
-                            let filterDeviceList = vm.filterStatusDevices(vm.filterButtonActive)
-                            ForEach(Array(filterDeviceList.enumerated()) , id : \.element ){index, deviceList in
-                                ListDevice(index: index, deviceList: deviceList)
-                            }
-                        }.padding(.bottom,50)
-                    }
-                }.frame(
-                    maxWidth: .infinity, maxHeight: .infinity,
-                    alignment: .topLeading
-                )
-                .padding(.top,16).padding(.horizontal,16)
-                .background(Color(hex: "#F5F5F5"))
                 Spacer()
             }
             
             .frame(maxWidth: .infinity, alignment: .top)
             .edgesIgnoringSafeArea(.all)
-            .hiNavTitle("Thiết bị kết nối")//            .hiNavButton {
-            //                Button(action: {
-            ////                    vm.actionHeaderLeft()
-            //                }, label: {
-            //                    HiImage(named: vm.HEADER_ICON_BTNLEFT)
-            //                        .frame(width: 24,height: 24)
-            //                })
-            //            }
-            //            .hiNavToolBar {
-            //                HiNavToolbarGroupItem {
-            //                    Button(action: {
-            //                        vm.actionHeaderRight()
-            //                    }, label: {
-            //                        HiImage(named: vm.HEADER_ICON_BTNRIGHT)
-            //                            .frame(width: 24,height: 24)
-            //                    })
-            //                }
-            //            }
+            .hiNavTitle("Mô hình mạng")
         }.background(Color.white)
-
     }
     func btnDeviceInfor(index: Int, deviceCount: Int,userDevice: UserDevice) -> some View {
         Button(action: {
@@ -118,29 +114,24 @@ struct DeviceNormalView: View {
                     Spacer()
                     Image("arrow-down-sign-to-navigate")
                     
-                }.padding(.top,20).padding(.bottom,index == deviceCount - 1 ? 0 : 20)
+                }.padding(.top, index == 0 ? 0 :20).padding(.bottom,index == deviceCount - 1 ? 0 : 20)
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(Color(hex: (index == deviceCount - 1) ? "#FFFFFF" :  "#E7E7E7"))
-                    
+                
             }
         }
     }
-    func ListDevice(index:Int, deviceList: ListDeviceConnect) -> some View {
+    func ListDevice(deviceList: [UserDevice]) -> some View {
         VStack(alignment: .leading,spacing: 0) {
-            Text("\(deviceList.title) (\(deviceList.listDevices.count))")
-                .font(.system(size: 16))
-                .fontWeight(.medium)
-                .padding(0)
-            if deviceList.listDevices.isEmpty{
-                Text("Không có thiết bị kết nối")
-                    .fontWeight(.regular)
+            if(deviceList.isEmpty){
+                Text("Không tìm thấy thiết bị trên")
                     .font(.system(size: 16))
-                    .foregroundColor(Color(hex:"#888888"))
-                    .padding(.top,20)
+                    .foregroundColor(Color(hex:"#7D7D7D"))
+                    .fontWeight(.regular)
             }else{
-                ForEach(Array(deviceList.listDevices.enumerated()), id : \.element ) { index, userDevice in
-                    btnDeviceInfor(index: index, deviceCount:deviceList.listDevices.count  , userDevice: userDevice)
+                ForEach(Array(deviceList.enumerated()), id: \.offset ) { index, userDevice in
+                    btnDeviceInfor(index: index, deviceCount:deviceList.count  , userDevice: userDevice)
                 }
             }
         }
@@ -172,6 +163,24 @@ struct DeviceNormalView: View {
                 )
             }
         }.frame(maxWidth: .infinity,alignment: .topLeading)
+    }
+    func searchDevice ()-> some View {
+        HStack(spacing:0) {
+            Image("search")
+                .padding(.leading, 16)
+                .padding(.vertical,12)
+            
+            TextField("Nhập tên hoặc MAC thiết bị", text: $vm.searchtextbb)
+                .font(.system(size: 16))
+                .padding(.horizontal, CGFloat.Regular)
+                .padding(.vertical, CGFloat.Small)
+                .background(Color.white)
+                .cornerRadius(8)
+            
+            
+        }
+        .background(Color.white) // Màu nền của TextField
+        .cornerRadius(8) // Bo góc cho TextField
     }
 }
 

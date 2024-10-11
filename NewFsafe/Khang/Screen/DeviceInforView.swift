@@ -71,17 +71,78 @@ struct DeviceInforView: View{
                                 .padding(16)
                                 .background(Color.white)
                                 .cornerRadius(8)
-                            
+                            accessManager()
                         }
                     }
-                }.padding(.top,16).padding(.horizontal,16)
-                    .background(Color(hex: "#F5F5F5"))
+                }
+                .padding(.top,16)
+                .padding(.horizontal,16)
+                .background(Color(hex: "#F5F5F5"))
                 Spacer()
-            }.frame(maxWidth: .infinity, alignment: .top)
-//                .ignoresSafeArea(edges: .bottom)
-                .hiNavTitle("Thông tin thiết bị")
+            }
+            .frame(maxWidth: .infinity, alignment: .top)
+            .hiNavTitle("Thông tin thiết bị")
         }
     }
+    func accessManager ()-> some View{
+        VStack(spacing:24){
+            HStack(alignment: .top){
+                Text("Quản lý truy cập")
+                    .fontWeight(.medium)
+                    .font(.system(size: 16))
+                    .foregroundColor(Color.hiPrimaryText)
+                Spacer()
+            }
+            VStack(spacing:0) {
+                HStack(spacing:16) {
+                    Image("shield-tick")
+                        .resizable()
+                        .frame(width: 24.0, height: 24.0)
+                    VStack(alignment: .leading,spacing: 8) {
+                        Text("Chặn nội dung độc hại")
+                            .font(.system(size: 16))
+                            .foregroundColor(Color(hex: "#3D3D3D"))
+                            .fontWeight(.medium)
+                        Text("Chưa chặn")
+                            .fontWeight(.regular)
+                            .font(.system(size: 16))
+                            .foregroundColor(Color(hex:"#888888"))
+                    }
+                    Spacer()
+                    Image("arrow-down-sign-to-navigate")
+                    
+                }.padding(.top, 0).padding(.bottom, 16)
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(Color(hex:"#E7E7E7"))
+                
+                HStack(spacing:16) {
+                    Image("security-time")
+                        .resizable()
+                        .frame(width: 24.0, height: 24.0)
+                    VStack(alignment: .leading,spacing: 8) {
+                        Text("Thời gian chặn truy cập")
+                            .font(.system(size: 16))
+                            .foregroundColor(Color(hex: "#3D3D3D"))
+                            .fontWeight(.medium)
+                        Text("Chưa chặn")
+                            .fontWeight(.regular)
+                            .font(.system(size: 16))
+                            .foregroundColor(Color(hex:"#888888"))
+                    }
+                    Spacer()
+                    Image("arrow-down-sign-to-navigate")
+                    
+                }.padding(.top, 16).padding(.bottom,0)
+              
+                
+            }
+        }.frame(maxWidth: .infinity)
+            .padding(16)
+            .background(Color.white)
+            .cornerRadius(8)
+    }
+    
     func showDeviceInfo() ->some View{
         ForEach(vm.listDetail, id:\.id){item in
             if(!item.value.isEmpty){
@@ -89,12 +150,18 @@ struct DeviceInforView: View{
                     .frame(height: 1)
                     .foregroundColor(Color(hex: "#E7E7E7"))
                 HStack{
-                    Text("\(item.title)").fontWeight(.regular).font(.system(size: 14)).foregroundColor(Color.hiSecondaryText)
+                    Text("\(item.title)")
+                        .fontWeight(.regular)
+                        .font(.system(size: 14))
+                        .foregroundColor(Color.hiSecondaryText)
                     Spacer()
-                    Text(item.value).fontWeight(.medium)
+                    Text(item.value)
+                        .fontWeight(.medium)
                         .font(.system(size: 14))
                         .foregroundColor(Color.hiPrimaryText)
-                }.padding(.top,16).padding(.bottom,item.id == vm.listDetail.last?.id ? 0 : 16)
+                }
+                .padding(.top,16)
+                .padding(.bottom,item.id == vm.listDetail.last?.id ? 0 : 16)
             }
         }
     }
