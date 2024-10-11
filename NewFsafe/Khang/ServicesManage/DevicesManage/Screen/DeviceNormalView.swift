@@ -89,7 +89,11 @@ struct DeviceNormalView: View {
             .frame(maxWidth: .infinity, alignment: .top)
             .edgesIgnoringSafeArea(.all)
             .hiNavTitle("Mô hình mạng")
+            
         }.background(Color.white)
+            .onTapGesture {
+                hideKeyboard()
+            }
     }
     func btnDeviceInfor(index: Int, deviceCount: Int,userDevice: UserDevice) -> some View {
         Button(action: {
@@ -167,7 +171,6 @@ struct DeviceNormalView: View {
     func searchDevice ()-> some View {
         HStack(spacing:0) {
             Image("search")
-                .padding(.leading, 16)
                 .padding(.vertical,12)
             
             TextField("Nhập tên hoặc MAC thiết bị", text: $vm.searchtextbb)
@@ -176,11 +179,19 @@ struct DeviceNormalView: View {
                 .padding(.vertical, CGFloat.Small)
                 .background(Color.white)
                 .cornerRadius(8)
-            
-            
+            if !vm.searchtextbb.isEmpty {
+                Button {
+                    vm.searchtextbb = ""
+                }label: {
+                    Image(systemName: "multiply.circle.fill")
+                        .foregroundColor(Color(hex:"#CBCBCB"))
+                }
+            }
         }
+        .padding(.horizontal,12)
         .background(Color.white) // Màu nền của TextField
         .cornerRadius(8) // Bo góc cho TextField
+        
     }
 }
 

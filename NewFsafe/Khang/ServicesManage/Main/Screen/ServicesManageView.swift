@@ -9,15 +9,15 @@ import SwiftUI
 import UIKit
 import HiThemes
 
-class ServiceManagerVC : BaseViewController {
+class ServiceManageVC : BaseViewController {
     var vm : ServicesManagerViewModel = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let view = ServiceManagerView(vm:vm)
+        let view = ServiceManageView(vm:vm)
         self.addSwiftUIViewAsChildVC(view:  view)
     }
 }
-struct ServiceManagerView: View {
+struct ServiceManageView: View {
     @State private var selectedTab : ServiceTab = .internet
     @State private var isShowPopup = false
     @ObservedObject var vm = ServicesManagerViewModel()

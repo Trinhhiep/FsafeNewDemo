@@ -54,7 +54,7 @@ class UserDeviceViewModel: ObservableObject {
             return filteredDevices
         }else{
             return  filteredDevices.filter{
-                $0.deviceName.localizedCaseInsensitiveContains(searchtextbb)
+                $0.deviceName.localizedCaseInsensitiveContains(searchtextbb) || $0.macDevice.localizedCaseInsensitiveContains(searchtextbb)
             }
         }
         

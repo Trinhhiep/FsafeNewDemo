@@ -16,7 +16,7 @@ struct Constant {
           {
             "deviceName": "Unknow1",
             "icon": "unknown",
-            "macDevice": "25-52-52-AC-56",
+            "macDevice": "H2-78-98-AC-56",
             "ipAddress": "192.168.1.3",
             "accessTime": "22:00, 07/05/2024",
             "status": "connecting",
