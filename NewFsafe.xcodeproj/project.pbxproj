@@ -49,8 +49,9 @@
 		78D9E2472CB76B7D005ED055 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D9E2462CB76B2A005ED055 /* ServiceManager.swift */; };
 		78D9E2492CB76BE2005ED055 /* ServiceManagerAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D9E2482CB76BCE005ED055 /* ServiceManagerAPIService.swift */; };
 		78DA71CF2CB90AD600B55507 /* ModemManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA71CE2CB90AD600B55507 /* ModemManageView.swift */; };
-		78DA71D12CB90B4E00B55507 /* ModemManageViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA71D02CB90B4E00B55507 /* ModemManageViewModels.swift */; };
+		78DA71D12CB90B4E00B55507 /* ModemManageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA71D02CB90B4E00B55507 /* ModemManageViewModel.swift */; };
 		78DA71D32CB90B7300B55507 /* ModemManageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA71D22CB90B7300B55507 /* ModemManageModel.swift */; };
+		78F7CAE42CBCD6F4002951BF /* RestartScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7CAE32CBCD6F4002951BF /* RestartScheduleView.swift */; };
 		7B2D71AC2CB51BA2D66B4F21 /* Pods_NewFsafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E093A9EB9EA62302CEFBC9D6 /* Pods_NewFsafe.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,8 +101,9 @@
 		78D9E2462CB76B2A005ED055 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		78D9E2482CB76BCE005ED055 /* ServiceManagerAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerAPIService.swift; sourceTree = "<group>"; };
 		78DA71CE2CB90AD600B55507 /* ModemManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModemManageView.swift; sourceTree = "<group>"; };
-		78DA71D02CB90B4E00B55507 /* ModemManageViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModemManageViewModels.swift; sourceTree = "<group>"; };
+		78DA71D02CB90B4E00B55507 /* ModemManageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModemManageViewModel.swift; sourceTree = "<group>"; };
 		78DA71D22CB90B7300B55507 /* ModemManageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModemManageModel.swift; sourceTree = "<group>"; };
+		78F7CAE32CBCD6F4002951BF /* RestartScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartScheduleView.swift; sourceTree = "<group>"; };
 		E093A9EB9EA62302CEFBC9D6 /* Pods_NewFsafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFsafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F122FCBF0AAFB6DA18A391D7 /* Pods-NewFsafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFsafe.release.xcconfig"; path = "Target Support Files/Pods-NewFsafe/Pods-NewFsafe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -455,7 +457,7 @@
 		78DA71CC2CB90A9100B55507 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				78DA71D02CB90B4E00B55507 /* ModemManageViewModels.swift */,
+				78DA71D02CB90B4E00B55507 /* ModemManageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -464,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				78DA71CE2CB90AD600B55507 /* ModemManageView.swift */,
+				78F7CAE32CBCD6F4002951BF /* RestartScheduleView.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -605,7 +608,7 @@
 				495503282C13030100B2037F /* ListWebsiteModel.swift in Sources */,
 				0418D02E2CAF990D0087160E /* ContractDetailsView.swift in Sources */,
 				491244A52C09816A006D2695 /* Extension+Main.swift in Sources */,
-				78DA71D12CB90B4E00B55507 /* ModemManageViewModels.swift in Sources */,
+				78DA71D12CB90B4E00B55507 /* ModemManageViewModel.swift in Sources */,
 				4936ED7B2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift in Sources */,
 				78DA71CF2CB90AD600B55507 /* ModemManageView.swift in Sources */,
 				491244A82C09823F006D2695 /* HomeFSafeVM.swift in Sources */,
@@ -632,6 +635,7 @@
 				4955032E2C169F4C00B2037F /* Scrollview.swift in Sources */,
 				4955030B2C11911600B2037F /* ListWebsiteTableview.swift in Sources */,
 				4936ED7D2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift in Sources */,
+				78F7CAE42CBCD6F4002951BF /* RestartScheduleView.swift in Sources */,
 				78D9E2472CB76B7D005ED055 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
