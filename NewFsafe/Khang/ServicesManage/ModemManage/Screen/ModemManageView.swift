@@ -17,26 +17,30 @@ class ModemManageVC : BaseViewController {
         vm.navigateToRestartSchedule = {
             self.navigateToRestartSchedule()
         }
+        vm.navigateToPrivacySetting = {
+            self.navigateToPrivacySetting()
+        }
     }
     func navigateToRestartSchedule(){
-        ServiceManager.shared.pushToRestartSchedule(vc: self )
+        ServiceManager.shared.navigateToRestartSchedule(vc: self )
     }
-   
+    func navigateToPrivacySetting(){
+        ServiceManager.shared.navigateToPrivacySetting(vc: self )
+    }
 }
-
 struct ModemManageView: View {
     @ObservedObject var vm : ModemManageViewModel
     var body: some View {
         HiNavigationView{
             VStack(spacing:16){
-                VStack(spacing: 24){
+                VStack(spacing: 16){
                     HStack{
                         Text("Modem: AC1000Hi")
                             .font(.system(size: 16, weight: .medium))
                             .foregroundColor(Color.hiPrimaryText)
                         Spacer()
                         Button(action:{
-                            
+                        // action reload
                         }){
                             Image("refresh")
                                 .resizable()
@@ -46,10 +50,11 @@ struct ModemManageView: View {
                         .padding(.horizontal,12)
                         .hiBackground(radius: 40, color: Color.hiPrimary)
                     }
-                    Image("\(vm.modemManageModel.imgUrl == "" ? vm.modemManageModel.imgUrl  :  "Broadband-Modem-PNG-File 1")")
-                        .resizable()
-                        .frame(width: 130,height: 104)
-                    if true {
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundColor(Color(hex:"#E7E7E7"))
+                    if !vm.modemManageModel.modemDetails.isEmpty {
+                        
                         modemDetailsView()
                     }else{
                         lostConectedView()
@@ -57,8 +62,27 @@ struct ModemManageView: View {
                 }
                 .padding(16)
                 .hiBackground(radius: 8, color: Color.white)
-                if true {
+                if !vm.modemManageModel.modemDetails.isEmpty {
                     restartSchedule()
+                    HStack(spacing: 16){
+                        HStack(spacing:16){
+                           Text("Quản lý Wi-Fi")
+                                .font(.system(size: 16,weight: .medium))
+                            Spacer()
+                            Image("wifi")
+                        }
+                        .padding(16)
+                        .hiBackground(radius: 8, color: Color.white)
+                        HStack(spacing:16){
+                            Text("Quản lý kết nối")
+                                .font(.system(size: 16,weight: .medium))
+                            Spacer()
+                            Image("devices")
+                        }
+                        .padding(16)
+                        .hiBackground(radius: 8, color: Color.white)
+                    }
+                   
                 }
                 Spacer()
             }
@@ -66,22 +90,25 @@ struct ModemManageView: View {
             .frame(maxWidth: .infinity)
             .padding(.horizontal,16)
             .padding(.top,16)
+            .hiNavToolBar {
+                HiNavToolbarGroupItem {
+                    Button(action: {
+                        vm.navigateToPrivacySetting!()
+                    }, label: {
+                        HiImage(named: "setting")
+                            .frame(width: 24,height: 24)
+                    })
+                   
+                }
+            }
         }
         .background(Color.white)
+        
     }
     func modemDetailsView() -> some View {
-        VStack(spacing: 24){
-            Rectangle()
-                .frame(height: 1)
-                .foregroundColor(Color(hex:"#E7E7E7"))
-            VStack(spacing: 16){
-                HStack{
-                    Text("Thông tin")
-                        .foregroundColor(Color.hiPrimaryText)
-                        .font(.system(size: 16, weight: .medium))
-                    Spacer()
-                }
-                ForEach(vm.modemManageModel.modemDetails, id: \.id){ modemDetail in
+        VStack(spacing: 16){
+            ForEach(vm.modemManageModel.modemDetails, id: \.id){ modemDetail in
+                if !modemDetail.value.isEmpty {
                     HStack{
                         Text("\(modemDetail.title)")
                             .foregroundColor(Color(hex:"#7D7D7D"))
@@ -92,14 +119,11 @@ struct ModemManageView: View {
                             .font(.system(size: 16, weight: .medium))
                     }
                 }
-                
-                
             }
-            
         }
     }
     func lostConectedView() -> some View {
-        VStack(spacing: 24){
+        VStack(spacing: 16){
             HStack(spacing: CGFloat.Regular){
                 Image("Wifi_Problem")
                     .frame(width: 24,height: 24)
@@ -108,7 +132,7 @@ struct ModemManageView: View {
                     .foregroundColor(Color.hiPrimaryText)
             }
             Button(action:{
-                
+                // Action tạo yêu cầu hỗ trợ
             }){
                 Text("Tạo yêu cầu hỗ trợ")
                     .frame(maxWidth: .infinity, alignment: .top)

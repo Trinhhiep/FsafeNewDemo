@@ -15,7 +15,14 @@ class RestartScheduleVC : BaseViewController {
         super.viewDidLoad()
         let view = RestartScheduleView(vm:vm)
         self.addSwiftUIViewAsChildVC(view:  view)
+        vm.navigateToRestartSetting = {
+            self.navigateToRestartSetting()
+        }
     }
+    func navigateToRestartSetting(){
+        ServiceManager.shared.navigateToRestartSetting(vc: self )
+    }
+    
 }
 
 struct RestartScheduleView: View {
@@ -37,25 +44,24 @@ struct RestartScheduleView: View {
             
         }.hiFooter{
             HiFooter(primaryTitle: "Thêm khung giờ"){
-                // action thêm thời gian
+                vm.navigateToRestartSetting!()
             }
         }
     }
     func TimePickerView (timePicker:TimePickerModel)-> some View {
             HStack{
-                var  isOn : Bool = timePicker.status
                 VStack(alignment:.leading,spacing: 8){
                     Text("\(timePicker.time)")
                         .font(.system(size: 16,weight: .medium))
                     Text("Ngày Lặp lại: ")
                         .font(.system(size: 16,weight: .regular))
                         .foregroundColor(Color(hex:"#7D7D7D"))
-                    + Text("Hằng ngày")
+                    + Text("\(vm.repeatDay(timePicker.dayInWeek))")
                         .font(.system(size: 16,weight: .medium))
                         .foregroundColor(Color(hex:"#464646"))
                 }
                 Spacer()
-                Toggle(isOn: Binding(get:{isOn}, set: {_ in
+                Toggle(isOn: Binding(get:{timePicker.status}, set: {_ in
                     vm.toggleTimePicker(timePicker.id)
                 }), label: {})
                     .hiToggleStyle(size: .init(width: 48, height: 28),onColor: Color(hex:"#2569FF"),offColor: Color(hex:"#D8D8D8"),thumbColorOn: .white,thumbColorOff: .white)

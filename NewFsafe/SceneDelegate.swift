@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
 //        let navigationController = UINavigationController(rootViewController: FsafeSuggestRegisterVC(vm : .init()))
-        let navigationController = UINavigationController(rootViewController: ModemManageVC())
+        let navigationController = UINavigationController(rootViewController: ServiceManageVC())
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window

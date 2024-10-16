@@ -46,6 +46,8 @@
 		495503382C1FF0A300B2037F /* ManageDangerousWebsiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503372C1FF0A300B2037F /* ManageDangerousWebsiteVM.swift */; };
 		4955033A2C1FF0E800B2037F /* ManageViolatesWebsiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503392C1FF0E800B2037F /* ManageViolatesWebsiteVM.swift */; };
 		49B2379C2C5CD0D600C93EC8 /* ListAddressScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2379B2C5CD0D600C93EC8 /* ListAddressScreen.swift */; };
+		7884B9052CBDFCA900E99167 /* RestartSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884B9042CBDFCA900E99167 /* RestartSettingView.swift */; };
+		7884B9072CBE5D0500E99167 /* PrivacySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884B9062CBE5D0500E99167 /* PrivacySettingView.swift */; };
 		78D9E2472CB76B7D005ED055 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D9E2462CB76B2A005ED055 /* ServiceManager.swift */; };
 		78D9E2492CB76BE2005ED055 /* ServiceManagerAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D9E2482CB76BCE005ED055 /* ServiceManagerAPIService.swift */; };
 		78DA71CF2CB90AD600B55507 /* ModemManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA71CE2CB90AD600B55507 /* ModemManageView.swift */; };
@@ -98,6 +100,8 @@
 		495503392C1FF0E800B2037F /* ManageViolatesWebsiteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageViolatesWebsiteVM.swift; sourceTree = "<group>"; };
 		49B2379B2C5CD0D600C93EC8 /* ListAddressScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAddressScreen.swift; sourceTree = "<group>"; };
 		5CF8AFABEE1D3C7A4CD68E4A /* Pods-NewFsafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFsafe.debug.xcconfig"; path = "Target Support Files/Pods-NewFsafe/Pods-NewFsafe.debug.xcconfig"; sourceTree = "<group>"; };
+		7884B9042CBDFCA900E99167 /* RestartSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartSettingView.swift; sourceTree = "<group>"; };
+		7884B9062CBE5D0500E99167 /* PrivacySettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySettingView.swift; sourceTree = "<group>"; };
 		78D9E2462CB76B2A005ED055 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		78D9E2482CB76BCE005ED055 /* ServiceManagerAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerAPIService.swift; sourceTree = "<group>"; };
 		78DA71CE2CB90AD600B55507 /* ModemManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModemManageView.swift; sourceTree = "<group>"; };
@@ -467,6 +471,8 @@
 			children = (
 				78DA71CE2CB90AD600B55507 /* ModemManageView.swift */,
 				78F7CAE32CBCD6F4002951BF /* RestartScheduleView.swift */,
+				7884B9042CBDFCA900E99167 /* RestartSettingView.swift */,
+				7884B9062CBE5D0500E99167 /* PrivacySettingView.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -603,6 +609,7 @@
 				0454A5892CABD4F100879926 /* DeviceInforViewModel.swift in Sources */,
 				0454A57C2CAB8E6600879926 /* UserDeviceModel.swift in Sources */,
 				495503262C12B4E900B2037F /* FSafeEmptyView.swift in Sources */,
+				7884B9072CBE5D0500E99167 /* PrivacySettingView.swift in Sources */,
 				78DA71D32CB90B7300B55507 /* ModemManageModel.swift in Sources */,
 				4912448B2C097FD0006D2695 /* AppDelegate.swift in Sources */,
 				495503282C13030100B2037F /* ListWebsiteModel.swift in Sources */,
@@ -615,6 +622,7 @@
 				495503342C183F9300B2037F /* FsafeSuggestRegisterScreen.swift in Sources */,
 				04C65EBB2CAE39ED004C4FF1 /* ServiesManagerViewModel.swift in Sources */,
 				4936ED712C09BBBD0046E9E6 /* ItemFeatureFSafe.swift in Sources */,
+				7884B9052CBDFCA900E99167 /* RestartSettingView.swift in Sources */,
 				044548FC2CB3E7FD00BCED5E /* View+.swift in Sources */,
 				4936ED742C09C1CE0046E9E6 /* FSafeManagers.swift in Sources */,
 				040DB5062CB4CC5E00828176 /* DeviceInforView.swift in Sources */,

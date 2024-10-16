@@ -13,12 +13,12 @@ struct PopUpFSafe: View {
         VStack(spacing: 0){
             VStack(spacing:16){
                 
-                Text("Sau khi đăng ký thành công. vui lòng")
+                Text("Sau khi đăng ký thành công, Quý khách vui lòng Khởi động lại Modem")
                     .font(.system(size: 16))
-                + Text(" Khởi động lại modem sau 10 phút " )
+                + Text(" sau 10 phút " )
                     .fontWeight(.medium )
                     .font(.system(size: 16))
-                + Text("để hoàn tất việc kích hoạt.")
+                + Text("phút để hoàn tất việc kích hoạt. F-Safe sau khi kích hoạt có thể quản lý tại ứng dụng Hi FPT.")
                     .font(.system(size: 16))
                 
                 SupportView()
@@ -28,7 +28,7 @@ struct PopUpFSafe: View {
             VStack{
                 Button(action:{
                 }){
-                    Text("Khởi động lại")
+                    Text("Khởi động lại Modem")
                         .font(.system(size: 16))
                         .fontWeight(.medium)
                 }
@@ -52,7 +52,7 @@ struct SupportView: View {
     var body: some View {
         VStack{
             HiAttributedText(
-                getFullString() as! NSMutableAttributedString
+                getFullString()
                 ,
                 completion: { textView in
                     textView.isSelectable = false
@@ -83,7 +83,7 @@ struct SupportView: View {
         .padding(12)
         .hiBackground(radius: CGFloat.Small, color: Color(hex:"#F5F5F5"))
     }
-    func getFullString() -> NSAttributedString {
+    func getFullString() -> NSMutableAttributedString {
         let fullString = NSMutableAttributedString(string: "Trong trường hợp chưa sử dụng dịch vụ, vui lòng liên hệ hỗ trợ thông qua phần Hỗ trợ  trong ứng dụng hoặc Tổng đài 1900 6600.",attributes: [.font: UIFont.systemFont(ofSize: 14)])
         
         let hightlightAttributes: [NSAttributedString.Key: Any] = [

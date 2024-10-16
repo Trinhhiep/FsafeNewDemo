@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import HiThemes
 
 struct ServicesBoxView: View {
+    @ObservedObject var vm: ServicesManagerViewModel
     var screenWidth : CGFloat = UIScreen.main.bounds.width
     var column  : Int = 3
     var title : String = ""
@@ -37,7 +39,9 @@ struct ServicesBoxView: View {
                     if index > (service.count - 1){
                         
                     }else{
-                        Button(action:{}){
+                        Button(action:{
+                            vm.actionServiceBox(service[index].actionName)
+                        }){
                             VStack(spacing: 12){
                                 NotificationIcon(service[index])
                                 Text("\(service[index].serviceName)")
@@ -59,16 +63,17 @@ struct ServicesBoxView: View {
         }
     }
     func NotificationIcon (_ service: ServiceDetail) -> some View {
-        ZStack(alignment: .topTrailing){
+        let notification: String = service.notification
+        return ZStack(alignment: .topTrailing){
             HStack {
                 Image("\(service.icon)")
                     .resizable()
                     .frame(width:24, height: 24)
                     .padding(EdgeInsets(top: 6, leading: 6, bottom: 0, trailing: 6))
             }
-            if(service.notification != 0){
+            if(notification != ""){
                 HStack{
-                    Text("\(service.notification)")
+                    Text("\(formatNotification(notification))")
                         .foregroundColor(Color.white)
                         .font(.system(size: 10))
                     
@@ -78,6 +83,14 @@ struct ServicesBoxView: View {
             }
             
         }.frame(width:36, height: 36)
+    }
+    func formatNotification(_ notification: String)->String {
+        if let notificationInt = Int(notification){
+            if notificationInt > 90 {
+                return "9+"
+            }
+        }
+        return notification
     }
 }
 

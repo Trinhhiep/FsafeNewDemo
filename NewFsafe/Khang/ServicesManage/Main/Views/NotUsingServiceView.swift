@@ -14,13 +14,14 @@ struct NotUsingServiceView: View {
     var des: String
     var body: some View {
         VStack(spacing: CGFloat.Medium){
-            Image("\(icon)").resizable().frame(width: 160, height: 160)
+            Image("\(icon)").resizable().frame(width: 260, height: 260)
             VStack(spacing: CGFloat.Semi_Regular){
                 Text("\(title)")
-                    .font(.system(size: 16))
-                    .foregroundColor(Color(hex: "#464646")).fontWeight(.medium)
+                    .font(.system(size: 20))
+                    .foregroundColor(Color(hex: "#2569FF")).fontWeight(.bold)
+                    .multilineTextAlignment(.center)
                 Text("\(des)")
-                    .foregroundColor(Color(hex: "#7D7D7D"))
+                    .foregroundColor(Color(hex: "#464646"))
                     .font(.system(size: 14))
                     .multilineTextAlignment(.center)
             }
@@ -35,7 +36,7 @@ struct NotUsingServiceView: View {
             .frame(minWidth: 200, minHeight: 32)
             .padding(.vertical,8)
             .padding(.horizontal,12)
-            .hiBackground(radius: 8, color: Color.hiPrimary)
+            .hiBackground(radius: 40, color: Color.hiPrimary)
             .foregroundColor(Color.white)
         }
         .frame(width: 300)
@@ -45,5 +46,5 @@ struct NotUsingServiceView: View {
 }
 
 #Preview {
-    NotUsingServiceView(icon: "internet_service", title: "Bạn chưa sử dụng dịch vụ Internet", des: "Đăng ký để sử dụng băng thông Internet không giới hạn.")
+    NotUsingServiceView(icon: "internet_service", title: "Dịch vụ Internet hàng đầu Việt Nam", des: "Đăng ký để sử dụng băng thông Internet không giới hạn.")
 }

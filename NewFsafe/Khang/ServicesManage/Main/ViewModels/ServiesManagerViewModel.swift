@@ -14,10 +14,13 @@ import SwiftyJSON
 
 class ServicesManagerViewModel: ObservableObject {
     @Published var tab : [Tab]
-    @Published var servicesManagerModel: ServicesManagerModel?
+    @Published var internetServiceModel: InternetServiceModel?
     @Published var TVModel: TVServiceModel?
     @Published var camModel: CameraServiceModel?
     @Published var usingServiceModel: ServiceUsingModel?
+    
+    var navigateToModemManage: (() -> Void)?
+    var navigateToDeviceNormal: (() -> Void)?
     
     
     init() {
@@ -37,9 +40,9 @@ class ServicesManagerViewModel: ObservableObject {
         convertJsonToModel( Constant.TVBoxServices, { jsonObject in
             self.TVModel = TVServiceModel.init(json: jsonObject)
         })
-
+        
         convertJsonToModel( Constant.internetServices, { jsonObject in
-            self.servicesManagerModel = ServicesManagerModel.init(json: jsonObject)
+            self.internetServiceModel = InternetServiceModel.init(json: jsonObject)
         })
         
         convertJsonToModel(Constant.CameraServices, {jsonObject in
@@ -58,11 +61,19 @@ class ServicesManagerViewModel: ObservableObject {
             cb(jsonObject)
         }
     }
+    func actionServiceBox(_ serviceName: ServicesAction) {
+        switch serviceName {
+        case .modemmanage:
+            navigateToModemManage?()
+        case .devicemanage:
+            navigateToDeviceNormal?()
+        default:
+            print(serviceName)
+        }
+        
+    }
     
     
 }
-
-
-
 
 

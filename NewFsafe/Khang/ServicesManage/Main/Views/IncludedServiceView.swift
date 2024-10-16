@@ -20,7 +20,7 @@ struct IncludedServiceView: View {
                     .fontWeight(.medium)
                     .font(.system(size: 18))
                 VStack(spacing:CGFloat.Semi_Regular) {
-                    ForEach(includedServices,id:\.id){ includedService in
+                    ForEach(includedServices, id: \.id){ includedService in
                         HStack(spacing:CGFloat.Regular) {
                             Image("\(includedService.icon)")
                                 .resizable()

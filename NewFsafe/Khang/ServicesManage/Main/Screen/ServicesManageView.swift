@@ -15,6 +15,12 @@ class ServiceManageVC : BaseViewController {
         super.viewDidLoad()
         let view = ServiceManageView(vm:vm)
         self.addSwiftUIViewAsChildVC(view:  view)
+        vm.navigateToModemManage = {
+            ServiceManager.shared.navigateToModemManage(vc: self)
+        }
+        vm.navigateToDeviceNormal = {
+            ServiceManager.shared.navigateToDeviceNormal(vc: self)
+        }
     }
 }
 struct ServiceManageView: View {
@@ -52,15 +58,24 @@ struct ServiceManageView: View {
                     })
                 }
             }
+            .hiFooter{
+                if selectedTab == .tv {
+                    return HiFooter(primaryTitle: "Mua gói FPT Play"){
+                        
+                    }
+                }else if selectedTab == .camera{
+                    return HiFooter(primaryTitle: "Gia hạn gói Cloud"){
+                    }
+                }else{
+                    return nil
+                }
+            }
         }
         .background(Color.white)
         .hiBottomSheet(isShow: .constant(isShowPopup), title: "Hướng dẫn kích hoạt F-Safe Home") {
             PopUpFSafe()
         }
-        
-        
     }
-    
     
     func tabBar ()-> some View {
         ScrollView(.horizontal,showsIndicators: false){
@@ -90,73 +105,66 @@ struct ServiceManageView: View {
     }
     @ViewBuilder
     func createTVServiceManagerView()-> some View{
-        let data = vm.TVModel
-        isHidden(condition: false,
-                 isTrue: {
+        if let data = vm.TVModel{
             VStack(spacing: 24) {
-                ContractDetailsView(data: data!.contractDetails)
-                ServicesBoxView(title: "TV Box", internetServices: data!.tVBoxServices)
-                ServicesBoxView(title: "Lịch phát sóng", internetServices: data!.broadcastSchedule)
+                ContractDetailsView(data: data.contractDetails)
+                ServicesBoxView(vm:vm ,title: "TV Box", internetServices: data.tVBoxServices)
+                ServicesBoxView(vm:vm,title: "Lịch phát sóng", internetServices: data.broadcastSchedule)
             }
             .padding(.horizontal,16)
             .padding(.top,16)
-        },
-                 isFalse:{
+        }else{
             NotUsingServiceView(icon: "box_service",
-                                title:"Bạn chưa sử dụng dịch vụ Truyền hình",
-                                des:"Đăng ký để trải nghiệm chương trình giải trí không giới hạn")
-        })
+                                title:"Giải trí không giới hạn",
+                                des:"Truyền hình trực tuyến không giới hạn trên mọi nền tảng")
+        }
     }
     @ViewBuilder
     func createInternetServiceManagerView() -> some View {
-        let data = vm.servicesManagerModel
-        isHidden(condition: data?.internetServices == nil,
-                 isTrue: {
+        if let data = vm.internetServiceModel {
             VStack(spacing: 12) {
-                ContractDetailsView(data: (data?.contractDetails)!)
-                ServicesBoxView(internetServices: (data?.internetServices)!)
-                IncludedServiceView(includedServices: (data?.includedServices)!)
+                ContractDetailsView(data: (data.contractDetails))
+                ServicesBoxView(vm:vm,internetServices: (data.internetServices))
+                IncludedServiceView(includedServices: (data.includedServices))
             }
             .padding(.horizontal,16)
             .padding(.top,16)
-        },
-                 isFalse:{
+        } else{
             NotUsingServiceView(icon: "internet_service",
-                                title:"Bạn chưa sử dụng dịch vụ Internet",
-                                des:"Đăng ký để trải nghiệm băng thông Internet không giới hạn")
-        })
-    }
-    
-    func createServiceUsingManagerView() -> some View {
-        let data = vm.usingServiceModel
-        return VStack(spacing: 24) {
-            IncludedServiceView(includedServices: data!.includedServices, title:data!.title)
+                                title:"Dịch vụ Internet hàng đầu Việt Nam",
+                                des:"Wi-Fi xuyên tường, lắp trong ngày, chăm sóc trọn đời, vô vàn ưu đãi.")
         }
-        .padding(.horizontal,16)
-        .padding(.top,16)
+    }
+    @ViewBuilder
+    func createServiceUsingManagerView() -> some View {
+        if let data = vm.usingServiceModel {
+            VStack(spacing: 24) {
+               IncludedServiceView(includedServices: data.includedServices, title:data.title)
+           }
+           .padding(.horizontal,16)
+           .padding(.top,16)
+        }
     }
     @ViewBuilder
     func createCameraServiceManagerView() -> some View {
-        let data = vm.camModel
-        isHidden(condition: (data?.cameraArea.isEmpty)!,
-                 isTrue: {
+        if let data = vm.camModel {
             VStack(spacing: 24) {
-                ContractDetailsView(data: data!.contractDetails)
-                ForEach(data!.cameraArea, id:\.id){camera in
-                    ServicesBoxView(title:"\(camera.title) (\(camera.cameras.count))",internetServices: camera.cameras)
+                ContractDetailsView(data: data.contractDetails)
+                ForEach(data.cameraArea, id:\.id){camera in
+                    ServicesBoxView(vm:vm, title:"\(camera.title) (\(camera.cameras.count))",internetServices: camera.cameras)
                 }
             }
             .padding(.horizontal,16)
             .padding(.top,16)
-        },
-                 isFalse:{
+        }else{
+       
             NotUsingServiceView(icon: "camera_service",
-                                title:"Bạn chưa sử dụng dịch vụ Camera",
-                                des:"Sở hữu camera an ninh để giám sát và bảo vệ gia đình bạn 24/7")
-        })
+                                title:"Số 1 Cloud Camera tại Việt Nam",
+                                des:"Siêu ưu đãi khi lắp đặt cùng Internet FPT")
+        }
     }
 }
 
-//#Preview {
-//    ServiceManagerView()
-//}
+#Preview {
+    ServiceManageView()
+}

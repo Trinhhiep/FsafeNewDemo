@@ -8,9 +8,6 @@
 import Foundation
 
 struct Constant {
-    static  var devices1 : String = """
-{ }
-"""
     static  var devices : String = """
     [
           {
@@ -103,47 +100,56 @@ struct Constant {
         "contractDetails": {
           "contractCode": "SGN029418",
           "internetName": "Giga",
-          "internetSpeed": 150
+          "internetSpeed": "150"
         },
-        "internetServicesnn": [
+        "internetServices": [
           {
             "id": 1,
-            "serviceName": "Quản lý Wi-Fi",
-            "icon": "wifi",
-            "notification": 0
+            "serviceName": "Quản lý Modem",
+            "actionName": "modemmanage",
+            "icon": "Wi-Fi Router Round",
+            "notification": "29"
           },
           {
             "id": 2,
-            "serviceName": "Quản lý truy cập",
-            "icon": "devices",
-            "notification": 9
+            "serviceName": "Quản lý Wi-Fi",
+            "actionName": "wifimanage",
+            "icon": "wifi",
+            "notification": "999"
           },
-          {
-            "id": 3,
-            "serviceName": "Bảo vệ trẻ em",
-            "icon": "shield-minus",
-            "notification": 2
-          },
-          {
-            "id": 4,
-            "serviceName": "Mô hình mạng",
-            "icon": "share",
-            "notification": 0
-          },
+        {
+                "id": 3,
+                "serviceName": "Mô hình mạng",
+                "actionName": "wifimanage",
+                "icon": "Translation 2",
+                "notification": "200"
+              },
+              {
+                "id": 4,
+                "serviceName": "Quản lý thiết bị",
+                "actionName": "devicemanage",
+                "icon": "devices",
+                "notification": "100"
+              },
           {
             "id": 5,
-            "serviceName": "Đo tốc độ mạng",
-            "icon": "speed",
-            "notification": 0
+            "serviceName": "Bảo vệ trẻ em",
+                "actionName": "childsafe",
+            "icon": "shield-minus",
+            
+            "notification": "2"
           },
+          
           {
             "id": 6,
-            "serviceName": "Lịch truy cập Internet",
-            "icon": "calendar",
-            "notification": 0
+            "serviceName": "Đo tốc độ mạng",
+            "actionName": "speedtest",
+            "icon": "Layer_1",
+            "notification": ""
           }
+         
         ],
-        "includedServicesnn": [
+        "includedServices": [
           {
             "id": 1,
             "title": "Ultra Fast",
@@ -175,37 +181,37 @@ struct Constant {
             "id": 1,
             "serviceName": "Quản lý Wi-Fi",
             "icon": "wifi",
-            "notification": 0
+            "notification":""
           },
           {
             "id": 2,
             "serviceName": "Quản lý truy cập",
             "icon": "devices",
-            "notification": 9
+            "notification": "9"
           },
           {
             "id": 3,
             "serviceName": "Bảo vệ trẻ em",
             "icon": "shield-minus",
-            "notification": 2
+            "notification": "2"
           },
           {
             "id": 4,
             "serviceName": "Mô hình mạng",
             "icon": "share",
-            "notification": 0
+            "notification": ""
           },
           {
             "id": 5,
             "serviceName": "Đo tốc độ mạng",
             "icon": "speed",
-            "notification": 0
+            "notification": ""
           },
           {
             "id": 6,
             "serviceName": "Lịch truy cập Internet",
             "icon": "calendar",
-            "notification": 0
+            "notification": ""
           }
         ],
    "broadcastSchedule": [
@@ -213,19 +219,19 @@ struct Constant {
        "id": 1,
        "serviceName": "Quản lý Wi-Fi",
        "icon": "wifi",
-        "notification": 0
+        "notification": ""
      },
      {
        "id": 2,
        "serviceName": "Quản lý truy cập",
        "icon": "devices",
-       "notification": 0
+       "notification": ""
      },
      {
        "id": 3,
        "serviceName": "Bảo vệ trẻ em",
        "icon": "shield-minus",
-       "notification": 2
+       "notification": "2"
      }
    ]
  }
@@ -247,13 +253,13 @@ struct Constant {
           "id": 1,
           "serviceName": "Camera sân vườn",
           "icon": "camera",
-          "notification": 9
+          "notification": "9"
         },
         {
           "id": 2,
           "serviceName": "Camera cửa trước",
           "icon": "camera",
-          "notification": 0
+          "notification": ""
         }
       ]
     },
@@ -265,25 +271,25 @@ struct Constant {
           "id": 1,
           "serviceName": "Camera bãi xe",
           "icon": "wifi",
-          "notification": 6
+          "notification": "6"
         },
         {
           "id": 2,
           "serviceName": "Camera cửa sau",
           "icon": "camera",
-          "notification": 1
+          "notification": "1"
         },
         {
           "id": 3,
           "serviceName": "Camera cửa sau",
           "icon": "camera",
-          "notification": 1
+          "notification": "1"
         },
         {
           "id": 4,
           "serviceName": "Camera cửa sau",
           "icon": "camera",
-          "notification": 1
+          "notification": "1"
         }
       ]
     }

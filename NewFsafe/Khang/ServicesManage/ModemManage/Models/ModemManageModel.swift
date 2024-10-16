@@ -11,17 +11,28 @@ import Foundation
 struct ModemManageModel {
     var id: Int
     var modemName: String
-    var imgUrl: String
     var modemDetails: [InforModel]
     var restartSchedule: [TimePickerModel]
+    var privateMode: Bool
 }
 
-struct TimePickerModel{
+protocol TimePickerProtocol {
+    var id: Int { get set }
+    var time: String { get set }
+    var dayInWeek: [DayInWeekModel] { get set }
+    var status: Bool { get set }
+    
+    func repeatDay() -> String
+}
+
+struct TimePickerModel {
     var id: Int
     var time: String
     var dayInWeek: [DayInWeekModel]
     var status: Bool
 }
+
+
 
 struct DayInWeekModel{
     var id: Int

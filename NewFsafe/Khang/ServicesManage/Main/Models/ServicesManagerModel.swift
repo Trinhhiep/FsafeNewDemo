@@ -1,5 +1,5 @@
 //
-//  ServicesManagerModel.swift
+//  InternetServiceModel.swift
 //  NewFsafe
 //
 //  Created by KhangCao on 3/10/24.
@@ -8,21 +8,20 @@
 import Foundation
 import SwiftyJSON
 
-struct ServicesManagerModel {
-    var id: Int
+struct InternetServiceModel {
+    var id = UUID()
     var contractDetails : ContractDetails
     var internetServices: [ServiceDetail]
     var includedServices: [IncludedService]
     
-    init(id: Int,contracDetails: ContractDetails , internetServices: [ServiceDetail],includedServices: [IncludedService]) {
-        self.id = id
+    init(contracDetails: ContractDetails , internetServices: [ServiceDetail],includedServices: [IncludedService]) {
+
         self.contractDetails = contracDetails
         self.internetServices = internetServices
         self.includedServices = includedServices
     }
     
     init ( json: JSON) {
-        id = json["id"].intValue
         contractDetails = ContractDetails.init(json: json["contractDetails"])
         
         internetServices = json["internetServices"].arrayValue.map({ js in
@@ -33,22 +32,43 @@ struct ServicesManagerModel {
             IncludedService.init(json: js)
         })    }
 }
+enum ServicesAction: String {
+    case wifimanage
+    case modemmanage
+    case devicemanage
+    case defaultAction
+}
+
+
+struct CameraServiceModel{
+    var id = UUID()
+    var contractDetails: ContractDetails
+    var cameraArea: [CameraArea]
+    init( contractDetails: ContractDetails, cameraArea: [CameraArea]) {
+        self.contractDetails = contractDetails
+        self.cameraArea = cameraArea
+    }
+    init (json:JSON){
+        contractDetails = ContractDetails(json: json["contractDetails"])
+        cameraArea = json["cameraArea"].arrayValue.map({ js in
+            CameraArea.init(json: js)
+        })
+    }
+}
+
 
 struct TVServiceModel{
-    var id : Int
+    var id = UUID()
     var contractDetails : ContractDetails
     var tVBoxServices: [ServiceDetail]
     var broadcastSchedule: [ServiceDetail]
     
-    init(id: Int, contractDetails: ContractDetails, tVBoxServices: [ServiceDetail], broadcastSchedule: [ServiceDetail]) {
-        self.id = id
+    init(contractDetails: ContractDetails, tVBoxServices: [ServiceDetail], broadcastSchedule: [ServiceDetail]) {
         self.contractDetails = contractDetails
         self.tVBoxServices = tVBoxServices
         self.broadcastSchedule = broadcastSchedule
     }
     init(json:JSON) {
-        
-        id = json["id"].intValue
         contractDetails = ContractDetails(json: json["contractDetails"])
         tVBoxServices = json["tVBoxServices"].arrayValue.map({ js in
              ServiceDetail.init(json: js)
@@ -60,35 +80,17 @@ struct TVServiceModel{
     
 }
 
-struct CameraServiceModel{
-    var id: Int
-    var contractDetails: ContractDetails
-    var cameraArea: [CameraArea]
-    init(id: Int, contractDetails: ContractDetails, cameraArea: [CameraArea]) {
-        self.id = id
-        self.contractDetails = contractDetails
-        self.cameraArea = cameraArea
-    }
-    init (json:JSON){
-        id = json["id"].intValue
-        contractDetails = ContractDetails(json: json["contractDetails"])
-        cameraArea = json["cameraArea"].arrayValue.map({ js in
-            CameraArea.init(json: js)
-        })
-    }
-}
+
 
 struct CameraArea {
-    var id : Int
+    var id = UUID()
     var title: String
     var cameras: [ServiceDetail]
     init(id: Int, title: String, cameras: [ServiceDetail]) {
-        self.id = id
         self.title = title
         self.cameras = cameras
     }
     init (json:JSON){
-        id = json["id"].intValue
         title = json["title"].stringValue
         cameras = json["cameras"].arrayValue.map({js in
             ServiceDetail.init(json: js)
@@ -97,17 +99,15 @@ struct CameraArea {
 }
 
 struct ServiceUsingModel{
-    var id: Int
+    var id = UUID()
     var title: String
     var includedServices: [IncludedService]
     
-    init(id: Int, title: String, includedServices: [IncludedService]) {
-        self.id = id
+    init( title: String, includedServices: [IncludedService]) {
         self.title = title
         self.includedServices = includedServices
     }
     init (json:JSON){
-        id = json["id"].intValue
         title = json["title"].stringValue
         includedServices = json["includedServices"].arrayValue.map({js in
             IncludedService.init(json: js)
@@ -130,6 +130,7 @@ enum ServiceTab{
 }
 
 struct ContractDetails {
+    var id = UUID()
     var contractCode: String
     var internetName: String
     var internetSpeed: Int
@@ -146,38 +147,40 @@ struct ContractDetails {
     
 }
 struct ServiceDetail {
-    var id:     Int
+    var id = UUID()
     var serviceName: String
+    var actionName : ServicesAction
     var icon: String
-    var notification: Int
-    init(id: Int, serviceName: String, icon: String,notification: Int) {
-        self.id = id
+    var notification: String
+    init( serviceName: String,actionName: ServicesAction , icon: String,notification: String) {
+
         self.serviceName = serviceName
+        self.actionName = actionName
         self.icon = icon
         self.notification = notification
     }
+
     
     init ( json: JSON) {
-        id = json["id"].intValue
         serviceName = json["serviceName"].stringValue
+        actionName = ServicesAction(rawValue: json["actionName"].stringValue) ?? .defaultAction
         icon = json["icon"].stringValue
-        notification = json["notification"].intValue
+        notification = json["notification"].stringValue
     }
 }
 
 struct IncludedService{
-    var id: Int
+    var id = UUID()
     var title: String
     var icon: String
     var serviceStatus : ServiceStatus
-    init(id: Int, title: String, icon: String, serviceStatus: ServiceStatus) {
-        self.id = id
+    init( title: String, icon: String, serviceStatus: ServiceStatus) {
         self.title = title
         self.icon = icon
         self.serviceStatus = serviceStatus
     }
     init ( json: JSON) {
-        id = json["id"].intValue
+
         title = json["title"].stringValue
         icon = json["icon"].stringValue
         serviceStatus = ServiceStatus(rawValue: json["serviceStatus"].stringValue) ?? .NotActivaed
@@ -227,3 +230,4 @@ enum ServiceStatus : String{
         }
     }
 }
+

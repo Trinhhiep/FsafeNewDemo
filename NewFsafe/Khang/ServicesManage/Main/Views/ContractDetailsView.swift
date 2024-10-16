@@ -64,9 +64,10 @@ struct ContractDetailsView: View {
                     Button(action:{
                         
                     }){
-                        Image("update")
-                            .resizable()
-                            .frame(width:24, height: 24)
+                        Text("Nâng cấp")
+                            .foregroundColor(Color.hiPrimary)
+                            .font(.system(size: 16,weight: .medium))
+                            .frame(height: 29)
                     }
                     .padding(.horizontal,16)
                     .padding(.vertical,8)
