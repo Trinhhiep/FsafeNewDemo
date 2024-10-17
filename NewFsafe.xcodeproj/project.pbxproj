@@ -437,7 +437,6 @@
 			children = (
 				49219D572CBFC37800E8DF3B /* views */,
 				78DA71C72CB9088C00B55507 /* ViewModels */,
-				78DA71C62CB9088000B55507 /* Models */,
 				78DA71C52CB9086200B55507 /* Screen */,
 			);
 			path = DevicesManage;
@@ -448,6 +447,7 @@
 			children = (
 				040DB5032CB4CC5E00828176 /* DeviceNormalView.swift */,
 				040DB5022CB4CC5E00828176 /* DeviceInforView.swift */,
+				78DA71C62CB9088000B55507 /* Models */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
