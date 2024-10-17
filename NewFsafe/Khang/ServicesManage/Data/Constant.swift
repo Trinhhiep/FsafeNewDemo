@@ -106,28 +106,28 @@ struct Constant {
           {
             "id": 1,
             "serviceName": "Quản lý Modem",
-            "actionName": "modemmanage",
+            "actionName": "modemManage",
             "icon": "Wi-Fi Router Round",
             "notification": "29"
           },
           {
             "id": 2,
             "serviceName": "Quản lý Wi-Fi",
-            "actionName": "wifimanage",
+            "actionName": "wifiManage",
             "icon": "wifi",
             "notification": "999"
           },
         {
                 "id": 3,
                 "serviceName": "Mô hình mạng",
-                "actionName": "wifimanage",
+                "actionName": "wifiManage",
                 "icon": "Translation 2",
                 "notification": "200"
               },
               {
                 "id": 4,
                 "serviceName": "Quản lý thiết bị",
-                "actionName": "devicemanage",
+                "actionName": "deviceManage",
                 "icon": "devices",
                 "notification": "100"
               },

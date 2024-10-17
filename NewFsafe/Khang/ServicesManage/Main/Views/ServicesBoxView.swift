@@ -26,12 +26,12 @@ struct ServicesBoxView: View {
                         .font(.system(size: 18))
                 }
                 VStack(spacing: 8){
-                    service(internetServices)
+                    createServiceItemView(internetServices)
                 }
             }
         }
     }
-    func service (_ service: [ServiceDetail]) -> some View{
+    func createServiceItemView (_ service: [ServiceDetail]) -> some View{
         return ForEach(0..<service.count/column + (service.count % column == 0 ? 0 : 1), id: \.self){rowIndex in
             HStack(alignment: .top,spacing: 8){
                 ForEach(0..<column){ columnindex in
@@ -40,10 +40,10 @@ struct ServicesBoxView: View {
                         
                     }else{
                         Button(action:{
-                            vm.actionServiceBox(service[index].actionName)
+                            vm.navigateServiceBox(service[index].actionName)
                         }){
                             VStack(spacing: 12){
-                                NotificationIcon(service[index])
+                                showNotificationIcon(service[index])
                                 Text("\(service[index].serviceName)")
                                     .font(.system(size: 14))
                                     .fontWeight(.medium)
@@ -62,7 +62,7 @@ struct ServicesBoxView: View {
             
         }
     }
-    func NotificationIcon (_ service: ServiceDetail) -> some View {
+    func showNotificationIcon (_ service: ServiceDetail) -> some View {
         let notification: String = service.notification
         return ZStack(alignment: .topTrailing){
             HStack {

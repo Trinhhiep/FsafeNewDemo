@@ -76,7 +76,7 @@ struct PrivacySettingView: View {
             .padding(.top,16)
             .hiNavTitle("Cài đặt quyền riêng tư")
         }
-        .hiBottomSheet(isShow: .constant(isShowPopup), title: "Chế độ riêng tư") {
+        .hiBottomSheet(isShow: $isShowPopup, title: "Chế độ riêng tư") {
             VStack{
                 Text("Bật Chế độ riêng tư, bạn sẽ không sử dụng được các tính năng Quản lý Modem. Chúng tôi khuyến khích tắt tính năng này để bảo vệ đường truyền trước các nguy cơ rủi ro.")
                     .font(.system(size: 16))

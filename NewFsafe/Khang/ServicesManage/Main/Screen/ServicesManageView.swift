@@ -31,7 +31,7 @@ struct ServiceManageView: View {
     var body: some View {
         HiNavigationView{
             VStack(spacing: 0) {
-                tabBar()
+                createTabBarView()
                 ScrollView(showsIndicators: false) {
                     switch selectedTab {
                     case .internet:
@@ -58,44 +58,51 @@ struct ServiceManageView: View {
                     })
                 }
             }
-            .hiFooter{
-                if selectedTab == .tv {
-                    return HiFooter(primaryTitle: "Mua gói FPT Play"){
-                        
-                    }
-                }else if selectedTab == .camera{
-                    return HiFooter(primaryTitle: "Gia hạn gói Cloud"){
-                    }
-                }else{
-                    return nil
-                }
-            }
+            
         }
         .background(Color.white)
-        .hiBottomSheet(isShow: .constant(isShowPopup), title: "Hướng dẫn kích hoạt F-Safe Home") {
-            PopUpFSafe()
+        .hiBottomSheet(isShow: $isShowPopup, title: "Hướng dẫn kích hoạt F-Safe Home") {
+            PopUpFSafeView()
+        }
+        .hiFooter{
+            switch selectedTab {
+            case .tv:
+                if vm.TVModel != nil {
+                    return HiFooter(primaryTitle: "Mua gói FPT Play"){
+                    }
+                }
+                return nil
+            case .camera:
+                if vm.camModel != nil {
+                    return HiFooter(primaryTitle: "Gia gói FPT Cloud"){
+                    }
+                }
+                return nil
+            default:
+                return nil
+            }
         }
     }
     
-    func tabBar ()-> some View {
+    func createTabBarView ()-> some View {
         ScrollView(.horizontal,showsIndicators: false){
-            let tabs = vm.tab
+            let tabs = vm.tabItems
             HStack(alignment: .center, spacing:0) {
                 ForEach(tabs, id: \.id){ tab in
                     Button(action: {
-                        selectedTab = tab.tab
+                        selectedTab = tab.servicetab
                     }) {
                         Text("\(tab.title)")
                             .font(.system(size: 16))
                             .fontWeight(.medium)
-                            .foregroundColor(Color(hex: selectedTab == tab.tab ? "#3D3D3D" :  "#7D7D7D"))
+                            .foregroundColor(Color(hex: selectedTab == tab.servicetab ? "#3D3D3D" :  "#7D7D7D"))
                             .padding(.horizontal,16)
                         
                     }
                     .frame(maxWidth: .infinity)
                     .frame(height: 51)
                     .overlay(Rectangle()
-                        .frame(height: selectedTab == tab.tab ? 1 : 0)
+                        .frame(height: selectedTab == tab.servicetab ? 1 : 0)
                         .foregroundColor(Color(hex: "#4564ED")), alignment: .bottom)
                 }
             }
@@ -139,10 +146,10 @@ struct ServiceManageView: View {
     func createServiceUsingManagerView() -> some View {
         if let data = vm.usingServiceModel {
             VStack(spacing: 24) {
-               IncludedServiceView(includedServices: data.includedServices, title:data.title)
-           }
-           .padding(.horizontal,16)
-           .padding(.top,16)
+                IncludedServiceView(includedServices: data.includedServices, title:data.title)
+            }
+            .padding(.horizontal,16)
+            .padding(.top,16)
         }
     }
     @ViewBuilder
@@ -157,7 +164,7 @@ struct ServiceManageView: View {
             .padding(.horizontal,16)
             .padding(.top,16)
         }else{
-       
+            
             NotUsingServiceView(icon: "camera_service",
                                 title:"Số 1 Cloud Camera tại Việt Nam",
                                 des:"Siêu ưu đãi khi lắp đặt cùng Internet FPT")

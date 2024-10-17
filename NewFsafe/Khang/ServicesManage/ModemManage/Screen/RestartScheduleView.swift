@@ -33,7 +33,7 @@ struct RestartScheduleView: View {
             VStack{
                 HiListView{
                     ForEach(vm.modemManageModel.restartSchedule, id:\.id){item in
-                        TimePickerView(timePicker: item)
+                        createTimePickerView(timePicker: item)
                     }
                 }
             }
@@ -44,11 +44,11 @@ struct RestartScheduleView: View {
             
         }.hiFooter{
             HiFooter(primaryTitle: "Thêm khung giờ"){
-                vm.navigateToRestartSetting!()
+                vm.navigateToRestartSetting?()
             }
         }
     }
-    func TimePickerView (timePicker:TimePickerModel)-> some View {
+    func createTimePickerView (timePicker:TimePickerModel)-> some View {
             HStack{
                 VStack(alignment:.leading,spacing: 8){
                     Text("\(timePicker.time)")

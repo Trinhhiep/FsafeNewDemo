@@ -33,12 +33,12 @@ struct IncludedServiceView: View {
                                     .fontWeight(.medium)
                                 HStack{
                                     Text("\(includedService.serviceStatus.toString)")
-                                        .font(.system(size: 12)).foregroundColor(Color(hex:includedService.serviceStatus.TextColor))
+                                        .font(.system(size: 12)).foregroundColor(Color(hex:includedService.serviceStatus.statusTextColor))
                                         .fontWeight(.regular)
                                 }
                                 .padding(.vertical,4)
                                 .padding(.horizontal,8)
-                                .hiBackground(radius: CGFloat.Extra_Small, color:Color(hex:includedService.serviceStatus.BackgroundColor))
+                                .hiBackground(radius: CGFloat.Extra_Small, color:Color(hex:includedService.serviceStatus.statusBackgroundColor))
                             }
                             Spacer()
                             Image("arrow-down-sign-to-navigate")

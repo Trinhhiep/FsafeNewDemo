@@ -10,7 +10,7 @@
 		040DB5062CB4CC5E00828176 /* DeviceInforView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DB5022CB4CC5E00828176 /* DeviceInforView.swift */; };
 		040DB5072CB4CC5E00828176 /* DeviceNormalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DB5032CB4CC5E00828176 /* DeviceNormalView.swift */; };
 		040DB5082CB4CC5E00828176 /* ServicesManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DB5042CB4CC5E00828176 /* ServicesManageView.swift */; };
-		040DB50C2CB4CCB900828176 /* PopUpFSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DB50B2CB4CCB900828176 /* PopUpFSafe.swift */; };
+		040DB50C2CB4CCB900828176 /* PopUpFSafeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DB50B2CB4CCB900828176 /* PopUpFSafeView.swift */; };
 		0418D02E2CAF990D0087160E /* ContractDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418D02D2CAF990D0087160E /* ContractDetailsView.swift */; };
 		0418D0302CAF9BFE0087160E /* ServicesBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418D02F2CAF9BFE0087160E /* ServicesBoxView.swift */; };
 		0418D0322CAF9D6D0087160E /* IncludedServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418D0312CAF9D6D0087160E /* IncludedServiceView.swift */; };
@@ -46,6 +46,8 @@
 		495503382C1FF0A300B2037F /* ManageDangerousWebsiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503372C1FF0A300B2037F /* ManageDangerousWebsiteVM.swift */; };
 		4955033A2C1FF0E800B2037F /* ManageViolatesWebsiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495503392C1FF0E800B2037F /* ManageViolatesWebsiteVM.swift */; };
 		49B2379C2C5CD0D600C93EC8 /* ListAddressScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2379B2C5CD0D600C93EC8 /* ListAddressScreen.swift */; };
+		78107FE42CC0B1520085562F /* DrawServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78107FE32CC0B1520085562F /* DrawServiceView.swift */; };
+		7877DDF72CC1056500A0DAC6 /* CustomShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877DDF62CC1056500A0DAC6 /* CustomShapeView.swift */; };
 		7884B9052CBDFCA900E99167 /* RestartSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884B9042CBDFCA900E99167 /* RestartSettingView.swift */; };
 		7884B9072CBE5D0500E99167 /* PrivacySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884B9062CBE5D0500E99167 /* PrivacySettingView.swift */; };
 		78D9E2472CB76B7D005ED055 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D9E2462CB76B2A005ED055 /* ServiceManager.swift */; };
@@ -61,7 +63,7 @@
 		040DB5022CB4CC5E00828176 /* DeviceInforView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInforView.swift; sourceTree = "<group>"; };
 		040DB5032CB4CC5E00828176 /* DeviceNormalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceNormalView.swift; sourceTree = "<group>"; };
 		040DB5042CB4CC5E00828176 /* ServicesManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesManageView.swift; sourceTree = "<group>"; };
-		040DB50B2CB4CCB900828176 /* PopUpFSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpFSafe.swift; sourceTree = "<group>"; };
+		040DB50B2CB4CCB900828176 /* PopUpFSafeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpFSafeView.swift; sourceTree = "<group>"; };
 		0418D02D2CAF990D0087160E /* ContractDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDetailsView.swift; sourceTree = "<group>"; };
 		0418D02F2CAF9BFE0087160E /* ServicesBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesBoxView.swift; sourceTree = "<group>"; };
 		0418D0312CAF9D6D0087160E /* IncludedServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncludedServiceView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,8 @@
 		495503392C1FF0E800B2037F /* ManageViolatesWebsiteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageViolatesWebsiteVM.swift; sourceTree = "<group>"; };
 		49B2379B2C5CD0D600C93EC8 /* ListAddressScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAddressScreen.swift; sourceTree = "<group>"; };
 		5CF8AFABEE1D3C7A4CD68E4A /* Pods-NewFsafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFsafe.debug.xcconfig"; path = "Target Support Files/Pods-NewFsafe/Pods-NewFsafe.debug.xcconfig"; sourceTree = "<group>"; };
+		78107FE32CC0B1520085562F /* DrawServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawServiceView.swift; sourceTree = "<group>"; };
+		7877DDF62CC1056500A0DAC6 /* CustomShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeView.swift; sourceTree = "<group>"; };
 		7884B9042CBDFCA900E99167 /* RestartSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartSettingView.swift; sourceTree = "<group>"; };
 		7884B9062CBE5D0500E99167 /* PrivacySettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySettingView.swift; sourceTree = "<group>"; };
 		78D9E2462CB76B2A005ED055 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
@@ -128,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				040DB5042CB4CC5E00828176 /* ServicesManageView.swift */,
-				040DB50B2CB4CCB900828176 /* PopUpFSafe.swift */,
+				040DB50B2CB4CCB900828176 /* PopUpFSafeView.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -140,6 +144,8 @@
 				0418D02F2CAF9BFE0087160E /* ServicesBoxView.swift */,
 				0418D0312CAF9D6D0087160E /* IncludedServiceView.swift */,
 				043B76E32CB37CAD002A4872 /* NotUsingServiceView.swift */,
+				78107FE32CC0B1520085562F /* DrawServiceView.swift */,
+				7877DDF62CC1056500A0DAC6 /* CustomShapeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -600,7 +606,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				040DB50C2CB4CCB900828176 /* PopUpFSafe.swift in Sources */,
+				040DB50C2CB4CCB900828176 /* PopUpFSafeView.swift in Sources */,
 				4912448F2C097FD0006D2695 /* ViewController.swift in Sources */,
 				04C65EB92CAE3206004C4FF1 /* ServicesManagerModel.swift in Sources */,
 				043B76E42CB37CAD002A4872 /* NotUsingServiceView.swift in Sources */,
@@ -620,6 +626,7 @@
 				78DA71CF2CB90AD600B55507 /* ModemManageView.swift in Sources */,
 				491244A82C09823F006D2695 /* HomeFSafeVM.swift in Sources */,
 				495503342C183F9300B2037F /* FsafeSuggestRegisterScreen.swift in Sources */,
+				78107FE42CC0B1520085562F /* DrawServiceView.swift in Sources */,
 				04C65EBB2CAE39ED004C4FF1 /* ServiesManagerViewModel.swift in Sources */,
 				4936ED712C09BBBD0046E9E6 /* ItemFeatureFSafe.swift in Sources */,
 				7884B9052CBDFCA900E99167 /* RestartSettingView.swift in Sources */,
@@ -640,6 +647,7 @@
 				0418D0322CAF9D6D0087160E /* IncludedServiceView.swift in Sources */,
 				495503382C1FF0A300B2037F /* ManageDangerousWebsiteVM.swift in Sources */,
 				49B2379C2C5CD0D600C93EC8 /* ListAddressScreen.swift in Sources */,
+				7877DDF72CC1056500A0DAC6 /* CustomShapeView.swift in Sources */,
 				4955032E2C169F4C00B2037F /* Scrollview.swift in Sources */,
 				4955030B2C11911600B2037F /* ListWebsiteTableview.swift in Sources */,
 				4936ED7D2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift in Sources */,

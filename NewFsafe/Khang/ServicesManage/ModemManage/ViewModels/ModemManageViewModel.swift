@@ -55,7 +55,6 @@ class ModemManageViewModel: ObservableObject {
                                                                     status: false),
                                                  ],
                                                  privateMode: false
-                                                 
         )
     }
     
@@ -90,7 +89,7 @@ class ModemManageViewModel: ObservableObject {
     
     func confirmPrivateMode() {
         if(!modemManageModel.privateMode){
-            showPopupConfirm!()
+            showPopupConfirm?()
         }else{
             modemManageModel.privateMode.toggle()
         }

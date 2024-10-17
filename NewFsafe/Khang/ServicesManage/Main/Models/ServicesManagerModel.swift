@@ -33,9 +33,9 @@ struct InternetServiceModel {
         })    }
 }
 enum ServicesAction: String {
-    case wifimanage
-    case modemmanage
-    case devicemanage
+    case wifiManage
+    case modemManage
+    case deviceManage
     case defaultAction
 }
 
@@ -116,10 +116,10 @@ struct ServiceUsingModel{
 }
 
 
-struct Tab {
+struct HiTabItems {
     var id: Int
     var title: String
-    var tab: ServiceTab
+    var servicetab: ServiceTab
 }
 
 enum ServiceTab{
@@ -183,7 +183,7 @@ struct IncludedService{
 
         title = json["title"].stringValue
         icon = json["icon"].stringValue
-        serviceStatus = ServiceStatus(rawValue: json["serviceStatus"].stringValue) ?? .NotActivaed
+        serviceStatus = ServiceStatus(rawValue: json["serviceStatus"].stringValue) ?? .notActivated
     }
 }
 
@@ -192,7 +192,7 @@ enum ServiceStatus : String{
     case pendingActivation
     case expiringSoon
     case expired
-    case NotActivaed
+    case notActivated
     var toString : String{
         switch self {
         case .activated:
@@ -203,28 +203,28 @@ enum ServiceStatus : String{
             return "Đã hết hạn"
         case .expiringSoon:
             return "Sắp hết hạn"
-        case .NotActivaed:
+        case .notActivated:
             return "Chưa kích hoạt"
         }
     }
-    var TextColor : String{
+    var statusTextColor : String{
         switch self {
         case .activated:
             return "##2569FF"
         case .pendingActivation,.expiringSoon:
             return "#F88C0B"
-        case .expired,.NotActivaed:
+        case .expired,.notActivated:
             return "#FF2156"
         
         }
     }
-    var BackgroundColor : String{
+    var statusBackgroundColor : String{
         switch self {
         case .activated:
             return "#EAF3FF"
         case .pendingActivation,.expiringSoon:
             return "#FFF3CE"
-        case .expired,.NotActivaed:
+        case .expired,.notActivated:
             return "#FFE5EA"
         
         }

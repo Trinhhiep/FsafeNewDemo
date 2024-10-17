@@ -13,7 +13,7 @@ import SwiftyJSON
 
 
 class ServicesManagerViewModel: ObservableObject {
-    @Published var tab : [Tab]
+    @Published var tabItems : [HiTabItems]
     @Published var internetServiceModel: InternetServiceModel?
     @Published var TVModel: TVServiceModel?
     @Published var camModel: CameraServiceModel?
@@ -24,18 +24,18 @@ class ServicesManagerViewModel: ObservableObject {
     
     
     init() {
-        self.tab = [Tab(id:1,
+        self.tabItems = [HiTabItems(id:1,
                         title: "Internet",
-                        tab: .internet),
-                    Tab(id:2,
+                        servicetab: .internet),
+                    HiTabItems(id:2,
                         title: "Truyền hình",
-                        tab: .tv),
-                    Tab(id:3,
+                        servicetab: .tv),
+                    HiTabItems(id:3,
                         title: "Camera",
-                        tab: .camera),
-                    Tab(id:4,
+                        servicetab: .camera),
+                    HiTabItems(id:4,
                         title: "Dịch vụ khác",
-                        tab:.usingServies)
+                        servicetab: .usingServies)
         ]
         convertJsonToModel( Constant.TVBoxServices, { jsonObject in
             self.TVModel = TVServiceModel.init(json: jsonObject)
@@ -61,11 +61,11 @@ class ServicesManagerViewModel: ObservableObject {
             cb(jsonObject)
         }
     }
-    func actionServiceBox(_ serviceName: ServicesAction) {
+    func navigateServiceBox(_ serviceName: ServicesAction) {
         switch serviceName {
-        case .modemmanage:
+        case .modemManage:
             navigateToModemManage?()
-        case .devicemanage:
+        case .deviceManage:
             navigateToDeviceNormal?()
         default:
             print(serviceName)
