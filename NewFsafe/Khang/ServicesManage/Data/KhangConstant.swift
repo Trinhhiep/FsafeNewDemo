@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Constant {
+struct KhangConstant {
     static  var devices : String = """
     [
           {

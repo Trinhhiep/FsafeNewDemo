@@ -116,13 +116,13 @@ struct ServiceUsingModel{
 }
 
 
-struct HiTabItems {
+struct ServiceTabModel {
     var id: Int
     var title: String
-    var servicetab: ServiceTab
+    var servicetab: ServiceTabType
 }
 
-enum ServiceTab{
+enum ServiceTabType{
     case internet
     case camera
     case tv

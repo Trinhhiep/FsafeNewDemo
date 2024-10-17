@@ -12,7 +12,7 @@ import UIKit
 import SwiftUI
 import HiThemes
 
-class UserDeviceViewModel: ObservableObject {
+class NetworkDiagramVM: ObservableObject {
     @Published var filterButtonActive: StatusConnect  = .all
     @Published var userDevices : [UserDevice] = []
     @Published var listFilterDeviceByStatus: [DeviceStatus] = [DeviceStatus(id: 1, title: "Tất cả", status: .all),
@@ -26,7 +26,7 @@ class UserDeviceViewModel: ObservableObject {
         loadUserDevices()
     }
     func loadUserDevices() {
-        if let stringJson = Constant.devices.data(using: .utf8){
+        if let stringJson = KhangConstant.devices.data(using: .utf8){
             // chuyen string sang json
             guard let jsonObject = try? JSON(data: stringJson) else {return}
             // chuyen json sang model

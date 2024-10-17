@@ -10,11 +10,11 @@ import UIKit
 import HiThemes
 
 class DeviceNormalVC : BaseViewController {
-    var vm : UserDeviceViewModel = .init()
+    var vm : NetworkDiagramVM = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let view = DeviceNormalView(vm: vm)
+        let view = NetworkDiagramScreen(vm: vm)
         
         self.addSwiftUIViewAsChildVC(view:  view)
         vm.navigateToDetail = {userDevice in
@@ -27,8 +27,8 @@ class DeviceNormalVC : BaseViewController {
         self.navigationController?.pushViewController(deviceDetailVC, animated: true)
     }
 }
-struct DeviceNormalView: View {
-    @ObservedObject  var vm = UserDeviceViewModel()
+struct NetworkDiagramScreen: View {
+    @ObservedObject  var vm = NetworkDiagramVM()
     let listTabs : [NetworkDiagramTab] = [.Diagram, .ListDevices]
     @State var currentTab : Int = NetworkDiagramTab.Diagram.getTag()
     var body: some View {
@@ -293,6 +293,6 @@ struct DeviceNormalView: View {
 }
 
 #Preview {
-    DeviceNormalView()
+    NetworkDiagramScreen()
 }
 

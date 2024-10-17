@@ -24,7 +24,7 @@ class ServiceManageVC : BaseViewController {
     }
 }
 struct ServiceManageView: View {
-    @State private var selectedTab : ServiceTab = .internet
+    @State private var selectedTab : ServiceTabType = .internet
     @State private var isShowPopup = false
     @ObservedObject var vm = ServicesManagerViewModel()
     let screenWidth = UIScreen.main.bounds.width

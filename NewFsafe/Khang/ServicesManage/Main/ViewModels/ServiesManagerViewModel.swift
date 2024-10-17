@@ -13,7 +13,7 @@ import SwiftyJSON
 
 
 class ServicesManagerViewModel: ObservableObject {
-    @Published var tabItems : [HiTabItems]
+    @Published var tabItems : [ServiceTabModel]
     @Published var internetServiceModel: InternetServiceModel?
     @Published var TVModel: TVServiceModel?
     @Published var camModel: CameraServiceModel?
@@ -24,31 +24,31 @@ class ServicesManagerViewModel: ObservableObject {
     
     
     init() {
-        self.tabItems = [HiTabItems(id:1,
+        self.tabItems = [ServiceTabModel(id:1,
                         title: "Internet",
                         servicetab: .internet),
-                    HiTabItems(id:2,
+                    ServiceTabModel(id:2,
                         title: "Truyền hình",
                         servicetab: .tv),
-                    HiTabItems(id:3,
+                    ServiceTabModel(id:3,
                         title: "Camera",
                         servicetab: .camera),
-                    HiTabItems(id:4,
+                    ServiceTabModel(id:4,
                         title: "Dịch vụ khác",
                         servicetab: .usingServies)
         ]
-        convertJsonToModel( Constant.TVBoxServices, { jsonObject in
+        convertJsonToModel( KhangConstant.TVBoxServices, { jsonObject in
             self.TVModel = TVServiceModel.init(json: jsonObject)
         })
         
-        convertJsonToModel( Constant.internetServices, { jsonObject in
+        convertJsonToModel( KhangConstant.internetServices, { jsonObject in
             self.internetServiceModel = InternetServiceModel.init(json: jsonObject)
         })
         
-        convertJsonToModel(Constant.CameraServices, {jsonObject in
+        convertJsonToModel(KhangConstant.CameraServices, {jsonObject in
             self.camModel = CameraServiceModel.init(json: jsonObject)
         })
-        convertJsonToModel(Constant.UsingServices) { jsonObject in
+        convertJsonToModel(KhangConstant.UsingServices) { jsonObject in
             self.usingServiceModel = ServiceUsingModel.init(json: jsonObject)
         }
         
