@@ -168,5 +168,5 @@ struct DeviceInforView: View{
 }
 
 //#Preview {
-//    DeviceInforView(vm: .init(userDevice: .ini))
+//    DeviceInforView(vm: .init(userDevice: .init))
 //}

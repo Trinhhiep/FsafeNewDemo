@@ -30,6 +30,12 @@
 		491244A32C09806C006D2695 /* HomeFSafeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491244A22C09806C006D2695 /* HomeFSafeScreen.swift */; };
 		491244A52C09816A006D2695 /* Extension+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491244A42C09816A006D2695 /* Extension+Main.swift */; };
 		491244A82C09823F006D2695 /* HomeFSafeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491244A72C09823F006D2695 /* HomeFSafeVM.swift */; };
+		49219D592CBFC3AF00E8DF3B /* NetworkDiagramViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49219D582CBFC3AF00E8DF3B /* NetworkDiagramViewRepresentable.swift */; };
+		49219D622CC0A82A00E8DF3B /* NetworkDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49219D5F2CC0A82A00E8DF3B /* NetworkDeviceModel.swift */; };
+		49219D632CC0A82A00E8DF3B /* NetworkDiagramZoomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49219D5D2CC0A82A00E8DF3B /* NetworkDiagramZoomingView.swift */; };
+		49219D642CC0A82A00E8DF3B /* NetworkDiagramVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49219D602CC0A82A00E8DF3B /* NetworkDiagramVC.swift */; };
+		49219D652CC0A82A00E8DF3B /* NetworkDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49219D5B2CC0A82A00E8DF3B /* NetworkDeviceView.swift */; };
+		49219D662CC0A82A00E8DF3B /* NetworkDiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49219D5C2CC0A82A00E8DF3B /* NetworkDiagramView.swift */; };
 		4936ED712C09BBBD0046E9E6 /* ItemFeatureFSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED702C09BBBD0046E9E6 /* ItemFeatureFSafe.swift */; };
 		4936ED742C09C1CE0046E9E6 /* FSafeManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED732C09C1CE0046E9E6 /* FSafeManagers.swift */; };
 		4936ED7B2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED7A2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift */; };
@@ -85,6 +91,12 @@
 		491244A22C09806C006D2695 /* HomeFSafeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFSafeScreen.swift; sourceTree = "<group>"; };
 		491244A42C09816A006D2695 /* Extension+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Main.swift"; sourceTree = "<group>"; };
 		491244A72C09823F006D2695 /* HomeFSafeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFSafeVM.swift; sourceTree = "<group>"; };
+		49219D582CBFC3AF00E8DF3B /* NetworkDiagramViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDiagramViewRepresentable.swift; sourceTree = "<group>"; };
+		49219D5B2CC0A82A00E8DF3B /* NetworkDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDeviceView.swift; sourceTree = "<group>"; };
+		49219D5C2CC0A82A00E8DF3B /* NetworkDiagramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDiagramView.swift; sourceTree = "<group>"; };
+		49219D5D2CC0A82A00E8DF3B /* NetworkDiagramZoomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDiagramZoomingView.swift; sourceTree = "<group>"; };
+		49219D5F2CC0A82A00E8DF3B /* NetworkDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDeviceModel.swift; sourceTree = "<group>"; };
+		49219D602CC0A82A00E8DF3B /* NetworkDiagramVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDiagramVC.swift; sourceTree = "<group>"; };
 		4936ED702C09BBBD0046E9E6 /* ItemFeatureFSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFeatureFSafe.swift; sourceTree = "<group>"; };
 		4936ED732C09C1CE0046E9E6 /* FSafeManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSafeManagers.swift; sourceTree = "<group>"; };
 		4936ED7A2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWebsiteScreen.swift; sourceTree = "<group>"; };
@@ -220,6 +232,7 @@
 		491244892C097FD0006D2695 /* NewFsafe */ = {
 			isa = PBXGroup;
 			children = (
+				49219D612CC0A82A00E8DF3B /* NetworkDiagram */,
 				0454A5732CAB8E3E00879926 /* Khang */,
 				49B2379A2C5CD0BE00C93EC8 /* ListAddress */,
 				4912449E2C097FE6006D2695 /* FSafe_v8.2 */,
@@ -283,6 +296,34 @@
 				495503352C1FDDE100B2037F /* FsafeSuggestRegisterVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		49219D572CBFC37800E8DF3B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				49219D582CBFC3AF00E8DF3B /* NetworkDiagramViewRepresentable.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		49219D5E2CC0A82A00E8DF3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49219D5B2CC0A82A00E8DF3B /* NetworkDeviceView.swift */,
+				49219D5C2CC0A82A00E8DF3B /* NetworkDiagramView.swift */,
+				49219D5D2CC0A82A00E8DF3B /* NetworkDiagramZoomingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49219D612CC0A82A00E8DF3B /* NetworkDiagram */ = {
+			isa = PBXGroup;
+			children = (
+				49219D5E2CC0A82A00E8DF3B /* View */,
+				49219D5F2CC0A82A00E8DF3B /* NetworkDeviceModel.swift */,
+				49219D602CC0A82A00E8DF3B /* NetworkDiagramVC.swift */,
+			);
+			path = NetworkDiagram;
 			sourceTree = "<group>";
 		};
 		4936ED6F2C09BBA20046E9E6 /* Views */ = {
@@ -394,6 +435,7 @@
 		78DA71C42CB9080F00B55507 /* DevicesManage */ = {
 			isa = PBXGroup;
 			children = (
+				49219D572CBFC37800E8DF3B /* views */,
 				78DA71C72CB9088C00B55507 /* ViewModels */,
 				78DA71C62CB9088000B55507 /* Models */,
 				78DA71C52CB9086200B55507 /* Screen */,
@@ -619,11 +661,17 @@
 				78DA71D32CB90B7300B55507 /* ModemManageModel.swift in Sources */,
 				4912448B2C097FD0006D2695 /* AppDelegate.swift in Sources */,
 				495503282C13030100B2037F /* ListWebsiteModel.swift in Sources */,
+				49219D622CC0A82A00E8DF3B /* NetworkDeviceModel.swift in Sources */,
+				49219D632CC0A82A00E8DF3B /* NetworkDiagramZoomingView.swift in Sources */,
+				49219D642CC0A82A00E8DF3B /* NetworkDiagramVC.swift in Sources */,
+				49219D652CC0A82A00E8DF3B /* NetworkDeviceView.swift in Sources */,
+				49219D662CC0A82A00E8DF3B /* NetworkDiagramView.swift in Sources */,
 				0418D02E2CAF990D0087160E /* ContractDetailsView.swift in Sources */,
 				491244A52C09816A006D2695 /* Extension+Main.swift in Sources */,
 				78DA71D12CB90B4E00B55507 /* ModemManageViewModel.swift in Sources */,
 				4936ED7B2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift in Sources */,
 				78DA71CF2CB90AD600B55507 /* ModemManageView.swift in Sources */,
+				49219D592CBFC3AF00E8DF3B /* NetworkDiagramViewRepresentable.swift in Sources */,
 				491244A82C09823F006D2695 /* HomeFSafeVM.swift in Sources */,
 				495503342C183F9300B2037F /* FsafeSuggestRegisterScreen.swift in Sources */,
 				78107FE42CC0B1520085562F /* DrawServiceView.swift in Sources */,
@@ -795,9 +843,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P257ST4M5D;
+				DEVELOPMENT_TEAM = 6GY32426ZJ;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewFsafe/Info.plist;
@@ -805,7 +854,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -813,6 +862,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DeeplinkUniversalLinkDemo.NewFsafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -825,9 +875,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P257ST4M5D;
+				DEVELOPMENT_TEAM = 6GY32426ZJ;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewFsafe/Info.plist;
@@ -835,7 +886,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -843,6 +894,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DeeplinkUniversalLinkDemo.NewFsafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

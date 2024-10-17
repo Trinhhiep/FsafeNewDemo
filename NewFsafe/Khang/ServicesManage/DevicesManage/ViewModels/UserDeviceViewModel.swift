@@ -10,12 +10,14 @@ import Foundation
 import SwiftyJSON
 import UIKit
 import SwiftUI
-
+import HiThemes
 
 class UserDeviceViewModel: ObservableObject {
     @Published var filterButtonActive: StatusConnect  = .all
     @Published var userDevices : [UserDevice] = []
-    @Published var deviceStatus: [DeviceStatus] = []
+    @Published var listFilterDeviceByStatus: [DeviceStatus] = [DeviceStatus(id: 1, title: "Tất cả", status: .all),
+                                                               DeviceStatus(id: 2, title: "Không kết nối", status: .disconnect),
+                                                               DeviceStatus(id: 3, title: "Đang kết nối", status: .connecting)]
     @Published var searchtextbb : String  = ""
     
     var navigateToDetail: ((_ userDevice: UserDevice) -> Void)?
@@ -33,10 +35,6 @@ class UserDeviceViewModel: ObservableObject {
                 UserDevice.init(json: js)
             })
         }
-        // gan listDeviceConnect == model moi nhan duoc
-        deviceStatus = [DeviceStatus(id: 1, title: "Tất cả", status: .all),
-                        DeviceStatus(id: 2, title: "Không kết nối", status: .disconnect),
-                        DeviceStatus(id: 3, title: "Đang kết nối", status: .connecting)]
     }
     func filterStatusDevices(_ status: StatusConnect) -> [UserDevice] {
         var filteredDevices:[UserDevice] = []
@@ -62,5 +60,21 @@ class UserDeviceViewModel: ObservableObject {
     }
     func pushToDetail(userDevice: UserDevice){
         navigateToDetail?(userDevice)
+    }
+}
+enum NetworkDiagramTab {
+    case Diagram
+    case ListDevices
+    func getTitle() -> String {
+        switch self {
+        case .Diagram: return "Diagram"
+        case .ListDevices: return "List Devices"
+        }
+    }
+    func getTag() -> Int {
+        switch self {
+        case .Diagram: return 0
+        case .ListDevices: return 1
+        }
     }
 }
