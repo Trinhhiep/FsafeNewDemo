@@ -1,5 +1,5 @@
 //
-//  RestartSettingView.swift
+//  TimePickerView.swift
 //  NewFsafe
 //
 //  Created by Khang Cao on 15/10/24.
@@ -8,18 +8,16 @@
 import SwiftUI
 import HiThemes
 
-class RestartSettingVC : BaseViewController {
-    var vm : ModemManageViewModel = .init()
+class TimePickerVC : BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        let view = RestartSettingView(vm:vm)
+        let view = TimePickerView()
         self.addSwiftUIViewAsChildVC(view:  view)
     }
     
 }
 
-struct RestartSettingView: View {
-    @ObservedObject var vm : ModemManageViewModel
+struct TimePickerView: View {
     @State private var weekDays: [(id:Int,day: String, isSelected: Bool)] = [
         (0,"T2", false),
         (1,"T3", false),
@@ -95,5 +93,5 @@ struct RestartSettingView: View {
 }
 
 #Preview {
-    RestartSettingView(vm: .init())
+    TimePickerView()
 }

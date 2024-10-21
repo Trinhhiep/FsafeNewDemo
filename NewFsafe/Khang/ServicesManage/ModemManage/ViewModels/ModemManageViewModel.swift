@@ -13,7 +13,7 @@ class ModemManageViewModel: ObservableObject {
     @Published var modemManageModel: ModemManageModel
     
     var navigateToRestartSchedule: (() -> Void)?
-    var navigateToRestartSetting: (() -> Void)?
+    var navigateToTimePicker: (() -> Void)?
     var navigateToPrivacySetting: (() -> Void)?
     var showPopupConfirm: (() -> Void)?
     
@@ -58,30 +58,7 @@ class ModemManageViewModel: ObservableObject {
         )
     }
     
-    func repeatDay(_ dayInWeek: [DayInWeekModel]) -> String {
-        let workDay = ["T2","T3","T4","T5","T6"]
-        let weedkendDay = ["T7","CN"]
-        let selectedDay = dayInWeek.filter { day  in
-            day.status == true
-        }
-        let unSelectedDay = dayInWeek.filter { day  in
-            day.status == false
-        }
-        let filteredDay = selectedDay.map{$0.day}
-        if selectedDay.count == 7 {
-            return "Hằng ngày"
-        }
-        if filteredDay == workDay{
-            return "Ngày đi làm"
-        }
-        if filteredDay == weedkendDay {
-            return "Cuối Tuần"
-        }
-        if filteredDay.count == 6 {
-            return "Hằng ngày trừ \(unSelectedDay[0].day)"
-        }
-        return filteredDay.joined(separator:",")
-    }
+    
     
     func toggleTimePicker(_ id: Int){
         modemManageModel.restartSchedule[id].status.toggle()

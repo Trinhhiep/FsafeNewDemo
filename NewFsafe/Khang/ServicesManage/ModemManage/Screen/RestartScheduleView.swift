@@ -15,12 +15,12 @@ class RestartScheduleVC : BaseViewController {
         super.viewDidLoad()
         let view = RestartScheduleView(vm:vm)
         self.addSwiftUIViewAsChildVC(view:  view)
-        vm.navigateToRestartSetting = {
-            self.navigateToRestartSetting()
+        vm.navigateToTimePicker = {
+            self.navigateToTimePicker()
         }
     }
-    func navigateToRestartSetting(){
-        ServiceManager.shared.navigateToRestartSetting(vc: self )
+    func navigateToTimePicker(){
+        ServiceManager.shared.navigateToTimePicker(vc: self )
     }
     
 }
@@ -44,7 +44,7 @@ struct RestartScheduleView: View {
             
         }.hiFooter{
             HiFooter(primaryTitle: "Thêm khung giờ"){
-                vm.navigateToRestartSetting?()
+                vm.navigateToTimePicker?()
             }
         }
     }
@@ -56,7 +56,7 @@ struct RestartScheduleView: View {
                     Text("Ngày Lặp lại: ")
                         .font(.system(size: 16,weight: .regular))
                         .foregroundColor(Color(hex:"#7D7D7D"))
-                    + Text("\(vm.repeatDay(timePicker.dayInWeek))")
+                    + Text("\(getRepeatDayString(timePicker.dayInWeek))")
                         .font(.system(size: 16,weight: .medium))
                         .foregroundColor(Color(hex:"#464646"))
                 }

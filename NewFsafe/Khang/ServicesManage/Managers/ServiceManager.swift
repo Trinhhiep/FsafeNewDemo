@@ -34,12 +34,16 @@ class ServiceManager {
         let vcNew = RestartScheduleVC()
         vc.pushViewControllerHiF(vcNew, animated: true)
     }
-    func navigateToRestartSetting(vc: UIViewController){
-        let vcNew = RestartSettingVC()
+    func navigateToTimePicker(vc: UIViewController){
+        let vcNew = TimePickerVC()
         vc.pushViewControllerHiF(vcNew, animated: true)
     }
     func navigateToPrivacySetting(vc: UIViewController){
         let vcNew = PrivacySettingVC()
+        vc.pushViewControllerHiF(vcNew, animated: true)
+    }
+    func navigateToWiFiSchedule(vc: UIViewController){
+        let vcNew = WiFiScheduleVC()
         vc.pushViewControllerHiF(vcNew, animated: true)
     }
 }
