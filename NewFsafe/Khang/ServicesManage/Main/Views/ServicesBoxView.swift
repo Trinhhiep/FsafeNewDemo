@@ -10,12 +10,12 @@ import HiThemes
 
 struct ServicesBoxView: View {
     @ObservedObject var vm: ServicesManagerViewModel
-    var screenWidth : CGFloat = UIScreen.main.bounds.width
-    var column  : Int = 3
+    let screenWidth : CGFloat = UIScreen.main.bounds.width
+    let column  : Int = 3
     var title : String = ""
-    var internetServices : [ServiceDetail]
+    var listService : [ServiceDetail]
     var body: some View {
-        if internetServices.isEmpty{
+        if listService.isEmpty{
             
         }else{
             VStack(alignment: .leading, spacing: 12){
@@ -26,7 +26,7 @@ struct ServicesBoxView: View {
                         .font(.system(size: 18))
                 }
                 VStack(spacing: 8){
-                    createServiceItemView(internetServices)
+                    createServiceItemView(listService)
                 }
             }
         }
@@ -71,16 +71,16 @@ struct ServicesBoxView: View {
                     .frame(width:24, height: 24)
                     .padding(EdgeInsets(top: 6, leading: 6, bottom: 0, trailing: 6))
             }
-            if(notification != ""){
-                HStack{
-                    Text("\(formatNotification(notification))")
-                        .foregroundColor(Color.white)
-                        .font(.system(size: 10))
-                    
-                }
-                .frame(width: 16, height: 16)
-                .hiBackground(radius: 10, color: Color(hex:"#FF2156"))
-            }
+//            if(notification != ""){
+//                HStack{
+//                    Text("\(formatNotification(notification))")
+//                        .foregroundColor(Color.white)
+//                        .font(.system(size: 10))
+//                    
+//                }
+//                .frame(width: 16, height: 16)
+//                .hiBackground(radius: 10, color: Color(hex:"#FF2156"))
+//            }
             
         }.frame(width:36, height: 36)
     }

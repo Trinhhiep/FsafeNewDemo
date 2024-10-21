@@ -36,6 +36,7 @@
 		49219D642CC0A82A00E8DF3B /* NetworkDiagramVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49219D602CC0A82A00E8DF3B /* NetworkDiagramVC.swift */; };
 		49219D652CC0A82A00E8DF3B /* NetworkDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49219D5B2CC0A82A00E8DF3B /* NetworkDeviceView.swift */; };
 		49219D662CC0A82A00E8DF3B /* NetworkDiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49219D5C2CC0A82A00E8DF3B /* NetworkDiagramView.swift */; };
+		49258DDE2CC21836008D38F6 /* BannerSeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49258DDD2CC21836008D38F6 /* BannerSeviceView.swift */; };
 		4936ED712C09BBBD0046E9E6 /* ItemFeatureFSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED702C09BBBD0046E9E6 /* ItemFeatureFSafe.swift */; };
 		4936ED742C09C1CE0046E9E6 /* FSafeManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED732C09C1CE0046E9E6 /* FSafeManagers.swift */; };
 		4936ED7B2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED7A2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift */; };
@@ -97,6 +98,7 @@
 		49219D5D2CC0A82A00E8DF3B /* NetworkDiagramZoomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDiagramZoomingView.swift; sourceTree = "<group>"; };
 		49219D5F2CC0A82A00E8DF3B /* NetworkDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDeviceModel.swift; sourceTree = "<group>"; };
 		49219D602CC0A82A00E8DF3B /* NetworkDiagramVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDiagramVC.swift; sourceTree = "<group>"; };
+		49258DDD2CC21836008D38F6 /* BannerSeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerSeviceView.swift; sourceTree = "<group>"; };
 		4936ED702C09BBBD0046E9E6 /* ItemFeatureFSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFeatureFSafe.swift; sourceTree = "<group>"; };
 		4936ED732C09C1CE0046E9E6 /* FSafeManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSafeManagers.swift; sourceTree = "<group>"; };
 		4936ED7A2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWebsiteScreen.swift; sourceTree = "<group>"; };
@@ -144,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				040DB5042CB4CC5E00828176 /* ServicesManageView.swift */,
-				040DB50B2CB4CCB900828176 /* PopUpFSafeView.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -152,12 +153,14 @@
 		0418D02C2CAF98C70087160E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				040DB50B2CB4CCB900828176 /* PopUpFSafeView.swift */,
 				0418D02D2CAF990D0087160E /* ContractDetailsView.swift */,
 				0418D02F2CAF9BFE0087160E /* ServicesBoxView.swift */,
 				0418D0312CAF9D6D0087160E /* IncludedServiceView.swift */,
 				043B76E32CB37CAD002A4872 /* NotUsingServiceView.swift */,
 				78107FE32CC0B1520085562F /* DrawServiceView.swift */,
 				7877DDF62CC1056500A0DAC6 /* CustomShapeView.swift */,
+				49258DDD2CC21836008D38F6 /* BannerSeviceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -679,6 +682,7 @@
 				4936ED712C09BBBD0046E9E6 /* ItemFeatureFSafe.swift in Sources */,
 				7884B9052CBDFCA900E99167 /* RestartSettingView.swift in Sources */,
 				044548FC2CB3E7FD00BCED5E /* View+.swift in Sources */,
+				49258DDE2CC21836008D38F6 /* BannerSeviceView.swift in Sources */,
 				4936ED742C09C1CE0046E9E6 /* FSafeManagers.swift in Sources */,
 				040DB5062CB4CC5E00828176 /* DeviceInforView.swift in Sources */,
 				040DB5072CB4CC5E00828176 /* NetworkDiagramScreen.swift in Sources */,

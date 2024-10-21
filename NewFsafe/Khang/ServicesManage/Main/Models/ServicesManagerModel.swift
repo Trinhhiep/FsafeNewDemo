@@ -24,7 +24,7 @@ struct InternetServiceModel {
     init ( json: JSON) {
         contractDetails = ContractDetails.init(json: json["contractDetails"])
         
-        internetServices = json["internetServices"].arrayValue.map({ js in
+        internetServices = json["listService"].arrayValue.map({ js in
             ServiceDetail.init(json: js)
         })
 

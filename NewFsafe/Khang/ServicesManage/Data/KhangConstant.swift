@@ -102,7 +102,7 @@ struct KhangConstant {
           "internetName": "Giga",
           "internetSpeed": "150"
         },
-        "internetServices": [
+        "listService": [
           {
             "id": 1,
             "serviceName": "Quản lý Modem",

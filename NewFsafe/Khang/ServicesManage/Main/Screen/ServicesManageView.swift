@@ -115,8 +115,15 @@ struct ServiceManageView: View {
         if let data = vm.TVModel{
             VStack(spacing: 24) {
                 ContractDetailsView(data: data.contractDetails)
-                ServicesBoxView(vm:vm ,title: "TV Box", internetServices: data.tVBoxServices)
-                ServicesBoxView(vm:vm,title: "Lịch phát sóng", internetServices: data.broadcastSchedule)
+                ServicesBoxView(vm:vm ,title: "TV Box", listService: data.tVBoxServices)
+                ServicesBoxView(vm:vm,title: "Lịch phát sóng", listService: data.broadcastSchedule)
+                BannerSeviceView(serviceName: "FPT Play",
+                                 serviceDes: "Giải trí không giới hạn",
+                                 imgService: "img_TV_box_service",
+                                 titleButton: "Mua gói",
+                                 actionButton: {
+                    
+                })
             }
             .padding(.horizontal,16)
             .padding(.top,16)
@@ -131,7 +138,7 @@ struct ServiceManageView: View {
         if let data = vm.internetServiceModel {
             VStack(spacing: 12) {
                 ContractDetailsView(data: (data.contractDetails))
-                ServicesBoxView(vm:vm,internetServices: (data.internetServices))
+                ServicesBoxView(vm:vm,listService: (data.internetServices))
                 IncludedServiceView(includedServices: (data.includedServices))
             }
             .padding(.horizontal,16)
@@ -158,8 +165,15 @@ struct ServiceManageView: View {
             VStack(spacing: 24) {
                 ContractDetailsView(data: data.contractDetails)
                 ForEach(data.cameraArea, id:\.id){camera in
-                    ServicesBoxView(vm:vm, title:"\(camera.title) (\(camera.cameras.count))",internetServices: camera.cameras)
+                    ServicesBoxView(vm:vm, title:"\(camera.title) (\(camera.cameras.count))",listService: camera.cameras)
                 }
+                BannerSeviceView(serviceName: "FPT Cloud",
+                                 serviceDes: "Dịch vụ lưu trữ dữ liệu đám mây tại Việt Nam",
+                                 imgService: "img_camera_service",
+                                 titleButton: "Gia hạn",
+                                 actionButton: {
+                    
+                })
             }
             .padding(.horizontal,16)
             .padding(.top,16)
