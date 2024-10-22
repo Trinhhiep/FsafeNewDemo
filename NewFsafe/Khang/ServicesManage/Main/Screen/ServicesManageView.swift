@@ -61,9 +61,12 @@ struct ServiceManageView: View {
             
         }
         .background(Color.white)
-        .hiBottomSheet(isShow: $isShowPopup, title: "Hướng dẫn kích hoạt F-Safe Home") {
-            PopUpFSafeView()
-        }
+        .hiBottomSheet(isShow: $isShowPopup, title: "Hướng dẫn kích hoạt F-Safe Home", content: {
+            //            PopUpFSafeView()
+            EnterPasswordView()
+        }, handleBeforeDismiss: {
+            hideKeyboard()
+        })
         .hiFooter{
             switch selectedTab {
             case .tv:
@@ -83,7 +86,9 @@ struct ServiceManageView: View {
             }
         }
     }
-    
+        func hideKeyboard() {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
     func createTabBarView ()-> some View {
         ScrollView(.horizontal,showsIndicators: false){
             let tabs = vm.tabItems

@@ -41,6 +41,7 @@
 		49219D652CC0A82A00E8DF3B /* NetworkDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49219D5B2CC0A82A00E8DF3B /* NetworkDeviceView.swift */; };
 		49219D662CC0A82A00E8DF3B /* NetworkDiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49219D5C2CC0A82A00E8DF3B /* NetworkDiagramView.swift */; };
 		49258DDE2CC21836008D38F6 /* BannerSeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49258DDD2CC21836008D38F6 /* BannerSeviceView.swift */; };
+		49258DE22CC5F859008D38F6 /* EnterPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49258DE12CC5F859008D38F6 /* EnterPasswordView.swift */; };
 		4936ED712C09BBBD0046E9E6 /* ItemFeatureFSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED702C09BBBD0046E9E6 /* ItemFeatureFSafe.swift */; };
 		4936ED742C09C1CE0046E9E6 /* FSafeManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED732C09C1CE0046E9E6 /* FSafeManagers.swift */; };
 		4936ED7B2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936ED7A2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift */; };
@@ -107,6 +108,7 @@
 		49219D5F2CC0A82A00E8DF3B /* NetworkDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDeviceModel.swift; sourceTree = "<group>"; };
 		49219D602CC0A82A00E8DF3B /* NetworkDiagramVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDiagramVC.swift; sourceTree = "<group>"; };
 		49258DDD2CC21836008D38F6 /* BannerSeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerSeviceView.swift; sourceTree = "<group>"; };
+		49258DE12CC5F859008D38F6 /* EnterPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordView.swift; sourceTree = "<group>"; };
 		4936ED702C09BBBD0046E9E6 /* ItemFeatureFSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFeatureFSafe.swift; sourceTree = "<group>"; };
 		4936ED732C09C1CE0046E9E6 /* FSafeManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSafeManagers.swift; sourceTree = "<group>"; };
 		4936ED7A2C09C2CA0046E9E6 /* ManageWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWebsiteScreen.swift; sourceTree = "<group>"; };
@@ -380,6 +382,22 @@
 			path = NetworkDiagram;
 			sourceTree = "<group>";
 		};
+		49258DDF2CC5F812008D38F6 /* TVBoxService */ = {
+			isa = PBXGroup;
+			children = (
+				49258DE02CC5F823008D38F6 /* View */,
+			);
+			path = TVBoxService;
+			sourceTree = "<group>";
+		};
+		49258DE02CC5F823008D38F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49258DE12CC5F859008D38F6 /* EnterPasswordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4936ED6F2C09BBA20046E9E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +495,7 @@
 			isa = PBXGroup;
 			children = (
 				3C9B8A902CC5EBA000942876 /* WiFiManage */,
+				49258DDF2CC5F812008D38F6 /* TVBoxService */,
 				78DA71C92CB90A6000B55507 /* ModemManage */,
 				78DA71C82CB9094F00B55507 /* Main */,
 				78DA71C42CB9080F00B55507 /* DevicesManage */,
@@ -758,6 +777,7 @@
 				7877DDF72CC1056500A0DAC6 /* CustomShapeView.swift in Sources */,
 				4955032E2C169F4C00B2037F /* Scrollview.swift in Sources */,
 				4955030B2C11911600B2037F /* ListWebsiteTableview.swift in Sources */,
+				49258DE22CC5F859008D38F6 /* EnterPasswordView.swift in Sources */,
 				4936ED7D2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift in Sources */,
 				78F7CAE42CBCD6F4002951BF /* RestartScheduleView.swift in Sources */,
 				78D9E2472CB76B7D005ED055 /* ServiceManager.swift in Sources */,

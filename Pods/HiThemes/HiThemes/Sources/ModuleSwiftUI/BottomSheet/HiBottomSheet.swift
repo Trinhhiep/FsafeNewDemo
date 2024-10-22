@@ -9,7 +9,7 @@
 import SwiftUI
 
 extension View {
-    public func hiBottomSheet<Content: View>(isShow: Binding<Bool>, isEnableAnimation: Bool = true ,autoResizeHeight: Bool = true,maxHeight: CGFloat? = nil, title: String? = nil ,@ViewBuilder content: () -> Content) -> some View{
+    public func hiBottomSheet<Content: View>(isShow: Binding<Bool>, isEnableAnimation: Bool = true ,autoResizeHeight: Bool = true,maxHeight: CGFloat? = nil, title: String? = nil ,@ViewBuilder content: () -> Content, handleBeforeDismiss: (() -> Void)? = nil) -> some View{
         ZStack {
             self
             
@@ -19,7 +19,8 @@ extension View {
                 autoResizeHeight: autoResizeHeight,
                 maxHeight: maxHeight,
                 title: title,
-                content: content()
+                content: content(),
+                handleBeforeDismiss : handleBeforeDismiss
             )
             
             .edgesIgnoringSafeArea(.vertical)
@@ -59,8 +60,8 @@ public struct HiBottomSheet<Content: View>: View {
     @State private var intrinsicHeight: CGFloat = 0
 
     let content: Content
-    
-    init(isShow: Binding<Bool>, isEnableAnimation: Bool, autoResizeHeight: Bool, maxHeight: CGFloat?, title: String?, content: Content) {
+    var handleBeforeDismiss: (() -> Void)?
+    init(isShow: Binding<Bool>, isEnableAnimation: Bool, autoResizeHeight: Bool, maxHeight: CGFloat?, title: String?, content: Content, handleBeforeDismiss: (() -> Void)? = nil) {
         self._isShow = isShow
         
         self.isEnableAnimation = isEnableAnimation
@@ -68,7 +69,8 @@ public struct HiBottomSheet<Content: View>: View {
         self.maxHeight = maxHeight
         self.title = title
         self.content = content
-        
+        self.handleBeforeDismiss = handleBeforeDismiss
+
         self.dismissDuration = isEnableAnimation ? HiBottomSheetConstant.dismissDuration : 0
         
         // Ensure the bottom sheet visibility is toggled immediately if isShow is true
@@ -126,6 +128,8 @@ public struct HiBottomSheet<Content: View>: View {
     }
     
     private func dismiss() {
+        handleBeforeDismiss?()
+
         withAnimation(.smooth(duration: dismissDuration)) {
             self.dragHeightOffset = self.intrinsicHeight
         }
