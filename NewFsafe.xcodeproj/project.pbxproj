@@ -22,10 +22,16 @@
 		0454A5892CABD4F100879926 /* DeviceInforViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454A5882CABD4F100879926 /* DeviceInforViewModel.swift */; };
 		04C65EB92CAE3206004C4FF1 /* ServicesManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C65EB82CAE3206004C4FF1 /* ServicesManagerModel.swift */; };
 		04C65EBB2CAE39ED004C4FF1 /* ServiesManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C65EBA2CAE39ED004C4FF1 /* ServiesManagerViewModel.swift */; };
-		3C9B8A962CC5F33000942876 /* WiFiManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B8A952CC5F33000942876 /* WiFiManageView.swift */; };
+		3C685FD82CC74A5900428503 /* ChangePasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C685FD72CC74A5900428503 /* ChangePasswordScreen.swift */; };
+		3C685FDA2CC7858500428503 /* WifiQRCodeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C685FD92CC7858500428503 /* WifiQRCodeScreen.swift */; };
+		3C9B8A962CC5F33000942876 /* WiFiManageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B8A952CC5F33000942876 /* WiFiManageScreen.swift */; };
 		3C9B8A982CC6080C00942876 /* WiFiManageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B8A972CC6080C00942876 /* WiFiManageViewModel.swift */; };
 		3C9B8A9A2CC60C4900942876 /* WiFiManageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B8A992CC60C4900942876 /* WiFiManageModel.swift */; };
-		3C9B8A9C2CC647F600942876 /* WiFiScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B8A9B2CC647F600942876 /* WiFiScheduleView.swift */; };
+		3C9B8A9C2CC647F600942876 /* WiFiScheduleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B8A9B2CC647F600942876 /* WiFiScheduleScreen.swift */; };
+		3CD771062CC8DFA2003E9FFA /* ChangeWiFiNameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD771052CC8DFA2003E9FFA /* ChangeWiFiNameScreen.swift */; };
+		3CD771082CC8F30A003E9FFA /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD771072CC8F30A003E9FFA /* ChangePasswordViewModel.swift */; };
+		3CD7710A2CC8F4B5003E9FFA /* ChangeWiFiNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD771092CC8F4B5003E9FFA /* ChangeWiFiNameViewModel.swift */; };
+		3CD7710C2CC8FE93003E9FFA /* WiFiQRCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD7710B2CC8FE93003E9FFA /* WiFiQRCodeViewModel.swift */; };
 		4912448B2C097FD0006D2695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912448A2C097FD0006D2695 /* AppDelegate.swift */; };
 		4912448D2C097FD0006D2695 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912448C2C097FD0006D2695 /* SceneDelegate.swift */; };
 		4912448F2C097FD0006D2695 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912448E2C097FD0006D2695 /* ViewController.swift */; };
@@ -87,10 +93,16 @@
 		0454A5882CABD4F100879926 /* DeviceInforViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInforViewModel.swift; sourceTree = "<group>"; };
 		04C65EB82CAE3206004C4FF1 /* ServicesManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesManagerModel.swift; sourceTree = "<group>"; };
 		04C65EBA2CAE39ED004C4FF1 /* ServiesManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiesManagerViewModel.swift; sourceTree = "<group>"; };
-		3C9B8A952CC5F33000942876 /* WiFiManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiManageView.swift; sourceTree = "<group>"; };
+		3C685FD72CC74A5900428503 /* ChangePasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordScreen.swift; sourceTree = "<group>"; };
+		3C685FD92CC7858500428503 /* WifiQRCodeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiQRCodeScreen.swift; sourceTree = "<group>"; };
+		3C9B8A952CC5F33000942876 /* WiFiManageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiManageScreen.swift; sourceTree = "<group>"; };
 		3C9B8A972CC6080C00942876 /* WiFiManageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiManageViewModel.swift; sourceTree = "<group>"; };
 		3C9B8A992CC60C4900942876 /* WiFiManageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiManageModel.swift; sourceTree = "<group>"; };
-		3C9B8A9B2CC647F600942876 /* WiFiScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiScheduleView.swift; sourceTree = "<group>"; };
+		3C9B8A9B2CC647F600942876 /* WiFiScheduleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiScheduleScreen.swift; sourceTree = "<group>"; };
+		3CD771052CC8DFA2003E9FFA /* ChangeWiFiNameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeWiFiNameScreen.swift; sourceTree = "<group>"; };
+		3CD771072CC8F30A003E9FFA /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		3CD771092CC8F4B5003E9FFA /* ChangeWiFiNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeWiFiNameViewModel.swift; sourceTree = "<group>"; };
+		3CD7710B2CC8FE93003E9FFA /* WiFiQRCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiQRCodeViewModel.swift; sourceTree = "<group>"; };
 		491244872C097FD0006D2695 /* NewFsafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewFsafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4912448A2C097FD0006D2695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4912448C2C097FD0006D2695 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +258,9 @@
 			isa = PBXGroup;
 			children = (
 				3C9B8A972CC6080C00942876 /* WiFiManageViewModel.swift */,
+				3CD771072CC8F30A003E9FFA /* ChangePasswordViewModel.swift */,
+				3CD771092CC8F4B5003E9FFA /* ChangeWiFiNameViewModel.swift */,
+				3CD7710B2CC8FE93003E9FFA /* WiFiQRCodeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -253,8 +268,11 @@
 		3C9B8A932CC5F2EF00942876 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				3C9B8A952CC5F33000942876 /* WiFiManageView.swift */,
-				3C9B8A9B2CC647F600942876 /* WiFiScheduleView.swift */,
+				3CD771052CC8DFA2003E9FFA /* ChangeWiFiNameScreen.swift */,
+				3C9B8A952CC5F33000942876 /* WiFiManageScreen.swift */,
+				3C9B8A9B2CC647F600942876 /* WiFiScheduleScreen.swift */,
+				3C685FD72CC74A5900428503 /* ChangePasswordScreen.swift */,
+				3C685FD92CC7858500428503 /* WifiQRCodeScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -725,6 +743,9 @@
 				040DB50C2CB4CCB900828176 /* PopUpFSafeView.swift in Sources */,
 				4912448F2C097FD0006D2695 /* ViewController.swift in Sources */,
 				04C65EB92CAE3206004C4FF1 /* ServicesManagerModel.swift in Sources */,
+				3C685FDA2CC7858500428503 /* WifiQRCodeScreen.swift in Sources */,
+				3CD771082CC8F30A003E9FFA /* ChangePasswordViewModel.swift in Sources */,
+				3C685FD82CC74A5900428503 /* ChangePasswordScreen.swift in Sources */,
 				043B76E42CB37CAD002A4872 /* NotUsingServiceView.swift in Sources */,
 				4955032B2C13035C00B2037F /* ManagaWebsiteVMProtocol.swift in Sources */,
 				0454A57A2CAB8E6600879926 /* NetworkDiagramVM.swift in Sources */,
@@ -732,8 +753,8 @@
 				0454A57C2CAB8E6600879926 /* UserDeviceModel.swift in Sources */,
 				495503262C12B4E900B2037F /* FSafeEmptyView.swift in Sources */,
 				7884B9072CBE5D0500E99167 /* PrivacySettingView.swift in Sources */,
-				3C9B8A962CC5F33000942876 /* WiFiManageView.swift in Sources */,
-				3C9B8A9C2CC647F600942876 /* WiFiScheduleView.swift in Sources */,
+				3C9B8A962CC5F33000942876 /* WiFiManageScreen.swift in Sources */,
+				3C9B8A9C2CC647F600942876 /* WiFiScheduleScreen.swift in Sources */,
 				78DA71D32CB90B7300B55507 /* ModemManageModel.swift in Sources */,
 				4912448B2C097FD0006D2695 /* AppDelegate.swift in Sources */,
 				495503282C13030100B2037F /* ListWebsiteModel.swift in Sources */,
@@ -758,6 +779,7 @@
 				7884B9052CBDFCA900E99167 /* RestartSettingView.swift in Sources */,
 				044548FC2CB3E7FD00BCED5E /* View+.swift in Sources */,
 				49258DDE2CC21836008D38F6 /* BannerSeviceView.swift in Sources */,
+				3CD7710C2CC8FE93003E9FFA /* WiFiQRCodeViewModel.swift in Sources */,
 				4936ED742C09C1CE0046E9E6 /* FSafeManagers.swift in Sources */,
 				040DB5062CB4CC5E00828176 /* DeviceInforView.swift in Sources */,
 				040DB5072CB4CC5E00828176 /* NetworkDiagramScreen.swift in Sources */,
@@ -775,7 +797,9 @@
 				495503382C1FF0A300B2037F /* ManageDangerousWebsiteVM.swift in Sources */,
 				49B2379C2C5CD0D600C93EC8 /* ListAddressScreen.swift in Sources */,
 				7877DDF72CC1056500A0DAC6 /* CustomShapeView.swift in Sources */,
+				3CD771062CC8DFA2003E9FFA /* ChangeWiFiNameScreen.swift in Sources */,
 				4955032E2C169F4C00B2037F /* Scrollview.swift in Sources */,
+				3CD7710A2CC8F4B5003E9FFA /* ChangeWiFiNameViewModel.swift in Sources */,
 				4955030B2C11911600B2037F /* ListWebsiteTableview.swift in Sources */,
 				49258DE22CC5F859008D38F6 /* EnterPasswordView.swift in Sources */,
 				4936ED7D2C0D5C8A0046E9E6 /* ManageWebsiteVM.swift in Sources */,

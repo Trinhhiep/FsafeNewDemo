@@ -6,57 +6,66 @@
 //
 
 import Foundation
+import SwiftUI
+import SwiftyJSON
+import Combine
 
 class WiFiManageViewModel: ObservableObject {
-    @Published var wifiManageModel: WiFiManageModel
-    
+    @Published var wifiManageModel: WiFiManageModel?
+    @Published var wifiFunc : [WiFiFuncTion]
+    //
+    @Published var isShowPopup: Bool = false
+    // Navigate
     var navigateToWiFiSchedule: (() -> Void)?
     var navigateToTimePicker : (() -> Void)?
+    var navigateToChangePassword: (() -> Void)?
+    var navigateToWifiQRCode: (() -> Void)?
+    var navigateToChangeWiFiName: (() -> Void)?
     
     init() {
-        self.wifiManageModel = WiFiManageModel(
-            modemsWiFi: [
-                ModemWiFi(nameModem: "Modem AC1000Hi", listWiFi: [
-                    WiFiDetail(ssid: "Phòng Khách - 2.4 GHz", password: "19006600", isOn: true),
-                    WiFiDetail(ssid: "Phòng ngủ - 5 GHz", password: "19006600", isOn: false)
-                ]),
-                ModemWiFi(nameModem: "Access Point AX3000Cv2", listWiFi: [
-                    WiFiDetail(ssid: "Phòng khách - 2.4 GHz", password: "19006600", isOn: true),
-                    WiFiDetail(ssid: "Phòng ngủ - 5 GHz", password: "19006600", isOn: false)
-                ])
-            ], listWiFiSchedule: [
-                WiFiSchedule(startTime: "22:00",
-                             endTime: "6:00",
-                             repeatDay: [
-                                DayInWeekModel(id: 1, day: "T2", status: false),
-                                DayInWeekModel(id: 2, day: "T3", status: false),
-                                DayInWeekModel(id: 3, day: "T4", status: false),
-                                DayInWeekModel(id: 4, day: "T5", status: false),
-                                DayInWeekModel(id: 5, day: "T6", status: false),
-                                DayInWeekModel(id: 6, day: "T7", status: false),
-                                DayInWeekModel(id: 7, day: "CN", status: false),
-                             ],
-                             status: false),
-                WiFiSchedule(startTime: "1:00",
-                             endTime: "12:00",
-                             repeatDay: [
-                                DayInWeekModel(id: 1, day: "T2", status: false),
-                                DayInWeekModel(id: 2, day: "T3", status: false),
-                                DayInWeekModel(id: 3, day: "T4", status: false),
-                                DayInWeekModel(id: 4, day: "T5", status: false),
-                                DayInWeekModel(id: 5, day: "T6", status: false),
-                                DayInWeekModel(id: 6, day: "T7", status: false),
-                                DayInWeekModel(id: 7, day: "CN", status: false),
-                             ],
-                             status: false)
-            ])
+        self.wifiFunc = [
+            WiFiFuncTion(title: "Bật Wi-Fi",icon: "power",funcItem: .power),
+            WiFiFuncTion(title: "Đổi tên Wi-Fi",icon: "edit-2",funcItem: .changeName),
+            WiFiFuncTion(title: "Đổi mật khẩu",icon: "key",funcItem: .changePassword),
+            WiFiFuncTion(title: "Sao chép mật khẩu Wi-Fi",icon: "copy",funcItem: .coppyPassword),
+            WiFiFuncTion(title: "Chia sẻ Wi-Fi (QRCode Wi-Fi)",icon: "share1",funcItem: .shareQRCode)
+        ]
+        convertJsonToModel(KhangConstant.wifiManager) { json in
+            self.wifiManageModel = WiFiManageModel.init(json: json)
+        }
+    }
+    
+    func convertJsonToModel(_ contant:String,_ cb:(_ json:JSON)->Void ){
+        if let internerJson = contant.data(using: .utf8){
+            guard let jsonObject = try? JSON(data: internerJson) else {return}
+            cb(jsonObject)
+        }
     }
     
     func toggleWiFiStatus(_ id : UUID){
-        if let index = wifiManageModel.listWiFiSchedule.firstIndex(where: { $0.id == id }) {
-            wifiManageModel.listWiFiSchedule[index].status.toggle()
+        if let index = wifiManageModel?.listWiFiSchedule.firstIndex(where: { $0.id == id }) {
+            wifiManageModel?.listWiFiSchedule[index].status.toggle()
         }else{
             print("toggle fail")
+        }
+    }
+    func showPopUp(){
+        isShowPopup.toggle()
+    }
+    
+    
+    func navigateToWifiFunctions(_ wifiFuncItem: WiFiFunctionItem){
+        switch wifiFuncItem {
+        case .power:
+            print("turn on")
+        case .changeName:
+            self.navigateToChangeWiFiName?()
+        case .changePassword:
+            self.navigateToChangePassword?()
+        case .coppyPassword:
+            print("coppy password")
+        case .shareQRCode:
+            self.navigateToWifiQRCode?()
         }
     }
 }

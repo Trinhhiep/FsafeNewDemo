@@ -46,4 +46,16 @@ class ServiceManager {
         let vcNew = WiFiScheduleVC()
         vc.pushViewControllerHiF(vcNew, animated: true)
     }
+    func navigateToChangePasswordWiFi(vc: UIViewController){
+        let vcNew = ChangePasswordeVC()
+        vc.pushViewControllerHiF(vcNew, animated: true)
+    }
+    func navigateToWifiQRCodeVC(vc: UIViewController){
+        let vcNew = WifiQRCodeVC()
+        vc.pushViewControllerHiF(vcNew, animated: true)
+    }
+    func navigateToChangeWiFiNameWiFi(vc: UIViewController){
+        let vcNew = ChangeWiFiNameVC()
+        vc.pushViewControllerHiF(vcNew, animated: true)
+    }
 }

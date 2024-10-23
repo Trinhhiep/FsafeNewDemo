@@ -8,6 +8,128 @@
 import Foundation
 
 struct KhangConstant {
+    static var wifiManager : String = """
+{
+  "modemsWiFi": [
+    {
+      "nameModem": "Modem AC1000Hi",
+      "listWiFi": [
+        {
+          "ssid": "Phòng Khách - 2.4 GHz",
+          "password": "19006600",
+          "isOn": true
+        },
+        {
+          "ssid": "Phòng ngủ - 5 GHz",
+          "password": "19006600",
+          "isOn": false
+        }
+      ]
+    },
+    {
+      "nameModem": "Access Point AX3000Cv2",
+      "listWiFi": [
+        {
+          "ssid": "Phòng khách - 2.4 GHz",
+          "password": "19006600",
+          "isOn": true
+        },
+        {
+          "ssid": "Phòng ngủ - 5 GHz",
+          "password": "19006600",
+          "isOn": false
+        }
+      ]
+    }
+  ],
+  "listWiFiSchedule": [
+    {
+      "startTime": "22:00",
+      "endTime": "6:00",
+      "repeatDay": [
+        {
+          "id": 1,
+          "day": "T2",
+          "status": false
+        },
+        {
+          "id": 2,
+          "day": "T3",
+          "status": false
+        },
+        {
+          "id": 3,
+          "day": "T4",
+          "status": false
+        },
+        {
+          "id": 4,
+          "day": "T5",
+          "status": false
+        },
+        {
+          "id": 5,
+          "day": "T6",
+          "status": false
+        },
+        {
+          "id": 6,
+          "day": "T7",
+          "status": false
+        },
+        {
+          "id": 7,
+          "day": "CN",
+          "status": false
+        }
+      ],
+      "status": false
+    },
+    {
+      "startTime": "1:00",
+      "endTime": "12:00",
+      "repeatDay": [
+        {
+          "id": 1,
+          "day": "T2",
+          "status": false
+        },
+        {
+          "id": 2,
+          "day": "T3",
+          "status": false
+        },
+        {
+          "id": 3,
+          "day": "T4",
+          "status": false
+        },
+        {
+          "id": 4,
+          "day": "T5",
+          "status": false
+        },
+        {
+          "id": 5,
+          "day": "T6",
+          "status": false
+        },
+        {
+          "id": 6,
+          "day": "T7",
+          "status": false
+        },
+        {
+          "id": 7,
+          "day": "CN",
+          "status": false
+        }
+      ],
+      "status": false
+    }
+  ]
+}
+"""
     static  var devices : String = """
     [
           {

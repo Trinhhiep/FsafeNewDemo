@@ -1,5 +1,5 @@
 //
-//  WiFiScheduleView.swift
+//  WiFiScheduleScreen.swift
 //  NewFsafe
 //
 //  Created by Cao Khang on 21/10/24.
@@ -12,7 +12,7 @@ class WiFiScheduleVC : BaseViewController {
     var vm : WiFiManageViewModel = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let view = WiFiScheduleView(vm:vm)
+        let view = WiFiScheduleScreen(vm:vm)
         self.addSwiftUIViewAsChildVC(view:  view)
         vm.navigateToTimePicker = {
             self.navigateToTimePicker()
@@ -23,27 +23,32 @@ class WiFiScheduleVC : BaseViewController {
     }
 }
 
-struct WiFiScheduleView: View {
+struct WiFiScheduleScreen: View {
     @ObservedObject var vm : WiFiManageViewModel
     var body: some View {
         HiNavigationView{
-            VStack(alignment: .leading,spacing:12){
-                Text("Lịch áp dụng cho tất cả Wi-Fi của ")
-                    .font(.system(size: 14))
-                    .foregroundColor(Color.hiSecondaryText)
-                + Text(vm.wifiManageModel.modemsWiFi[0].nameModem)
-                    .font(.system(size: 14,weight: .medium))
-                    .foregroundColor(Color.hiSecondaryText)
-                
-                ForEach(vm.wifiManageModel.listWiFiSchedule, id:\.id){item in
-                    createWiFiScheduleItem( item)
+            ScrollView{
+                VStack(alignment: .leading,spacing:12){
+                    if let data = vm.wifiManageModel{
+                        Text("Lịch áp dụng cho tất cả Wi-Fi của ")
+                            .font(.system(size: 14))
+                            .foregroundColor(Color.hiSecondaryText)
+                        + Text(data.modemsWiFi[0].nameModem)
+                            .font(.system(size: 14,weight: .medium))
+                            .foregroundColor(Color.hiSecondaryText)
+                        
+                        ForEach(data.listWiFiSchedule, id:\.id){item in
+                            createWiFiScheduleItem( item)
+                        }
+                        Spacer()
+                    }
                 }
-                Spacer()
+                .padding(.horizontal,16)
+                .padding(.top,16)
             }
-            .padding(.horizontal,16)
-            .padding(.top,16)
             .hiNavTitle("Lịch bật Wi-Fi")
-        }.hiFooter{
+        }
+        .hiFooter{
             HiFooter(primaryTitle: "Thêm khung giờ"){
                 vm.navigateToTimePicker?()
             }
@@ -86,5 +91,6 @@ struct WiFiScheduleView: View {
 
 
 #Preview {
-    WiFiScheduleView(vm: WiFiManageViewModel())
+    WiFiScheduleScreen(vm: WiFiManageViewModel())
 }
+

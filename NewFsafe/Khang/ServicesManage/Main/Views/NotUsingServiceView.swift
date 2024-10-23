@@ -12,6 +12,7 @@ struct NotUsingServiceView: View {
     var icon: String
     var title: String
     var des: String
+    var buttonTitle: String = "Đăng ký ngay"
     var body: some View {
         VStack(spacing: CGFloat.Medium){
             Image("\(icon)").resizable().frame(width: 260, height: 260)
@@ -29,7 +30,7 @@ struct NotUsingServiceView: View {
             Button(action:{
                 
             }){
-                Text("Đăng ký ngay")
+                Text(buttonTitle)
                     .font(.system(size: 16))
                     .fontWeight(.medium)
             }
