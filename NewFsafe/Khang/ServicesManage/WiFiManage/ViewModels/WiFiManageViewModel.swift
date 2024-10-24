@@ -11,11 +11,11 @@ import SwiftyJSON
 import Combine
 
 class WiFiManageViewModel: ObservableObject {
+
     @Published var wifiManageModel: WiFiManageModel?
     @Published var wifiFunc : [WiFiFuncTion]
-    //
     @Published var isShowPopup: Bool = false
-    // Navigate
+    // Navigate clousure
     var navigateToWiFiSchedule: (() -> Void)?
     var navigateToTimePicker : (() -> Void)?
     var navigateToChangePassword: (() -> Void)?
@@ -30,18 +30,21 @@ class WiFiManageViewModel: ObservableObject {
             WiFiFuncTion(title: "Sao chép mật khẩu Wi-Fi",icon: "copy",funcItem: .coppyPassword),
             WiFiFuncTion(title: "Chia sẻ Wi-Fi (QRCode Wi-Fi)",icon: "share1",funcItem: .shareQRCode)
         ]
-        convertJsonToModel(KhangConstant.wifiManager) { json in
+        
+        
+    }
+    func getData(){
+        FSafeService.shared.getAPItoGetWifiDetails{ json in
             self.wifiManageModel = WiFiManageModel.init(json: json)
         }
     }
-    
-    func convertJsonToModel(_ contant:String,_ cb:(_ json:JSON)->Void ){
-        if let internerJson = contant.data(using: .utf8){
-            guard let jsonObject = try? JSON(data: internerJson) else {return}
-            cb(jsonObject)
-        }
-    }
-    
+    // func convert JSON to MODEL
+//    func convertJsonToModel(_ contant:String,_ cb:(_ json:JSON)->Void ){
+//        if let internerJson = contant.data(using: .utf8){
+//            guard let jsonObject = try? JSON(data: internerJson) else {return}
+//            cb(jsonObject)
+//        }
+//    }
     func toggleWiFiStatus(_ id : UUID){
         if let index = wifiManageModel?.listWiFiSchedule.firstIndex(where: { $0.id == id }) {
             wifiManageModel?.listWiFiSchedule[index].status.toggle()
@@ -54,6 +57,8 @@ class WiFiManageViewModel: ObservableObject {
     }
     
     
+    
+    // Navigation
     func navigateToWifiFunctions(_ wifiFuncItem: WiFiFunctionItem){
         switch wifiFuncItem {
         case .power:

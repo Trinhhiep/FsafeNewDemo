@@ -1,5 +1,5 @@
 //
-//  ModemManageView.swift
+//  ModemManageScreen.swift
 //  NewFsafe
 //
 //  Created by Khang Cao on 11/10/24.
@@ -12,7 +12,7 @@ class ModemManageVC : BaseViewController {
     var vm : ModemManageViewModel = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let view = ModemManageView(vm:vm)
+        let view = ModemManageScreen(vm:vm)
         self.addSwiftUIViewAsChildVC(view:  view)
         vm.navigateToRestartSchedule = {
             self.navigateToRestartSchedule()
@@ -20,6 +20,7 @@ class ModemManageVC : BaseViewController {
         vm.navigateToPrivacySetting = {
             self.navigateToPrivacySetting()
         }
+       
     }
     func navigateToRestartSchedule(){
         ServiceManager.shared.navigateToRestartSchedule(vc: self )
@@ -28,7 +29,7 @@ class ModemManageVC : BaseViewController {
         ServiceManager.shared.navigateToPrivacySetting(vc: self )
     }
 }
-struct ModemManageView: View {
+struct ModemManageScreen: View {
     @ObservedObject var vm : ModemManageViewModel
     var body: some View {
         HiNavigationView{
@@ -107,17 +108,15 @@ struct ModemManageView: View {
     func createModemDetailsView() -> some View {
         VStack(spacing: 16){
             ForEach(vm.modemManageModel.modemDetails, id: \.id){ modemDetail in
-                if !modemDetail.value.isEmpty {
                     HStack{
                         Text("\(modemDetail.title)")
                             .foregroundColor(Color(hex:"#7D7D7D"))
                             .font(.system(size: 16, weight: .regular))
                         Spacer()
-                        Text("\(modemDetail.value)")
+                        Text("\(!modemDetail.value.isEmpty ? modemDetail.value : "--")")
                             .foregroundColor(Color(hex:"#464646"))
                             .font(.system(size: 16, weight: .medium))
                     }
-                }
             }
         }
     }
@@ -170,5 +169,5 @@ struct ModemManageView: View {
 }
 
 #Preview {
-    ModemManageView(vm: .init())
+    ModemManageScreen(vm: .init())
 }

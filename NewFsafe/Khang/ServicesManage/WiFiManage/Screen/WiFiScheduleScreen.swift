@@ -55,7 +55,7 @@ struct WiFiScheduleScreen: View {
         }
         
     }
-    func createWiFiScheduleItem(_ wifiSchedule:WiFiSchedule)-> some View {
+    func createWiFiScheduleItem(_ wifiSchedule:WiFiScheduleModel)-> some View {
         HStack{
             VStack(alignment:.leading,spacing: 8){
                 Text("Từ ")

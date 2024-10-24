@@ -15,6 +15,7 @@ class WiFiManageVC : BaseViewController {
         let view = WiFiManageScreen(vm:vm)
         self.addSwiftUIViewAsChildVC(view:  view)
         
+        vm.getData()
         vm.navigateToWiFiSchedule = {
             ServiceManager.shared.navigateToWiFiSchedule(vc: self)
         }
@@ -24,7 +25,7 @@ class WiFiManageVC : BaseViewController {
         vm.navigateToWifiQRCode = {
             ServiceManager.shared.navigateToWifiQRCodeVC(vc: self)
         }
-        vm.navigateToChangeWiFiName = {
+        vm.navigateToChangeWiFiName = { id in
             ServiceManager.shared.navigateToChangeWiFiNameWiFi(vc: self)
         }
     }
@@ -47,7 +48,7 @@ struct WiFiManageScreen: View {
                             
                             
                         }else{
-                            NotUsingServiceView(icon: "internet_service", title: "Mất kết nối với Modem", des: "Vui lòng taọ yêu cầu để được hỗ trợ", buttonTitle: "Tạo yêu cầu hỗ trợ")
+                            NotUsingServiceView(icon: "internet_service", title: "Mất kết nối với Modem", des: "Vui lòng taọ yêu cầu để được hỗ trợ", titlePrimary: "Tạo yêu cầu hỗ trợ")
                         }
                     }
                     Spacer()

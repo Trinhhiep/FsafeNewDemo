@@ -16,7 +16,12 @@ class WifiQRCodeVC : BaseViewController {
         super.viewDidLoad()
         let view = WifiQRCodeScreen(vm: vm)
         self.addSwiftUIViewAsChildVC(view:  view)
+        // show Toat khi coppy password
+        vm.showToatCoppyComplete = {
+            self.showToast(message: "Đã sao chép")
+        }
     }
+    
 }
 struct WifiQRCodeScreen: View {
     @ObservedObject var vm: WiFiQRCodeViewModel
@@ -28,9 +33,11 @@ struct WifiQRCodeScreen: View {
                     HStack{
                         if let qrImage = vm.generateQRCode(from: vm.convertToQRCode()) {
                                         Image(uiImage: qrImage)
-                                            .interpolation(.none)
+                                .interpolation(.none)
                                             .resizable()
                                             .frame(width: 240, height: 240)
+                                            .scaledToFit()
+                                            
                                     } else {
                                         Text("Không thể tạo QRCode")
                                     }
@@ -40,6 +47,7 @@ struct WifiQRCodeScreen: View {
                     VStack(spacing: 8){
                         Text(vm.ssid)
                             .font(.system(size: 16,weight: .medium))
+                            .foregroundColor(Color.hiPrimaryText)
                         HStack(spacing:8){
                             Text(vm.password)
                                 .font(.system(size: 16))
@@ -51,9 +59,12 @@ struct WifiQRCodeScreen: View {
                                 }
                         }
                     }
+                    .frame(width: 146)
                     .padding(.vertical, 10.5)
                     .padding(.horizontal,87.5)
+                    
                     .hiBackground(radius: 16, color: Color.white)
+                   
                 }
             }
             .padding(.horizontal,16)

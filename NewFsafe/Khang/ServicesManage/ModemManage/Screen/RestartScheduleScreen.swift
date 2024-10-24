@@ -1,5 +1,5 @@
 //
-//  RestartScheduleView.swift
+//  RestartScheduleScreen.swift
 //  NewFsafe
 //
 //  Created by Khang Cao on 14/10/24.
@@ -10,10 +10,10 @@ import UIKit
 import HiThemes
 
 class RestartScheduleVC : BaseViewController {
-    var vm : ModemManageViewModel = .init()
+    var vm : RestartScheduleViewModel = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let view = RestartScheduleView(vm:vm)
+        let view = RestartScheduleScreen(vm:vm)
         self.addSwiftUIViewAsChildVC(view:  view)
         vm.navigateToTimePicker = {
             self.navigateToTimePicker()
@@ -25,14 +25,13 @@ class RestartScheduleVC : BaseViewController {
     
 }
 
-struct RestartScheduleView: View {
-    
-    @ObservedObject var vm: ModemManageViewModel
+struct RestartScheduleScreen: View {
+    @ObservedObject var vm: RestartScheduleViewModel
     var body: some View {
         HiNavigationView{
             VStack{
                 HiListView{
-                    ForEach(vm.modemManageModel.restartSchedule, id:\.id){item in
+                    ForEach(vm.restartScheduleModel, id:\.id){item in
                         createTimePickerView(timePicker: item)
                     }
                 }
@@ -48,7 +47,7 @@ struct RestartScheduleView: View {
             }
         }
     }
-    func createTimePickerView (timePicker:TimePickerModel)-> some View {
+    func createTimePickerView (timePicker:RestartScheduleModel)-> some View {
             HStack{
                 VStack(alignment:.leading,spacing: 8){
                     Text("\(timePicker.time)")
@@ -75,6 +74,6 @@ struct RestartScheduleView: View {
 
 
 #Preview {
-    RestartScheduleView(vm: ModemManageViewModel())
+    RestartScheduleScreen(vm: RestartScheduleViewModel())
 }
 

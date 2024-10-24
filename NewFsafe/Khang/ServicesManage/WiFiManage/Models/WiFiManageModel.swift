@@ -10,20 +10,23 @@ import SwiftyJSON
 
 struct WiFiManageModel {
     var modemsWiFi: [ModemWiFi]
-    var listWiFiSchedule : [WiFiSchedule]
-    init(modemsWiFi: [ModemWiFi], listWiFiSchedule: [WiFiSchedule]) {
+    var listWiFiSchedule : [WiFiScheduleModel]
+    
+    init(modemsWiFi: [ModemWiFi], listWiFiSchedule: [WiFiScheduleModel]) {
         self.modemsWiFi = modemsWiFi
         self.listWiFiSchedule = listWiFiSchedule
     }
+    
     init(json:JSON){
         modemsWiFi = json["modemsWiFi"].arrayValue.map({ js in
             ModemWiFi.init(json: js)
         })
         listWiFiSchedule = json["listWiFiSchedule"].arrayValue.map({ js in
-            WiFiSchedule.init(json: js)
+            WiFiScheduleModel.init(json: js)
         })
     }
 }
+
 struct ModemWiFi : Identifiable{
     var id = UUID()
     var nameModem: String
@@ -57,28 +60,7 @@ struct WiFiDetail: Identifiable{
     }
 }
 
-struct WiFiSchedule{
-    var id = UUID()
-    var startTime: String
-    var endTime : String
-    var repeatDay: [DayInWeekModel]
-    var status: Bool
-    init( startTime: String, endTime: String, repeatDay: [DayInWeekModel], status: Bool) {
-        self.startTime = startTime
-        self.endTime = endTime
-        self.repeatDay = repeatDay
-        self.status = status
-    }
-    init (json: JSON){
-        startTime = json["startTime"].stringValue
-        endTime = json["endTime"].stringValue
-        repeatDay = json["repeatDay"].arrayValue.map({ js in
-            DayInWeekModel.init(json: js)
-        })
-        status = json["status"].boolValue
-    }
-            
-}
+
 
 
 struct WiFiFuncTion {

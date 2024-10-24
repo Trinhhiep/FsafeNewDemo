@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class ModemManageViewModel: ObservableObject {
     
     @Published var modemManageModel: ModemManageModel
@@ -28,41 +27,13 @@ class ModemManageViewModel: ObservableObject {
                                                     InforModel(id: 5, title:"Lưu lượng truy cập", value: "678GB"),
                                                     InforModel(id: 6, title: "Nhiệt độ Modem", value: "50°C")
                                                  ],
-                                                 restartSchedule:[
-                                                    TimePickerModel(id: 0,
-                                                                    time: "22:00",
-                                                                    dayInWeek: [
-                                                                        DayInWeekModel(id: 0, day: "T2", status: false),
-                                                                        DayInWeekModel(id: 1, day: "T3", status: true),
-                                                                        DayInWeekModel(id: 2, day: "T4", status: true),
-                                                                        DayInWeekModel(id: 3, day: "T5", status: true),
-                                                                        DayInWeekModel(id: 4, day: "T6", status: true),
-                                                                        DayInWeekModel(id: 5, day: "T7", status: true),
-                                                                        DayInWeekModel(id: 6, day: "CN", status: true),
-                                                                    ],
-                                                                    status: true),
-                                                    TimePickerModel(id: 1,
-                                                                    time: "22:00",
-                                                                    dayInWeek: [
-                                                                        DayInWeekModel(id: 0, day: "T2", status: true),
-                                                                        DayInWeekModel(id: 1, day: "T3", status: true),
-                                                                        DayInWeekModel(id: 2, day: "T4", status: true),
-                                                                        DayInWeekModel(id: 3, day: "T5", status: true),
-                                                                        DayInWeekModel(id: 4, day: "T6", status: true),
-                                                                        DayInWeekModel(id: 5, day: "T7", status: true),
-                                                                        DayInWeekModel(id: 6, day: "CN", status: true),
-                                                                    ],
-                                                                    status: false),
-                                                 ],
                                                  privateMode: false
         )
     }
     
     
     
-    func toggleTimePicker(_ id: Int){
-        modemManageModel.restartSchedule[id].status.toggle()
-    }
+
     
     func confirmPrivateMode() {
         if(!modemManageModel.privateMode){
@@ -72,3 +43,5 @@ class ModemManageViewModel: ObservableObject {
         }
     }
 }
+
+
